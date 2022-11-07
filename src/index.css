@@ -18,4 +18,16 @@
     .my-container {
         @apply container mx-auto px-6;
     }
+    .form-container {
+        @apply max-w-md mx-auto px-6;
+    }
+    .section-gap {
+        @apply my-12 sm:my-14 lg:my-16;
+    }
+    .card-top-m {
+        @apply mt-16 sm:mt-[72px] lg:mt-20;
+    }
+    .line-x {
+        @apply flex items-center before:flex-1 before:border before:border-black/50 after:flex-1 after:border after:border-black/50;
+    }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, MobileNav, Typography, Button } from "@material-tailwind/react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { CgMenuRight, CgClose } from "react-icons/cg";
