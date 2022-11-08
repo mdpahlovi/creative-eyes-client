@@ -11,7 +11,7 @@ const Footer = () => {
                     <div className="w-full lg:w-6/12 px-4">
                         <h3 className="mb-2">Let's keep in touch!</h3>
                         <p className="text-lg mt-0 mb-2">Find us on any of these platforms, I respond 1-2 business days.</p>
-                        <div className="mt-6 lg:mb-0 mb-6 space-x-5 flex flex-wrap">
+                        <div className="my-8 lg:mb-0 space-x-4 flex flex-wrap">
                             <IconButton>
                                 <ImTwitter className="text-lg" />
                             </IconButton>

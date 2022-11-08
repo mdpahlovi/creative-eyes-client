@@ -16,7 +16,7 @@ const UserPopup = ({ children, name }) => {
 };
 
 const Navigationbar = () => {
-    const { user, loading, signOut } = useContext(AuthContext);
+    const { user, loading, signout } = useContext(AuthContext);
     const [openNav, setOpenNav] = useState(false);
 
     useEffect(() => {
@@ -61,10 +61,10 @@ const Navigationbar = () => {
                     <Button variant="gradient" size="sm">
                         Loding...
                     </Button>
-                ) : user.uid ? (
+                ) : user?.uid ? (
                     <div className="space-x-6">
                         {user.photoURL ? (
-                            <UserPopup name={user.displayName}>
+                            <UserPopup name={user.displayName ? user.displayName : "No Name"}>
                                 <Avatar src={user.photoURL} alt="avatar" variant="circular" size="sm" />
                             </UserPopup>
                         ) : (
@@ -74,7 +74,7 @@ const Navigationbar = () => {
                                 </Button>
                             </UserPopup>
                         )}
-                        <Button onClick={() => signOut()} variant="gradient" size="sm">
+                        <Button onClick={() => signout()} variant="gradient" size="sm">
                             LogOut
                         </Button>
                     </div>

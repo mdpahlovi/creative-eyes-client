@@ -14,6 +14,11 @@ module.exports = withMT({
         fontFamily: {
             sans: ["Poppins", "sans-serif"],
         },
+        extend: {
+            backgroundImage: {
+                hero: "url('/src/Assets/hero.jpg')",
+            },
+        },
     },
     plugins: [require("@tailwindcss/line-clamp")],
 });
