@@ -1,15 +1,18 @@
 import React from "react";
 import ServicesCategories from "../Components/ServicesCategories";
+import Header from "../Components/Header";
+import { Link } from "react-router-dom";
 
 const Services = () => {
     return (
-        <section className="my-container section-gap">
-            <div className="line-x max-w-xl mx-auto">
-                <p className="mx-2 uppercase text-gray-700 font-bold">what i will provide</p>
-            </div>
-            <h1 className="text-center mb-10">My Services</h1>
-            <ServicesCategories />
-        </section>
+        <>
+            <Header title={"Explore My Services"}>
+                <Link to="/services">Services</Link>
+            </Header>
+            <section className="my-container section-gap">
+                <ServicesCategories initialLimit={0} btnStatus={"hidden"} />
+            </section>
+        </>
     );
 };
 
