@@ -53,9 +53,9 @@ const Navigationbar = () => {
     return (
         <Navbar className="py-2 shadow">
             <div className="my-container px-0 flex items-center justify-between text-black">
-                <Typography as="a" href="#" variant="small" className="mr-4 py-1">
+                <Link to="/" className="mr-4 py-1">
                     <h3>Pahlovi</h3>
-                </Typography>
+                </Link>
                 <div className="hidden lg:block">{navList}</div>
                 {loading ? (
                     <Button variant="gradient" size="sm">

@@ -6,6 +6,7 @@ import Services from "../Pages/Services";
 import Blogs from "../Pages/Blogs";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
+import DynamicService from "../Pages/DynamicService";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: "/services",
                 element: <Services />,
+            },
+            {
+                path: "/service/:id",
+                element: <DynamicService />,
             },
             {
                 path: "/blogs",

@@ -1,9 +1,11 @@
-import { Card, CardHeader, CardBody, CardFooter, Typography } from "@material-tailwind/react";
+import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from "@material-tailwind/react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
 export default function ServicesCard({ category }) {
-    const { img, name, about, price, ratings } = category;
+    const { _id, img, name, about, price, ratings } = category;
     return (
         <Card className="mt-6">
             <CardHeader color="gray" className="relative h-56">
@@ -20,9 +22,15 @@ export default function ServicesCard({ category }) {
                 <Typography className="line-clamp-4">{about}</Typography>
             </CardBody>
             <CardFooter divider className="flex items-center justify-between py-3">
-                <Typography variant="small">${price}</Typography>
-                <Typography variant="small" color="blue" className="flex gap-1">
+                <Typography variant="h5">${price}</Typography>
+                <Link to={`/service/${_id}`}>
+                    <Button variant="gradient" fullWidth>
+                        View Details
+                    </Button>
+                </Link>
+                <Typography variant="h5" color="blue" className="flex items-center gap-1">
                     {ratings}
+                    <FaStar className="text-base" />
                 </Typography>
             </CardFooter>
         </Card>
