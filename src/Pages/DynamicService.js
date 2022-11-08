@@ -8,7 +8,7 @@ const DynamicService = () => {
     const [category, setCategory] = useState({});
     const { id } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${id}`)
+        fetch(`https://photographer-server.vercel.app/service/${id}`)
             .then((res) => res.json())
             .then((data) => setCategory(data))
             .catch((error) => console.log(error));
