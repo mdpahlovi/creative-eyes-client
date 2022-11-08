@@ -16,7 +16,7 @@ const ServicesCategories = ({ initialLimit, btnStatus }) => {
         <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {categories.map((category) => (
-                    <ServicesCard category={category} />
+                    <ServicesCard key={category._id} category={category} />
                 ))}
             </div>
             <Link to="/services" className={`mt-8 md:mt-10 flex justify-center ${btnStatus}`}>
