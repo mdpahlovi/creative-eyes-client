@@ -4,7 +4,7 @@
 
 @layer base {
     h1 {
-        @apply text-5xl font-bold;
+        @apply text-[40px] leading-10 sm:text-5xl font-bold;
     }
     h3 {
         @apply text-3xl font-bold;
