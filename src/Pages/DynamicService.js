@@ -47,7 +47,7 @@ const DynamicService = () => {
                 </div>
             </section>
             <section className="my-container mb-12 sm:mb-14 lg:mb-16">
-                <h1 className="text-center mb-10">Customer Feedback</h1>
+                <h1 className="text-center mb-8 md:mb-10">Customer Feedback</h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-10 xl:gap-12">
                     <FeedBack
                         name={"MD Rofiq"}
@@ -71,7 +71,7 @@ const DynamicService = () => {
                         }
                     />
                 </div>
-                <Link className="flex justify-center mt-10">
+                <Link className="flex justify-center mt-8 md:mt-10">
                     <Button variant="gradient">Add Your FeedBack</Button>
                 </Link>
             </section>

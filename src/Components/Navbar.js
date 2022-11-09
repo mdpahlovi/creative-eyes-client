@@ -1,22 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Navbar, MobileNav, Typography, Button, Avatar, Popover, PopoverContent, PopoverHandler } from "@material-tailwind/react";
+import React, { useState, useEffect } from "react";
+import { Navbar, MobileNav, Typography } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
 import { CgMenuRight, CgClose } from "react-icons/cg";
-import { AuthContext } from "../Contexts/UserContext";
-
-const UserPopup = ({ children, name }) => {
-    return (
-        <Popover placement="bottom-end">
-            <PopoverHandler>{children}</PopoverHandler>
-            <PopoverContent>
-                <span>{name}</span>
-            </PopoverContent>
-        </Popover>
-    );
-};
+import DynamicMenu from "./DynamicMenu";
 
 const Navigationbar = () => {
-    const { user, loading, signout } = useContext(AuthContext);
     const [openNav, setOpenNav] = useState(false);
 
     useEffect(() => {
@@ -57,45 +45,14 @@ const Navigationbar = () => {
                     <h3>Pahlovi</h3>
                 </Link>
                 <div className="hidden lg:block">{navList}</div>
-                {loading ? (
-                    <Button variant="gradient" size="sm">
-                        Loding...
-                    </Button>
-                ) : user?.uid ? (
-                    <div className="space-x-6">
-                        {user.photoURL ? (
-                            <UserPopup name={user.displayName ? user.displayName : "No Name"}>
-                                <Avatar src={user.photoURL} alt="avatar" variant="circular" size="sm" />
-                            </UserPopup>
-                        ) : (
-                            <UserPopup name={user.displayName}>
-                                <Button variant="gradient" size="sm">
-                                    NoPhoto
-                                </Button>
-                            </UserPopup>
-                        )}
-                        <Button onClick={() => signout()} variant="gradient" size="sm">
-                            LogOut
-                        </Button>
-                    </div>
-                ) : (
-                    <Link to="login" className="hidden lg:block">
-                        <Button variant="gradient" size="sm">
-                            Login
-                        </Button>
-                    </Link>
-                )}
                 <button className="lg:hidden" onClick={() => setOpenNav(!openNav)}>
                     {openNav ? <CgClose className="text-3xl" /> : <CgMenuRight className="text-3xl" />}
                 </button>
+                <DynamicMenu position={"bottom-end"} className={"hidden lg:block"} />
             </div>
             <MobileNav open={openNav}>
                 {navList}
-                <Link to="login">
-                    <Button variant="gradient" size="sm" className="mb-2">
-                        Login
-                    </Button>
-                </Link>
+                <DynamicMenu position={"bottom-start"} />
             </MobileNav>
         </Navbar>
     );

@@ -12,7 +12,7 @@ const Services = () => {
                 <Link to="/services">Services</Link>
             </Header>
             <section className="my-container section-gap">
-                <ServicesCategories initialLimit={0} btnStatus={"hidden"} />
+                <ServicesCategories initialLimit={0} seeAllBtnStatus={"hidden"} />
             </section>
         </>
     );

@@ -54,7 +54,7 @@ const Login = () => {
     return (
         <Card className="form-container section-gap card-top-m">
             <CardHeader variant="gradient" color="blue" className="mb-4 grid h-28 place-items-center">
-                <Typography variant="h3" color="white">
+                <Typography className="uppercase" variant="h3" color="white">
                     Login
                 </Typography>
             </CardHeader>

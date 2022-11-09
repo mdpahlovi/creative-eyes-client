@@ -11,8 +11,8 @@ const Home = () => {
             <Hero />
             <AboutMe />
             <section className="my-container section-gap">
-                <h1 className="text-center mb-10">My Services</h1>
-                <ServicesCategories initialLimit={3} btnStatus={""} />
+                <h1 className="text-center mb-8 md:mb-10">My Services</h1>
+                <ServicesCategories initialLimit={3} addServicesBtnStatus="hidden" />
             </section>
             <section className="flex justify-center mb-12 sm:mb-14 lg:mb-16">
                 <div className="flex flex-col md:flex-row w-max h-max shadow rounded-lg">

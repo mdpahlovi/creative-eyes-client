@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ServicesCard from "./ServicesCard";
 
-const ServicesCategories = ({ initialLimit, btnStatus }) => {
+const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatus }) => {
     const [categories, setCategories] = useState([]);
     const [limit, setLimit] = useState(initialLimit);
     useEffect(() => {
@@ -19,7 +19,10 @@ const ServicesCategories = ({ initialLimit, btnStatus }) => {
                     <ServicesCard key={category._id} category={category} />
                 ))}
             </div>
-            <Link to="/services" className={`mt-8 md:mt-10 flex justify-center ${btnStatus}`}>
+            <Link className={`mt-8 md:mt-10 flex justify-center ${addServicesBtnStatus}`}>
+                <Button variant="gradient">Add Service</Button>
+            </Link>
+            <Link to="/services" className={`mt-8 md:mt-10 flex justify-center ${seeAllBtnStatus}`}>
                 <Button onClick={() => setLimit(0)} variant="gradient">
                     See All
                 </Button>
