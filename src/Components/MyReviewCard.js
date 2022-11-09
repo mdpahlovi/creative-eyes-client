@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from "@material-tailwind/react";
 
-export default function MyReviewCard({ myfeedback, handelDelete }) {
-    const { _id, serviceName, img, feedback } = myfeedback;
+export default function MyReviewCard({ myreview, handelDelete }) {
+    const { _id, serviceName, img, review } = myreview;
     return (
         <Card className="pt-6 justify-between">
             <CardHeader color="gray" className="relative h-56">
@@ -11,7 +11,7 @@ export default function MyReviewCard({ myfeedback, handelDelete }) {
                 <Typography variant="h5" className="mb-2">
                     {serviceName}
                 </Typography>
-                <Typography className="line-clamp-4 hover:overflow-y-scroll">{feedback}</Typography>
+                <Typography className="line-clamp-4 hover:overflow-y-scroll">{review}</Typography>
             </CardBody>
             <CardFooter divider className="flex items-end justify-between py-4">
                 <Button variant="gradient" size="sm">

@@ -5,22 +5,24 @@ import MyReviewCard from "../Components/MyReviewCard";
 import { AuthContext } from "../Contexts/UserContext";
 import Header from "../Components/Header";
 import { toast } from "react-toastify";
+import SetTitle from "../Components/SetTitle";
 
 const MyReview = () => {
+    SetTitle("My Review");
     const { user } = useContext(AuthContext);
-    const [feedbacks, setFeedbacks] = useState([]);
+    const [reviews, setreviews] = useState([]);
     const [refresh, setRefresh] = useState(false);
     const email = user.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/feedbacksbyemail?email=${email}`)
+        fetch(`http://localhost:5000/reviewsbyemail?email=${email}`)
             .then((res) => res.json())
-            .then((data) => setFeedbacks(data))
+            .then((data) => setreviews(data))
             .catch((error) => console.log(error));
     }, [email, refresh]);
 
     // Delete Review
     const handelDelete = (id) => {
-        fetch(`http://localhost:5000/feedbackdelete/${id}`, {
+        fetch(`http://localhost:5000/reviewdelete/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -33,15 +35,15 @@ const MyReview = () => {
             .catch((err) => console.log(err.message));
     };
 
-    if (feedbacks.length) {
+    if (reviews.length) {
         return (
             <>
-                <Header title={"Your Reedback"}>
-                    <Link to="/my-feedback">My Feedback</Link>
+                <Header title={"Your Review"}>
+                    <Link to="/my-review">My review</Link>
                 </Header>
                 <section className="my-container section-gap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {feedbacks.map((feedback) => (
-                        <MyReviewCard key={feedback._id} handelDelete={handelDelete} myfeedback={feedback} />
+                    {reviews.map((review) => (
+                        <MyReviewCard key={review._id} handelDelete={handelDelete} myreview={review} />
                     ))}
                 </section>
             </>
@@ -49,7 +51,7 @@ const MyReview = () => {
     } else {
         return (
             <div className="my-container h-[300px] flex justify-center items-center">
-                <Button variant="gradient">No feedback added by user</Button>
+                <Button variant="gradient">No review added by user</Button>
             </div>
         );
     }

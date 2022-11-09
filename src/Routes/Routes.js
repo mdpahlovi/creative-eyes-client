@@ -41,7 +41,7 @@ const router = createBrowserRouter([
                 element: <DynamicService />,
             },
             {
-                path: "/my-feedback",
+                path: "/my-review",
                 element: (
                     <PrivateRoute>
                         <MyReview />

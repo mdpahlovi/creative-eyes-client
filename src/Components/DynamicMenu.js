@@ -43,7 +43,7 @@ const DynamicMenu = ({ className, position }) => {
                             </Button>
                         </MenuHandler>
                         <MenuList>
-                            <Link to="/my-feedback">
+                            <Link to="/my-review">
                                 <MenuItem>My Review</MenuItem>
                             </Link>
                             <Link to="/add-service">

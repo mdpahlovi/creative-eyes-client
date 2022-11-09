@@ -1,13 +1,13 @@
 import React from "react";
 import { FaQuoteRight } from "react-icons/fa";
 
-const FeedBack = ({ feedbackObj }) => {
-    const { img, name, work, feedback } = feedbackObj;
+const Review = ({ reviewObj }) => {
+    const { img, name, work, review } = reviewObj;
     return (
         <div className="bg-black/5 rounded-lg py-8 xs:py-10 md:py-12 px-6 sm:px-8">
             <FaQuoteRight className=" text-5xl mx-auto mb-5 text-black/50" />
             <blockquote>
-                <p>{feedback}</p>
+                <p>{review}</p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
                 <img className="w-6 h-6 rounded-full" src={img} alt="" />
@@ -20,4 +20,4 @@ const FeedBack = ({ feedbackObj }) => {
     );
 };
 
-export default FeedBack;
+export default Review;

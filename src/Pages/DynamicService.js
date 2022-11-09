@@ -4,9 +4,9 @@ import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SetTitle from "../Components/SetTitle";
-import FeedBack from "../Components/FeedBack";
+import Review from "../Components/Review";
 import { AuthContext } from "../Contexts/UserContext";
-import AddFeedBack from "../Components/AddFeedBack";
+import AddReview from "../Components/AddReview";
 
 const DynamicService = () => {
     const { user } = useContext(AuthContext);
@@ -14,7 +14,7 @@ const DynamicService = () => {
     const location = useLocation();
 
     const [category, setCategory] = useState({});
-    const [feedbacks, setFeedbacks] = useState([]);
+    const [reviews, setreviews] = useState([]);
     const [refresh, setRefresh] = useState(false);
     const { id } = useParams();
 
@@ -29,19 +29,19 @@ const DynamicService = () => {
 
     SetTitle(name);
 
-    // FeedBack data loadby id
+    // review data loadby id
     useEffect(() => {
-        fetch(`http://localhost:5000/feedback/${id}`)
+        fetch(`http://localhost:5000/review/${id}`)
             .then((res) => res.json())
-            .then((data) => setFeedbacks(data))
+            .then((data) => setreviews(data))
             .catch((error) => console.log(error));
     }, [id, refresh]);
 
-    const ConditionalFeedback = ({ feedbacks }) => {
-        if (feedbacks.length) {
-            return feedbacks.map((feedback) => <FeedBack key={feedback._id} feedbackObj={feedback} />);
+    const Conditionalreview = ({ reviews }) => {
+        if (reviews.length) {
+            return reviews.map((review) => <Review key={review._id} reviewObj={review} />);
         } else {
-            return <Button variant="gradient">No Feedback</Button>;
+            return <Button variant="gradient">No review</Button>;
         }
     };
 
@@ -71,12 +71,12 @@ const DynamicService = () => {
                 </div>
             </section>
             <section className="my-container mb-12 sm:mb-14 lg:mb-16">
-                <h1 className="text-center mb-8 md:mb-10">Customer Feedback</h1>
+                <h1 className="text-center mb-8 md:mb-10">Customer Review</h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-10 xl:gap-12">
-                    <ConditionalFeedback feedbacks={feedbacks} />
+                    <Conditionalreview reviews={reviews} />
                 </div>
                 {user?.uid ? (
-                    <AddFeedBack refresh={refresh} setRefresh={setRefresh} serviceId={_id} serviceName={name} email={user.email} />
+                    <AddReview refresh={refresh} setRefresh={setRefresh} serviceId={_id} serviceName={name} email={user.email} />
                 ) : (
                     <Link to="/login" className="flex justify-center mt-8 md:mt-10" state={{ from: location }} replace>
                         <Button variant="gradient">Login To Add Review</Button>
