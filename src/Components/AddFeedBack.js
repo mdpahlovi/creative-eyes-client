@@ -1,8 +1,8 @@
 import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material-tailwind/react";
 import { toast } from "react-toastify";
-import SetTitle from "../Components/SetTitle";
+import SetTitle from "./SetTitle";
 
-export default function AddFeedBack({ serviceId, email }) {
+export default function AddFeedBack({ serviceId, email, refresh, setRefresh }) {
     SetTitle("Add Feedback");
     const handelSubmit = (event) => {
         // Get Form Data
@@ -24,7 +24,11 @@ export default function AddFeedBack({ serviceId, email }) {
         })
             .then((res) => res.json())
             .then((data) => {
-                data.success ? toast.success(data.message) : toast.error(data.error);
+                if (data.success) {
+                    toast.success(data.message);
+                    form.reset();
+                    setRefresh(!refresh);
+                } else toast.error(data.error);
             })
             .catch((err) => console.log(err.message));
     };

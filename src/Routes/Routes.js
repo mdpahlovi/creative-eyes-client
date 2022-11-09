@@ -7,8 +7,9 @@ import Blogs from "../Pages/Blogs";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
 import DynamicService from "../Pages/DynamicService";
-import AddFeedBack from "../Pages/AddFeedBack";
 import AddService from "../Pages/AddService";
+import MyReview from "../Pages/MyReview";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,15 +30,23 @@ const router = createBrowserRouter([
             },
             {
                 path: "/add-service",
-                element: <AddService />,
+                element: (
+                    <PrivateRoute>
+                        <AddService />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/service/:id",
                 element: <DynamicService />,
             },
             {
-                path: "/add-feedback",
-                element: <AddFeedBack />,
+                path: "/my-feedback",
+                element: (
+                    <PrivateRoute>
+                        <MyReview />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/blogs",

@@ -6,7 +6,7 @@ import Header from "../Components/Header";
 import SetTitle from "../Components/SetTitle";
 import FeedBack from "../Components/FeedBack";
 import { AuthContext } from "../Contexts/UserContext";
-import AddFeedBack from "./AddFeedBack";
+import AddFeedBack from "../Components/AddFeedBack";
 
 const DynamicService = () => {
     const { user } = useContext(AuthContext);
@@ -15,6 +15,7 @@ const DynamicService = () => {
 
     const [category, setCategory] = useState({});
     const [feedbacks, setFeedbacks] = useState([]);
+    const [refresh, setRefresh] = useState(false);
     const { id } = useParams();
 
     // Service Data Load by Id
@@ -34,7 +35,7 @@ const DynamicService = () => {
             .then((res) => res.json())
             .then((data) => setFeedbacks(data))
             .catch((error) => console.log(error));
-    }, [id]);
+    }, [id, refresh]);
 
     const ConditionalFeedback = ({ feedbacks }) => {
         if (feedbacks.length) {
@@ -75,7 +76,7 @@ const DynamicService = () => {
                     <ConditionalFeedback feedbacks={feedbacks} />
                 </div>
                 {user?.uid ? (
-                    <AddFeedBack serviceId={_id} email={user.email} />
+                    <AddFeedBack refresh={refresh} setRefresh={setRefresh} serviceId={_id} email={user.email} />
                 ) : (
                     <Link to="/login" className="flex justify-center mt-8 md:mt-10" state={{ from: location }} replace>
                         <Button variant="gradient">Login To Add Review</Button>

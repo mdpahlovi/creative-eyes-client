@@ -1,9 +1,11 @@
 import { Button } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Contexts/UserContext";
 import ServicesCard from "./ServicesCard";
 
 const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatus }) => {
+    const { user } = useContext(AuthContext);
     const [categories, setCategories] = useState([]);
     const [limit, setLimit] = useState(initialLimit);
     useEffect(() => {
@@ -19,9 +21,13 @@ const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatu
                     <ServicesCard key={category._id} category={category} />
                 ))}
             </div>
-            <Link to="/add-service" className={`mt-8 md:mt-10 flex justify-center ${addServicesBtnStatus}`}>
-                <Button variant="gradient">Add Service</Button>
-            </Link>
+            {user?.uid ? (
+                <Link to="/add-service" className={`mt-8 md:mt-10 flex justify-center ${addServicesBtnStatus}`}>
+                    <Button variant="gradient">Add Service</Button>
+                </Link>
+            ) : (
+                ""
+            )}
             <Link to="/services" className={`mt-8 md:mt-10 flex justify-center ${seeAllBtnStatus}`}>
                 <Button onClick={() => setLimit(0)} variant="gradient">
                     See All

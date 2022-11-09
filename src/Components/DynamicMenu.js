@@ -43,8 +43,12 @@ const DynamicMenu = ({ className, position }) => {
                             </Button>
                         </MenuHandler>
                         <MenuList>
-                            <MenuItem>My Review</MenuItem>
-                            <MenuItem>My Service</MenuItem>
+                            <Link to="/my-feedback">
+                                <MenuItem>My Review</MenuItem>
+                            </Link>
+                            <Link to="/add-service">
+                                <MenuItem>Add Service</MenuItem>
+                            </Link>
                             <MenuItem onClick={() => signout()}>LogOut</MenuItem>
                         </MenuList>
                     </Menu>
