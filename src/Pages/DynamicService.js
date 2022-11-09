@@ -71,7 +71,7 @@ const DynamicService = () => {
                         }
                     />
                 </div>
-                <Link className="flex justify-center mt-8 md:mt-10">
+                <Link to="/add-feedback" className="flex justify-center mt-8 md:mt-10">
                     <Button variant="gradient">Add Your FeedBack</Button>
                 </Link>
             </section>

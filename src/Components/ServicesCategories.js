@@ -19,7 +19,7 @@ const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatu
                     <ServicesCard key={category._id} category={category} />
                 ))}
             </div>
-            <Link className={`mt-8 md:mt-10 flex justify-center ${addServicesBtnStatus}`}>
+            <Link to="/add-service" className={`mt-8 md:mt-10 flex justify-center ${addServicesBtnStatus}`}>
                 <Button variant="gradient">Add Service</Button>
             </Link>
             <Link to="/services" className={`mt-8 md:mt-10 flex justify-center ${seeAllBtnStatus}`}>
