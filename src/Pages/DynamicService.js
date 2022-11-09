@@ -14,6 +14,7 @@ const DynamicService = () => {
     const location = useLocation();
 
     const [category, setCategory] = useState({});
+    const [feedbacks, setFeedbacks] = useState([]);
     const { id } = useParams();
 
     // Service Data Load by Id
@@ -28,6 +29,20 @@ const DynamicService = () => {
     SetTitle(name);
 
     // FeedBack data loadby id
+    useEffect(() => {
+        fetch(`http://localhost:5000/feedback/${id}`)
+            .then((res) => res.json())
+            .then((data) => setFeedbacks(data))
+            .catch((error) => console.log(error));
+    }, [id]);
+
+    const ConditionalFeedback = ({ feedbacks }) => {
+        if (feedbacks.length) {
+            return feedbacks.map((feedback) => <FeedBack key={feedback._id} feedbackObj={feedback} />);
+        } else {
+            return <Button variant="gradient">No Feedback</Button>;
+        }
+    };
 
     return (
         <>
@@ -57,13 +72,7 @@ const DynamicService = () => {
             <section className="my-container mb-12 sm:mb-14 lg:mb-16">
                 <h1 className="text-center mb-8 md:mb-10">Customer Feedback</h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-10 xl:gap-12">
-                    <FeedBack
-                        name={"MD Rofiq"}
-                        work={"Web DeveLoper At Facebook"}
-                        feedback={
-                            "My experience at Madroos is great and memorable. Huge respect, love and devotion for entire faculty members and department. It's their efforts that make me to count myself into better professionals."
-                        }
-                    />
+                    <ConditionalFeedback feedbacks={feedbacks} />
                 </div>
                 {user?.uid ? (
                     <AddFeedBack serviceId={_id} email={user.email} />

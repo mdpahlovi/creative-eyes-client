@@ -2,7 +2,8 @@ import { Button } from "@material-tailwind/react";
 import React from "react";
 import { FaQuoteRight } from "react-icons/fa";
 
-const FeedBack = ({ img, name, work, feedback }) => {
+const FeedBack = ({ feedbackObj }) => {
+    const { img, name, work, feedback } = feedbackObj;
     return (
         <div className="bg-black/5 rounded-lg py-8 xs:py-10 md:py-12 px-6 sm:px-8">
             <FaQuoteRight className="text-5xl mx-auto mb-5 text-black/50" />
