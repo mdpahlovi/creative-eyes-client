@@ -10,6 +10,7 @@ import DynamicService from "../Pages/DynamicService";
 import AddService from "../Pages/AddService";
 import MyReview from "../Pages/MyReview";
 import PrivateRoute from "./PrivateRoute";
+import EditReview from "../Pages/EditReview";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <MyReview />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/edit-review/:id",
+                element: (
+                    <PrivateRoute>
+                        <EditReview />
                     </PrivateRoute>
                 ),
             },

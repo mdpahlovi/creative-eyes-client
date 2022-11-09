@@ -27,10 +27,8 @@ const MyReview = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                if (data.success) {
-                    toast.success(data.message);
-                    setRefresh(!refresh);
-                } else toast.error(data.error);
+                toast.success(data.message);
+                setRefresh(!refresh);
             })
             .catch((err) => console.log(err.message));
     };

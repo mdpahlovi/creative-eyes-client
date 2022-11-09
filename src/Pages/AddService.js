@@ -25,7 +25,8 @@ export default function AddService() {
         })
             .then((res) => res.json())
             .then((data) => {
-                data.success ? toast.success(data.message) : toast.error(data.error);
+                toast.success(data.message);
+                form.reset();
             })
             .catch((err) => console.log(err.message));
     };

@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export default function MyReviewCard({ myreview, handelDelete }) {
     const { _id, serviceName, img, review } = myreview;
@@ -14,9 +15,11 @@ export default function MyReviewCard({ myreview, handelDelete }) {
                 <Typography className="line-clamp-4 hover:overflow-y-scroll">{review}</Typography>
             </CardBody>
             <CardFooter divider className="flex items-end justify-between py-4">
-                <Button variant="gradient" size="sm">
-                    Edit
-                </Button>
+                <Link to={`/edit-review/${_id}`}>
+                    <Button variant="gradient" size="sm">
+                        Edit
+                    </Button>
+                </Link>
                 <Button onClick={() => handelDelete(_id)} variant="gradient" size="sm">
                     Delete
                 </Button>
