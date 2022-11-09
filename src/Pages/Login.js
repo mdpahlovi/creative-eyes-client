@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Card, CardHeader, Typography, Button, Checkbox, Input } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
 import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
@@ -9,6 +9,10 @@ const Login = () => {
     SetTitle("Login");
 
     const { signIn, signInByGoogle, signInByFacebook, signInByGithub } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const loaction = useLocation();
+    const from = loaction.state?.from?.pathname || "/";
 
     const handelSubmit = (event) => {
         // Get Form Data
@@ -21,34 +25,35 @@ const Login = () => {
             .then((result) => {
                 toast.success("User Signin Completed");
                 form.reset();
+                navigate(from, { replace: true });
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                if (errorMessage === "Firebase: Error (auth/wrong-password).") {
-                    toast.error("Your password didn't match");
-                    form.reset();
-                } else if (errorMessage === "Firebase: Error (auth/user-not-found).") {
-                    toast.error("User doesn't found");
-                    form.reset();
-                }
-            });
+            .catch((error) => console.error(error.message));
     };
 
     // Social Signin
     const handelGoogleSignIn = () => {
         signInByGoogle()
-            .then((result) => toast.success("Google Signin Done"))
-            .catch((error) => console.error(error));
+            .then((result) => {
+                toast.success("Google Signin Done");
+                navigate(from, { replace: true });
+            })
+            .catch((error) => console.error(error.message));
     };
     const handelFacebookSignIn = () => {
         signInByFacebook()
-            .then((result) => toast.success("Facebook Signin Done"))
-            .catch((error) => console.error(error));
+            .then((result) => {
+                toast.success("Facebook Signin Done");
+                navigate(from, { replace: true });
+            })
+            .catch((error) => console.error(error.message));
     };
     const handelGithubSignIn = () => {
         signInByGithub()
-            .then((result) => toast.success("Github Signin Done"))
-            .catch((error) => console.error(error));
+            .then((result) => {
+                toast.success("Github Signin Done");
+                navigate(from, { replace: true });
+            })
+            .catch((error) => console.error(error.message));
     };
 
     return (

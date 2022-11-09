@@ -1,25 +1,33 @@
 import { Button } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SetTitle from "../Components/SetTitle";
 import FeedBack from "../Components/FeedBack";
+import { AuthContext } from "../Contexts/UserContext";
+import AddFeedBack from "./AddFeedBack";
 
 const DynamicService = () => {
+    const { user } = useContext(AuthContext);
+
+    const location = useLocation();
+
     const [category, setCategory] = useState({});
     const { id } = useParams();
 
-    // Data Load by Id
+    // Service Data Load by Id
     useEffect(() => {
         fetch(`http://localhost:5000/service/${id}`)
             .then((res) => res.json())
             .then((data) => setCategory(data))
             .catch((error) => console.log(error));
     }, [id]);
-    const { img, name, about, price, ratings } = category;
+    const { _id, img, name, about, price, ratings } = category;
 
     SetTitle(name);
+
+    // FeedBack data loadby id
 
     return (
         <>
@@ -56,24 +64,14 @@ const DynamicService = () => {
                             "My experience at Madroos is great and memorable. Huge respect, love and devotion for entire faculty members and department. It's their efforts that make me to count myself into better professionals."
                         }
                     />
-                    <FeedBack
-                        name={"MD Rofiq"}
-                        work={"Web DeveLoper At Facebook"}
-                        feedback={
-                            "My experience at Madroos is great and memorable. Huge respect, love and devotion for entire faculty members and department. It's their efforts that make me to count myself into better professionals."
-                        }
-                    />
-                    <FeedBack
-                        name={"MD Rofiq"}
-                        work={"Web DeveLoper At Facebook"}
-                        feedback={
-                            "My experience at Madroos is great and memorable. Huge respect, love and devotion for entire faculty members and department. It's their efforts that make me to count myself into better professionals."
-                        }
-                    />
                 </div>
-                <Link to="/add-feedback" className="flex justify-center mt-8 md:mt-10">
-                    <Button variant="gradient">Add Your FeedBack</Button>
-                </Link>
+                {user?.uid ? (
+                    <AddFeedBack serviceId={_id} email={user.email} />
+                ) : (
+                    <Link to="/login" className="flex justify-center mt-8 md:mt-10" state={{ from: location }} replace>
+                        <Button variant="gradient">Login To Add Review</Button>
+                    </Link>
+                )}
             </section>
         </>
     );

@@ -1,7 +1,8 @@
 import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material-tailwind/react";
+import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
-export default function AddFeedBack() {
+export default function AddFeedBack({ serviceId, email }) {
     SetTitle("Add Feedback");
     const handelSubmit = (event) => {
         // Get Form Data
@@ -11,8 +12,21 @@ export default function AddFeedBack() {
         const work = form.work.value;
         const img = form.img.value;
         const feedback = form.feedback.value;
-        const userFeedBack = { name, work, img, feedback };
-        console.log(userFeedBack);
+        const userFeedBack = { serviceId, email, name, work, img, feedback };
+
+        // Add Service
+        fetch("http://localhost:5000/feedbackes", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(userFeedBack),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                data.success ? toast.success(data.message) : toast.error(data.error);
+            })
+            .catch((err) => console.log(err.message));
     };
     return (
         <section className="pt-6">

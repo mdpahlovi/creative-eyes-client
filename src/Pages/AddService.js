@@ -1,4 +1,5 @@
 import { Card, CardHeader, Typography, Button, Input, Textarea } from "@material-tailwind/react";
+import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
 export default function AddService() {
@@ -13,7 +14,20 @@ export default function AddService() {
         const ratings = form.ratings.value;
         const about = form.about.value;
         const addService = { img, name, price, ratings, about };
-        console.log(addService);
+
+        // Add Service
+        fetch("http://localhost:5000/services", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(addService),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                data.success ? toast.success(data.message) : toast.error(data.error);
+            })
+            .catch((err) => console.log(err.message));
     };
     return (
         <section className="pt-6">
