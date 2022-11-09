@@ -2,7 +2,7 @@ import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material
 import { toast } from "react-toastify";
 import SetTitle from "./SetTitle";
 
-export default function AddFeedBack({ serviceId, email, refresh, setRefresh }) {
+export default function AddFeedBack({ serviceId, serviceName, email, refresh, setRefresh }) {
     SetTitle("Add Feedback");
     const handelSubmit = (event) => {
         // Get Form Data
@@ -12,7 +12,7 @@ export default function AddFeedBack({ serviceId, email, refresh, setRefresh }) {
         const work = form.work.value;
         const img = form.img.value;
         const feedback = form.feedback.value;
-        const userFeedBack = { serviceId, email, name, work, img, feedback };
+        const userFeedBack = { serviceId, serviceName, email, name, work, img, feedback };
 
         // Add Service
         fetch("http://localhost:5000/feedbackes", {

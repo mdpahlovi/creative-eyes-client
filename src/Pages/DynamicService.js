@@ -76,7 +76,7 @@ const DynamicService = () => {
                     <ConditionalFeedback feedbacks={feedbacks} />
                 </div>
                 {user?.uid ? (
-                    <AddFeedBack refresh={refresh} setRefresh={setRefresh} serviceId={_id} email={user.email} />
+                    <AddFeedBack refresh={refresh} setRefresh={setRefresh} serviceId={_id} serviceName={name} email={user.email} />
                 ) : (
                     <Link to="/login" className="flex justify-center mt-8 md:mt-10" state={{ from: location }} replace>
                         <Button variant="gradient">Login To Add Review</Button>
