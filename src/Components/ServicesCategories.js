@@ -7,7 +7,7 @@ const ServicesCategories = ({ initialLimit, btnStatus }) => {
     const [categories, setCategories] = useState([]);
     const [limit, setLimit] = useState(initialLimit);
     useEffect(() => {
-        fetch(`https://photographer-server.vercel.app/services?limit=${limit}`)
+        fetch(`http://localhost:5000/services?limit=${limit}`)
             .then((res) => res.json())
             .then((data) => setCategories(data))
             .catch((error) => console.log(error));

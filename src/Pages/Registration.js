@@ -3,8 +3,11 @@ import { Card, CardHeader, Typography, Button, Checkbox, Input } from "@material
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
 import { toast } from "react-toastify";
+import SetTitle from "../Components/SetTitle";
 
 const Registration = () => {
+    SetTitle("Registration");
+
     const { createUser } = useContext(AuthContext);
 
     const handelSubmit = (event) => {

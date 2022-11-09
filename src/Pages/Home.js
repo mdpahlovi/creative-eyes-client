@@ -2,8 +2,10 @@ import React from "react";
 import AboutMe from "../Components/AboutMe";
 import Hero from "../Components/Hero";
 import ServicesCategories from "../Components/ServicesCategories";
+import SetTitle from "../Components/SetTitle";
 
 const Home = () => {
+    SetTitle("Pahlovi | Photographer");
     return (
         <>
             <Hero />

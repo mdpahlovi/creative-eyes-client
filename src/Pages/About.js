@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AboutMe from "../Components/AboutMe";
 import Header from "../Components/Header";
+import SetTitle from "../Components/SetTitle";
 
 const About = () => {
+    SetTitle("About Me");
+
     return (
         <>
             <Header title={"More About Me"}>

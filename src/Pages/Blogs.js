@@ -2,8 +2,11 @@ import { useState, Fragment } from "react";
 import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
+import SetTitle from "../Components/SetTitle";
 
 export default function Blogs() {
+    SetTitle("My Blogs");
+
     const [open, setOpen] = useState(0);
 
     const handleOpen = (value) => {

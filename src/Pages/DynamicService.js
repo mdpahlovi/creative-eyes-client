@@ -3,17 +3,23 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
+import SetTitle from "../Components/SetTitle";
 
 const DynamicService = () => {
     const [category, setCategory] = useState({});
     const { id } = useParams();
+
+    // Data Load by Id
     useEffect(() => {
-        fetch(`https://photographer-server.vercel.app/service/${id}`)
+        fetch(`http://localhost:5000/service/${id}`)
             .then((res) => res.json())
             .then((data) => setCategory(data))
             .catch((error) => console.log(error));
     }, [id]);
     const { img, name, about, price, ratings } = category;
+
+    SetTitle(name);
+
     return (
         <>
             <Header title={name}>
