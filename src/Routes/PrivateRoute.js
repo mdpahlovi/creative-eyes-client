@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return (
             <div className="w-full h-[400px] flex justify-center items-center">
-                <HashLoader color="#3388FF" size="100" />
+                <HashLoader color="#3388FF" size={100} />
             </div>
         );
     }

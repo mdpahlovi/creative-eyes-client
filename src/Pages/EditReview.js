@@ -1,6 +1,6 @@
 import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SetTitle from "../Components/SetTitle";
@@ -9,16 +9,15 @@ const EditReview = () => {
     SetTitle("Edit Review");
     const [myReview, setMyReview] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
 
+    // Get Previous Review Data
     useEffect(() => {
         fetch(`http://localhost:5000/reviewbyid/${id}`)
             .then((res) => res.json())
             .then((data) => setMyReview(data))
             .catch((error) => console.log(error));
     }, [id]);
-
-    console.log(myReview);
-
     const { name, work, img, review } = myReview;
 
     const handelEdit = (event) => {
@@ -30,6 +29,7 @@ const EditReview = () => {
         const review = form.review.value;
         const userreview = { name, work, img, review };
 
+        // Edit Review
         fetch(`http://localhost:5000/reviewedit/${id}`, {
             method: "PATCH",
             headers: {
@@ -40,7 +40,8 @@ const EditReview = () => {
             .then((res) => res.json())
             .then((data) => {
                 toast.success(data.message);
-                <Navigate to="/my-review" />;
+                form.reset();
+                navigate("/my-review");
             })
             .catch((err) => console.log(err.message));
     };

@@ -14,7 +14,7 @@ export default function AddReview({ serviceId, serviceName, email, refresh, setR
         const review = form.review.value;
         const userreview = { serviceId, serviceName, email, name, work, img, review };
 
-        // Add Service
+        // Add Review
         fetch("http://localhost:5000/reviews", {
             method: "POST",
             headers: {

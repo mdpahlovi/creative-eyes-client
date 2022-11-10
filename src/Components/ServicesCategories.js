@@ -10,6 +10,8 @@ const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatu
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [limit, setLimit] = useState(initialLimit);
+
+    // Get Services by limit
     useEffect(() => {
         fetch(`http://localhost:5000/services?limit=${limit}`)
             .then((res) => res.json())
@@ -23,7 +25,7 @@ const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatu
     if (loading) {
         return (
             <div className="w-full h-[400px] flex justify-center items-center">
-                <HashLoader color="#3388FF" size="100" />
+                <HashLoader color="#3388FF" size={100} />
             </div>
         );
     } else {

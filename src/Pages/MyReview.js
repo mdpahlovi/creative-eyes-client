@@ -13,6 +13,8 @@ const MyReview = () => {
     const [reviews, setreviews] = useState([]);
     const [refresh, setRefresh] = useState(false);
     const email = user.email;
+
+    // Corrent User Review load
     useEffect(() => {
         fetch(`http://localhost:5000/reviewsbyemail?email=${email}`, {
             headers: {

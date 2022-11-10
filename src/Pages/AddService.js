@@ -1,10 +1,11 @@
 import { Card, CardHeader, Typography, Button, Input, Textarea } from "@material-tailwind/react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
 export default function AddService() {
     SetTitle("Add Service");
+    const navigate = useNavigate();
     const handelSubmit = (event) => {
         // Get Form Data
         event.preventDefault();
@@ -28,7 +29,7 @@ export default function AddService() {
             .then((data) => {
                 toast.success(data.message);
                 form.reset();
-                <Navigate to="/my-review" />;
+                navigate("/services");
             })
             .catch((err) => console.log(err.message));
     };
