@@ -13,7 +13,7 @@ const EditReview = () => {
 
     // Get Previous Review Data
     useEffect(() => {
-        fetch(`https://photographer-server.vercel.app/reviewbyid/${id}`)
+        fetch(`http://localhost:5000/reviewbyid/${id}`)
             .then((res) => res.json())
             .then((data) => setMyReview(data))
             .catch((error) => console.log(error));
@@ -30,7 +30,7 @@ const EditReview = () => {
         const userreview = { name, work, img, review };
 
         // Edit Review
-        fetch(`https://photographer-server.vercel.app/reviewedit/${id}`, {
+        fetch(`http://localhost:5000/reviewedit/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

@@ -15,7 +15,7 @@ export default function AddReview({ serviceId, serviceName, email, refresh, setR
         const userreview = { serviceId, serviceName, email, name, work, img, review };
 
         // Add Review
-        fetch("https://photographer-server.vercel.app/reviews", {
+        fetch("http://localhost:5000/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

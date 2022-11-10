@@ -28,7 +28,7 @@ const Login = () => {
                     email: user.email,
                 };
                 // get jwt token
-                fetch("https://photographer-server.vercel.app/jwt", {
+                fetch("http://localhost:5000/jwt", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -50,8 +50,24 @@ const Login = () => {
     const handelGoogleSignIn = () => {
         signInByGoogle()
             .then((result) => {
-                toast.success("Google Signin Done");
-                navigate(from, { replace: true });
+                const user = result.user;
+                const currentUser = {
+                    email: user.email,
+                };
+                // get jwt token
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        localStorage.setItem("my-token", data.token);
+                        toast.success("Google Signin Done");
+                        navigate(from, { replace: true });
+                    });
             })
             .catch((error) => console.error(error.message));
     };
