@@ -18,7 +18,7 @@ const DynamicService = () => {
 
     // Service Data Load by Id
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${id}`)
+        fetch(`https://photographer-server.vercel.app/service/${id}`)
             .then((res) => res.json())
             .then((data) => setCategory(data))
             .catch((error) => console.log(error));
@@ -29,7 +29,7 @@ const DynamicService = () => {
 
     // review data loadby id
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${id}`)
+        fetch(`https://photographer-server.vercel.app/review/${id}`)
             .then((res) => res.json())
             .then((data) => setreviews(data))
             .catch((error) => console.log(error));

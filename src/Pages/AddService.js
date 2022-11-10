@@ -18,7 +18,7 @@ export default function AddService() {
         const addService = { img, name, price, ratings, about };
 
         // Add Service
-        fetch("http://localhost:5000/services", {
+        fetch("https://photographer-server.vercel.app/services", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
