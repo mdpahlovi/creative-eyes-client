@@ -16,7 +16,7 @@ const MyReview = () => {
 
     // Corrent User Review load
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsbyemail?email=${email}`, {
+        fetch(`https://photographer-server.vercel.app/reviewsbyemail?email=${email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("my-token")}`,
             },
@@ -28,7 +28,7 @@ const MyReview = () => {
 
     // Delete Review
     const handelDelete = (id) => {
-        fetch(`http://localhost:5000/reviewdelete/${id}`, {
+        fetch(`https://photographer-server.vercel.app/reviewdelete/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
