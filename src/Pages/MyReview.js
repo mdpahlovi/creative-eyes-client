@@ -14,7 +14,11 @@ const MyReview = () => {
     const [refresh, setRefresh] = useState(false);
     const email = user.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsbyemail?email=${email}`)
+        fetch(`http://localhost:5000/reviewsbyemail?email=${email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("my-token")}`,
+            },
+        })
             .then((res) => res.json())
             .then((data) => setreviews(data))
             .catch((error) => console.log(error));

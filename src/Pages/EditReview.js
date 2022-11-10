@@ -40,7 +40,7 @@ const EditReview = () => {
             .then((res) => res.json())
             .then((data) => {
                 toast.success(data.message);
-                Navigate("/my-review");
+                <Navigate to="/my-review" />;
             })
             .catch((err) => console.log(err.message));
     };

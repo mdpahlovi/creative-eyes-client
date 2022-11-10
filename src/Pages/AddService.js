@@ -1,4 +1,5 @@
 import { Card, CardHeader, Typography, Button, Input, Textarea } from "@material-tailwind/react";
+import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
@@ -27,6 +28,7 @@ export default function AddService() {
             .then((data) => {
                 toast.success(data.message);
                 form.reset();
+                <Navigate to="/my-review" />;
             })
             .catch((err) => console.log(err.message));
     };

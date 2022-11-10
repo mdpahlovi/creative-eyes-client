@@ -10,12 +10,10 @@ import AddReview from "../Components/AddReview";
 
 const DynamicService = () => {
     const { user } = useContext(AuthContext);
-
-    const location = useLocation();
-
     const [category, setCategory] = useState({});
     const [reviews, setreviews] = useState([]);
     const [refresh, setRefresh] = useState(false);
+    const location = useLocation();
     const { id } = useParams();
 
     // Service Data Load by Id

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { HashLoader } from "react-spinners";
 import { AuthContext } from "..//Contexts/UserContext";
 
 const PrivateRoute = ({ children }) => {
@@ -8,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return (
             <div className="w-full h-[400px] flex justify-center items-center">
-                <div className="text4xl md:text-6xl text-blue-700 font-bold">Loading...</div>
+                <HashLoader color="#3388FF" size="100" />
             </div>
         );
     }

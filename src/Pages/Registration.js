@@ -34,8 +34,23 @@ const Registration = () => {
             .then((result) => {
                 const user = result.user;
                 user.displayName = name;
-                form.reset();
-                toast.success("Account Created");
+                const currentUser = {
+                    email: user.email,
+                };
+                // get jwt token
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        localStorage.setItem("my-token", data.token);
+                        toast.success("Account Created");
+                        form.reset();
+                    });
             })
             .catch((error) => console.error(error));
     };

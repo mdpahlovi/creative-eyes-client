@@ -11,6 +11,7 @@ import AddService from "../Pages/AddService";
 import MyReview from "../Pages/MyReview";
 import PrivateRoute from "./PrivateRoute";
 import EditReview from "../Pages/EditReview";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
                 element: <Registration />,
             },
         ],
+    },
+    {
+        path: "*",
+        element: <ErrorPage />,
     },
 ]);
 

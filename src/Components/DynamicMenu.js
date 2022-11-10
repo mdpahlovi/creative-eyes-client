@@ -2,6 +2,7 @@ import { Button, Menu, MenuHandler, MenuItem, MenuList, Avatar, Popover, Popover
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
+import { PulseLoader } from "react-spinners";
 
 const DynamicMenu = ({ className, position }) => {
     const { user, loading, signout } = useContext(AuthContext);
@@ -20,8 +21,8 @@ const DynamicMenu = ({ className, position }) => {
     return (
         <div className={className}>
             {loading ? (
-                <Button variant="gradient" size="sm">
-                    Loding...
+                <Button variant="gradient" size="sm" className="flex items-center">
+                    Loading <PulseLoader color="#ffffff" size={10} />
                 </Button>
             ) : user?.uid ? (
                 <div className="space-x-6">
