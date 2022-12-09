@@ -5,7 +5,7 @@ import ErrorImg from "../Assets/error-img.svg";
 import SetTitle from "../Components/SetTitle";
 
 const ErrorPage = () => {
-    SetTitle("Error Page");
+    SetTitle("Creative Eyes | Error Page");
     return (
         <div className="max-w-lg mx-auto h-screen flex flex-col justify-center items-center">
             <img className="px-3 sm:px-6" src={ErrorImg} alt="" />

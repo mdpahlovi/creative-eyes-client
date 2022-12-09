@@ -5,7 +5,7 @@ import ServicesCategories from "../Components/ServicesCategories";
 import SetTitle from "../Components/SetTitle";
 
 const Home = () => {
-    SetTitle("Pahlovi | Photographer");
+    SetTitle("Creative Eyes Photography");
     return (
         <>
             <Hero />

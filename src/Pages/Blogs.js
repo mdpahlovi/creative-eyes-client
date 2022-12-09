@@ -5,7 +5,7 @@ import Header from "../Components/Header";
 import SetTitle from "../Components/SetTitle";
 
 export default function Blogs() {
-    SetTitle("My Blogs");
+    SetTitle("Creative Eyes | Blogs");
 
     const [open, setOpen] = useState(0);
 

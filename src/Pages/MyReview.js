@@ -8,8 +8,8 @@ import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
 const MyReview = () => {
-    SetTitle("My Review");
     const { user } = useContext(AuthContext);
+    SetTitle(`${user.displayName} | Reviews`);
     const [reviews, setreviews] = useState([]);
     const [refresh, setRefresh] = useState(false);
     const email = user.email;

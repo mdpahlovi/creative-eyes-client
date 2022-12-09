@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
 const Login = () => {
-    SetTitle("Login");
+    SetTitle("Creative Eyes | Login");
 
     const { signIn, signInByGoogle, signInByFacebook, signInByGithub } = useContext(AuthContext);
 

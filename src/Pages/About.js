@@ -5,7 +5,7 @@ import Header from "../Components/Header";
 import SetTitle from "../Components/SetTitle";
 
 const About = () => {
-    SetTitle("About Me");
+    SetTitle("Creative Eyes | About");
 
     return (
         <>

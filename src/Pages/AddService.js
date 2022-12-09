@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
 export default function AddService() {
-    SetTitle("Add Service");
+    SetTitle("Creative Eyes | Add Service");
     const navigate = useNavigate();
     const handelSubmit = (event) => {
         // Get Form Data

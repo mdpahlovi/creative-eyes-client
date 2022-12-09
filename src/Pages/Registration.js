@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import SetTitle from "../Components/SetTitle";
 
 const Registration = () => {
-    SetTitle("Registration");
+    SetTitle("Creative Eyes | Registration");
 
     const { createUser } = useContext(AuthContext);
 

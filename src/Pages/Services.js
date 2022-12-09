@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SetTitle from "../Components/SetTitle";
 
 const Services = () => {
-    SetTitle("My Services");
+    SetTitle("Creative Eyes | Services");
     return (
         <>
             <Header title={"Explore My Services"}>
