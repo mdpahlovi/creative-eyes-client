@@ -36,7 +36,7 @@ const AboutMe = () => {
                     </Link>
                     <Link>
                         <Button variant="gradient" className="w-full xs:w-auto">
-                            Download CV
+                            See Portfolio
                         </Button>
                     </Link>
                 </div>

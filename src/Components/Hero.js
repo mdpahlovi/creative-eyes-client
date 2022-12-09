@@ -25,7 +25,7 @@ const Hero = () => {
                 <div className="flex flex-col mb-10 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                     <Link>
                         <Button className="w-full sm:w-auto" variant="gradient">
-                            Watch Video
+                            Hire Me
                         </Button>
                     </Link>
                     <Button variant="outlined">Watch Video</Button>

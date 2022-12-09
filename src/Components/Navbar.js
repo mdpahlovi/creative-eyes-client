@@ -3,34 +3,35 @@ import { Navbar, MobileNav, Typography } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import DynamicMenu from "./DynamicMenu";
+import Logo from "../Assets/Logo.png";
 
-const Navigationbar = () => {
+const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false);
 
     useEffect(() => {
         window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
     }, []);
 
-    const navLink = ({ isActive }) => (isActive ? "font-bold underline" : "");
+    const navLink = ({ isActive }) => (isActive ? "font-bold underline text-base" : "text-base");
 
     const navList = (
         <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+            <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/">
                     Home
                 </NavLink>
             </Typography>
-            <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+            <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/about">
                     About Me
                 </NavLink>
             </Typography>
-            <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+            <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/services">
                     Services
                 </NavLink>
             </Typography>
-            <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+            <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/blogs">
                     Blogs
                 </NavLink>
@@ -42,7 +43,7 @@ const Navigationbar = () => {
         <Navbar className="py-2 shadow">
             <div className="my-container px-0 flex items-center justify-between text-black">
                 <Link to="/" className="mr-4 py-1">
-                    <h3>Pahlovi</h3>
+                    <img className="w-32" src={Logo} alt="" />
                 </Link>
                 <div className="hidden lg:block">{navList}</div>
                 <button className="lg:hidden" onClick={() => setOpenNav(!openNav)}>
@@ -58,4 +59,4 @@ const Navigationbar = () => {
     );
 };
 
-export default Navigationbar;
+export default NavigationBar;

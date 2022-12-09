@@ -52,7 +52,7 @@ const Footer = () => {
                 <hr className="my-6" />
                 <div className="flex flex-wrap items-center md:justify-between justify-center">
                     <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-                        <h5 className="py-1">Copyright © 2021 resolved by Pahlovi .</h5>
+                        <h5 className="py-1">Copyright © 2021 resolved by Creative Eyes .</h5>
                     </div>
                 </div>
             </div>
