@@ -17,7 +17,7 @@ const Hero = () => {
                         <BsArrowRightShort className="ml-2 text-xl" />
                     </span>
                 </Link>
-                <h1 className="mb-6 font-extrabold tracking-tight">Capture the moments in time</h1>
+                <h1 className="mb-6 text-[40px] leading-10 sm:text-5xl font-extrabold tracking-tight">Capture the moments in time</h1>
                 <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48">
                     Serving photo shots for various events, both for private, state and commersial events. I can make the photograpy work more presentable and
                     memorable.

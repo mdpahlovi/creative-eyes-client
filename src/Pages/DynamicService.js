@@ -35,7 +35,7 @@ const DynamicService = () => {
             .catch((error) => console.log(error));
     }, [id, refresh]);
 
-    const Conditionalreview = ({ reviews }) => {
+    const ConditionalReview = ({ reviews }) => {
         if (reviews.length) {
             return reviews.map((review) => <Review key={review._id} reviewObj={review} />);
         } else {
@@ -51,11 +51,12 @@ const DynamicService = () => {
                 </Link>
                 <Link>{name}</Link>
             </Header>
-            <section className="my-container section-gap grid grid-cols-1 lg:grid-cols-2 items-center gap-6 xs:gap-10 xl:gap-12">
-                <div className="w-full sm:max-w-md mx-auto lg:max-w-none">
-                    <img className="rounded-lg bg-black/5" src={img} alt="" />
-                </div>
-                <div className="flex flex-col gap-2 bg-black/5 p-6 xl:px-8 xl:py-10 rounded-lg">
+            <section className="my-container section-gap grid grid-cols-1 lg:grid-cols-2 items-center gap-6 xs:gap-10 xl:gap-12 [&>div]:rounded-lg [&>div]:shadow-md">
+                <div
+                    className="w-full sm:w-[448px] h-60 lg:w-full lg:h-full mx-auto bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url(${img})` }}
+                ></div>
+                <div className="flex flex-col gap-2 p-6 xl:px-8 xl:py-10">
                     <h3 className="p-4 shadow rounded-md mb-2">{name}</h3>
                     <h4>Price: {price}$</h4>
                     <h4>Rating: {ratings}</h4>
@@ -68,15 +69,15 @@ const DynamicService = () => {
                     </Button>
                 </div>
             </section>
-            <section className="my-container mb-12 sm:mb-14 lg:mb-16">
-                <h1 className="text-center mb-8 md:mb-10">Customer Review</h1>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-10 xl:gap-12">
-                    <Conditionalreview reviews={reviews} />
+            <section className="my-container space-y-6 mb-12 sm:mb-14 lg:mb-16">
+                <h1 className="text-center">Customer Review</h1>
+                <div className="flex flex-wrap justify-center gap-6 xs:gap-10 xl:gap-12">
+                    <ConditionalReview reviews={reviews} />
                 </div>
                 {user?.uid ? (
                     <AddReview refresh={refresh} setRefresh={setRefresh} serviceId={_id} serviceName={name} email={user.email} />
                 ) : (
-                    <Link to="/login" className="flex justify-center mt-8 md:mt-10" state={{ from: location }} replace>
+                    <Link to="/login" className="flex justify-center" state={{ from: location }} replace>
                         <Button variant="gradient">Login To Add Review</Button>
                     </Link>
                 )}

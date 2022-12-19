@@ -31,8 +31,8 @@ export default function AddReview({ serviceId, serviceName, email, refresh, setR
             .catch((err) => console.log(err.message));
     };
     return (
-        <section className="pt-6">
-            <Card className="max-w-md mx-auto px-6 section-gap">
+        <section className="pt-8">
+            <Card className="max-w-md mx-auto px-6">
                 <CardHeader variant="gradient" color="blue" className="mb-4 grid h-28 place-items-center">
                     <Typography variant="h3" color="white" className="uppercase">
                         Add review
@@ -41,8 +41,8 @@ export default function AddReview({ serviceId, serviceName, email, refresh, setR
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 p-4 pb-10">
                     <Input name="name" label="Name" size="lg" />
                     <Input name="work" label="Work" size="lg" />
-                    <Input name="img" label="Img" size="lg" />
-                    <Textarea name="review" label="review" size="lg" />
+                    <Input name="img" label="Image" size="lg" />
+                    <Textarea name="review" label="Review" size="lg" />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
                         Submit
                     </Button>

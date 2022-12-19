@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Navbar, MobileNav, Typography } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
 import { CgMenuRight, CgClose } from "react-icons/cg";
-import DynamicMenu from "./DynamicMenu";
-import Logo from "../Assets/Logo.png";
+import DynamicMenu from "../../Components/DynamicMenu";
+import Logo from "../../Assets/Logo.png";
 
 const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false);

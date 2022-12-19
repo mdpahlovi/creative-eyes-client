@@ -1,26 +1,26 @@
 import { Button } from "@material-tailwind/react";
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HashLoader } from "react-spinners";
-import { AuthContext } from "../Contexts/UserContext";
-import ServicesCard from "./ServicesCard";
+import { AuthContext } from "../../Contexts/UserContext";
+import ServicesCard from "../../Components/ServicesCard";
 
-const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatus }) => {
+const ServicesCategories = ({ initialLimit }) => {
     const { user } = useContext(AuthContext);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [limit, setLimit] = useState(initialLimit);
+    const location = useLocation();
 
     // Get Services by limit
     useEffect(() => {
-        fetch(`https://photographer-server.vercel.app/services?limit=${limit}`)
+        fetch("https://photographer-server.vercel.app/services")
             .then((res) => res.json())
             .then((data) => {
                 setCategories(data);
                 setLoading(false);
             })
             .catch((error) => console.log(error));
-    }, [limit]);
+    }, []);
 
     if (loading) {
         return (
@@ -32,22 +32,21 @@ const ServicesCategories = ({ initialLimit, seeAllBtnStatus, addServicesBtnStatu
         return (
             <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {categories.map((category) => (
+                    {categories.slice(0, initialLimit ? initialLimit : categories.length).map((category) => (
                         <ServicesCard key={category._id} category={category} />
                     ))}
                 </div>
-                {user?.uid ? (
-                    <Link to="/add-service" className={`mt-8 md:mt-10 flex justify-center ${addServicesBtnStatus}`}>
+                {location?.pathname === "/" ? (
+                    <Link to="/services" className="flex justify-center">
+                        <Button variant="gradient">See All</Button>
+                    </Link>
+                ) : user?.uid ? (
+                    <Link to="/add-service" className="flex justify-center">
                         <Button variant="gradient">Add Service</Button>
                     </Link>
                 ) : (
                     ""
                 )}
-                <Link to="/services" className={`mt-8 md:mt-10 flex justify-center ${seeAllBtnStatus}`}>
-                    <Button onClick={() => setLimit(0)} variant="gradient">
-                        See All
-                    </Button>
-                </Link>
             </>
         );
     }

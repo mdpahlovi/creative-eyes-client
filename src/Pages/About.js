@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AboutMe from "../Components/AboutMe";
+import AboutUs from "./Components/AboutUs";
 import Header from "../Components/Header";
 import SetTitle from "../Components/SetTitle";
 
@@ -9,10 +9,10 @@ const About = () => {
 
     return (
         <>
-            <Header title={"More About Me"}>
+            <Header title={"More About US"}>
                 <Link to="/about">About Me</Link>
             </Header>
-            <AboutMe />
+            <AboutUs />
         </>
     );
 };

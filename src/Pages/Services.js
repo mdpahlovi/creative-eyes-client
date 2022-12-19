@@ -1,5 +1,5 @@
 import React from "react";
-import ServicesCategories from "../Components/ServicesCategories";
+import ServicesCategories from "./Components/ServicesCategories";
 import Header from "../Components/Header";
 import { Link } from "react-router-dom";
 import SetTitle from "../Components/SetTitle";
@@ -11,8 +11,8 @@ const Services = () => {
             <Header title={"Explore My Services"}>
                 <Link to="/services">Services</Link>
             </Header>
-            <section className="my-container section-gap">
-                <ServicesCategories initialLimit={0} seeAllBtnStatus={"hidden"} />
+            <section className="my-container section-gap space-y-6">
+                <ServicesCategories />
             </section>
         </>
     );

@@ -4,16 +4,13 @@
 
 @layer base {
     h1 {
-        @apply text-[40px] leading-10 sm:text-5xl font-bold;
+        @apply text-4xl text-center font-bold;
     }
     h3 {
-        @apply text-3xl font-bold;
-    }
-    h4 {
-        @apply text-xl font-bold;
+        @apply text-2xl font-bold;
     }
     h5 {
-        @apply text-lg font-bold;
+        @apply text-sm text-gray-700;
     }
 }
 

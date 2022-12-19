@@ -6,7 +6,7 @@ export default function MyBreadcrumb({ title, children }) {
         <>
             <section className="relative">
                 <div className="py-12 sm:py-14 lg:py-16 my-container">
-                    <h1 className="mb-8">{title}</h1>
+                    <h1 className="mb-6 text-left">{title}</h1>
                     <Breadcrumbs>
                         <Link to="/home" className="opacity-60">
                             Home

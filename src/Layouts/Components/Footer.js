@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="pt-8 shadow">
-            <div className="my-container">
+        <footer className="pt-8 border-t border-t-gray-300">
+            <div className="my-container divide-y-2 divide-gray-300">
                 <div className="flex flex-wrap">
                     <div className="w-full lg:w-6/12 px-4">
                         <h3 className="mb-2">Let's keep in touch!</h3>
@@ -49,12 +49,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <hr className="my-6" />
-                <div className="flex flex-wrap items-center md:justify-between justify-center">
-                    <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-                        <h5 className="py-1">Copyright © 2021 resolved by Creative Eyes .</h5>
-                    </div>
-                </div>
+                <h5 className="py-6 text-base text-center">Copyright © 2021 resolved by Creative Eyes .</h5>
             </div>
         </footer>
     );
