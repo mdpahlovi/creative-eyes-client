@@ -3,7 +3,7 @@ import { Card, CardHeader, Typography, Button, Checkbox, Input } from "@material
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
 import { toast } from "react-toastify";
-import SetTitle from "../Components/SetTitle";
+import SetTitle from "../Components/Common/SetTitle";
 
 const Login = () => {
     SetTitle("Creative Eyes | Login");

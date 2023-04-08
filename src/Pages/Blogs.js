@@ -1,8 +1,8 @@
 import { useState, Fragment } from "react";
 import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import Header from "../Components/Header";
-import SetTitle from "../Components/SetTitle";
+import Header from "../Components/Common/Header";
+import SetTitle from "../Components/Common/SetTitle";
 
 export default function Blogs() {
     SetTitle("Creative Eyes | Blogs");
@@ -23,7 +23,7 @@ export default function Blogs() {
             <Header title={"Explore My Blogs"}>
                 <Link to="/blogs">Blogs</Link>
             </Header>
-            <section className="my-container md:max-w-2xl section-gap">
+            <section className="container md:max-w-2xl section-gap">
                 <Fragment>
                     <Accordion open={open === 1} animate={customAnimation}>
                         <AccordionHeader onClick={() => handleOpen(1)} className="text-left">

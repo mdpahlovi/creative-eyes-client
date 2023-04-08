@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AboutUs from "../Components/AboutUs";
-import Hero from "./Hero";
-import OurTeam from "../Components/OurTeam";
-import ServicesCategories from "../Components/ServicesCategories";
-import SetTitle from "../../Components/SetTitle";
+import SetTitle from "../Components/Common/SetTitle";
+import Hero from "../Components/Home/Hero";
+import AboutUs from "../Components/About/AboutUs";
+import ServiceCategory from "../Components/Common/Service/Category";
+import TestimonialCard from "../Components/Home/TestimonialCard";
 
 const Home = () => {
     SetTitle("Creative Eyes Photography");
@@ -27,12 +27,16 @@ const Home = () => {
         <>
             <Hero />
             <AboutUs />
-            <section className="my-container section-gap space-y-6">
+            <section className="container section-gap space-y-6">
                 <h1>Our Services</h1>
-                <ServicesCategories initialLimit={size} />
+                <ServiceCategory initialLimit={size} />
             </section>
-            <section className="my-container space-y-6 mb-12 sm:mb-14 lg:mb-16">
-                <OurTeam />
+            <section className="container section-gap space-y-6">
+                <h1>Client Testimonial</h1>
+                <div className="grid grid-cols-2 gap-8">
+                    <TestimonialCard />
+                    <TestimonialCard />
+                </div>
             </section>
         </>
     );

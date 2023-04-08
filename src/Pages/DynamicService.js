@@ -2,8 +2,8 @@ import { Button } from "@material-tailwind/react";
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Header from "../Components/Header";
-import SetTitle from "../Components/SetTitle";
+import Header from "../Components/Common/Header";
+import SetTitle from "../Components/Common/SetTitle";
 import Review from "../Components/Review";
 import { AuthContext } from "../Contexts/UserContext";
 import AddReview from "../Components/AddReview";
@@ -51,7 +51,7 @@ const DynamicService = () => {
                 </Link>
                 <Link>{name}</Link>
             </Header>
-            <section className="my-container section-gap grid grid-cols-1 lg:grid-cols-2 items-center gap-6 xs:gap-10 xl:gap-12 [&>div]:rounded-lg [&>div]:shadow-md">
+            <section className="container section-gap grid grid-cols-1 lg:grid-cols-2 items-center gap-6 xs:gap-10 xl:gap-12 [&>div]:rounded-lg [&>div]:shadow-md">
                 <div
                     className="w-full sm:w-[448px] h-60 lg:w-full lg:h-full mx-auto bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url(${img})` }}
@@ -69,7 +69,7 @@ const DynamicService = () => {
                     </Button>
                 </div>
             </section>
-            <section className="my-container space-y-6 mb-12 sm:mb-14 lg:mb-16">
+            <section className="container space-y-6 mb-12 sm:mb-14 lg:mb-16">
                 <h1 className="text-center">Customer Review</h1>
                 <div className="flex flex-wrap justify-center gap-6 xs:gap-10 xl:gap-12">
                     <ConditionalReview reviews={reviews} />

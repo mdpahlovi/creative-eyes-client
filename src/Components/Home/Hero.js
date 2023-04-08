@@ -7,7 +7,7 @@ import { FaUnsplash } from "react-icons/fa";
 const Hero = () => {
     return (
         <section className="relative">
-            <div className="my-container text-center py-14 lg:py-16 text-white">
+            <div className="container text-center py-14 lg:py-16 text-white">
                 <Link to="/" className="hidden xs:inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full bg-white/20" role="alert">
                     <Button className="rounded-full mr-2" variant="gradient" size="sm">
                         New

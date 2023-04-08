@@ -1,7 +1,7 @@
 import { Button, Menu, MenuHandler, MenuItem, MenuList, Avatar, Popover, PopoverHandler, PopoverContent } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Contexts/UserContext";
+import { AuthContext } from "../../Contexts/UserContext";
 import { PulseLoader } from "react-spinners";
 
 const DynamicMenu = ({ className, position }) => {

@@ -2,11 +2,11 @@ import { Button } from "@material-tailwind/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import Profile from "../../Assets/Profile.jpg";
-import Stats from "../Home/Stats";
+import Stats from "./Stats";
 
 const AboutUs = () => {
     return (
-        <section className="my-container section-gap grid grid-cols-1 lg:grid-cols-[5fr_7fr] xl:grid-cols-[4fr_8fr] gap-x-10 gap-y-2 xl:items-center">
+        <section className="container section-gap grid grid-cols-1 lg:grid-cols-[5fr_7fr] xl:grid-cols-[4fr_8fr] gap-x-10 gap-y-2 xl:items-center">
             <h1 className="lg:hidden mb-4">About Us</h1>
             <img className="w-full xs:max-w-sm mx-auto object-cover rounded-lg" src={Profile} alt="" />
             <div className="space-y-4">

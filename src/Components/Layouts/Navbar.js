@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, MobileNav, Typography } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
-import { CgMenuRight, CgClose } from "react-icons/cg";
-import DynamicMenu from "../../Components/DynamicMenu";
+import DynamicMenu from "./DynamicMenu";
 import Logo from "../../Assets/Logo.png";
+import { CgMenuRight, CgClose } from "react-icons/cg";
 
 const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -23,7 +23,7 @@ const NavigationBar = () => {
             </Typography>
             <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/about">
-                    About Me
+                    About Us
                 </NavLink>
             </Typography>
             <Typography as="li" variant="small" color="blue-gray">
@@ -41,7 +41,7 @@ const NavigationBar = () => {
 
     return (
         <Navbar className="py-2 shadow">
-            <div className="my-container px-0 flex items-center justify-between text-black">
+            <div className="container px-0 flex items-center justify-between text-black">
                 <Link to="/" className="mr-4 py-1">
                     <img className="w-32" src={Logo} alt="" />
                 </Link>

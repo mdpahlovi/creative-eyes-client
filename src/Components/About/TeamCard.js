@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "../Assets/Pahlovi.png";
+import Image from "../../Assets/Pahlovi.png";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaLinkedin, FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const TeamCard = () => {
             <div className="mx-auto h-52 w-52 rotate-45 overflow-hidden rounded-[4rem] shadow-md">
                 <img
                     className="mx-auto h-full w-full -rotate-45 scale-125 object-cover transition duration-300 group-hover:scale-[1.4]"
-                    src={Img}
+                    src={Image}
                     alt="woman"
                     loading="lazy"
                     width="640"

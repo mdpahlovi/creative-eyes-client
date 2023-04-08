@@ -2,8 +2,7 @@ import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-
-import SetTitle from "../Components/SetTitle";
+import SetTitle from "../Components/Common/SetTitle";
 
 const EditReview = () => {
     SetTitle("Edit Review");

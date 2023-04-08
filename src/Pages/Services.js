@@ -1,8 +1,7 @@
-import React from "react";
-import ServicesCategories from "./Components/ServicesCategories";
-import Header from "../Components/Header";
+import Header from "../Components/Common/Header";
 import { Link } from "react-router-dom";
-import SetTitle from "../Components/SetTitle";
+import SetTitle from "../Components/Common/SetTitle";
+import ServiceCategory from "../Components/Common/Service/Category";
 
 const Services = () => {
     SetTitle("Creative Eyes | Services");
@@ -11,8 +10,8 @@ const Services = () => {
             <Header title={"Explore My Services"}>
                 <Link to="/services">Services</Link>
             </Header>
-            <section className="my-container section-gap space-y-6">
-                <ServicesCategories />
+            <section className="container section-gap space-y-6">
+                <ServiceCategory />
             </section>
         </>
     );

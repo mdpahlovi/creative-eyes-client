@@ -1,6 +1,6 @@
 import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material-tailwind/react";
 import { toast } from "react-toastify";
-import SetTitle from "./SetTitle";
+import SetTitle from "./Common/SetTitle";
 
 export default function AddReview({ serviceId, serviceName, email, refresh, setRefresh }) {
     SetTitle("Add Review");
@@ -12,7 +12,7 @@ export default function AddReview({ serviceId, serviceName, email, refresh, setR
         const work = form.work.value;
         const img = form.img.value;
         const review = form.review.value;
-        const userreview = { serviceId, serviceName, email, name, work, img, review };
+        const user_review = { serviceId, serviceName, email, name, work, img, review };
 
         // Add Review
         fetch("https://photographer-server.vercel.app/reviews", {
@@ -20,7 +20,7 @@ export default function AddReview({ serviceId, serviceName, email, refresh, setR
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(userreview),
+            body: JSON.stringify(user_review),
         })
             .then((res) => res.json())
             .then((data) => {

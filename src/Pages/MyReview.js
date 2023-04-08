@@ -3,9 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MyReviewCard from "../Components/MyReviewCard";
 import { AuthContext } from "../Contexts/UserContext";
-import Header from "../Components/Header";
+import Header from "../Components/Common/Header";
 import { toast } from "react-toastify";
-import SetTitle from "../Components/SetTitle";
+import SetTitle from "../Components/Common/SetTitle";
 
 const MyReview = () => {
     const { user } = useContext(AuthContext);
@@ -45,7 +45,7 @@ const MyReview = () => {
                 <Header title={"Your Review"}>
                     <Link to="/my-review">My review</Link>
                 </Header>
-                <section className="my-container section-gap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <section className="container section-gap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {reviews.map((review) => (
                         <MyReviewCard key={review._id} handelDelete={handelDelete} myreview={review} />
                     ))}
@@ -54,7 +54,7 @@ const MyReview = () => {
         );
     } else {
         return (
-            <div className="my-container h-[300px] flex justify-center items-center">
+            <div className="container h-[300px] flex justify-center items-center">
                 <Button variant="gradient">No review added by user</Button>
             </div>
         );

@@ -1,7 +1,7 @@
 import { Card, CardHeader, Typography, Button, Input, Textarea } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import SetTitle from "../Components/SetTitle";
+import SetTitle from "../Components/Common/SetTitle";
 
 export default function AddService() {
     SetTitle("Creative Eyes | Add Service");
