@@ -1,11 +1,11 @@
 import { Button } from "@material-tailwind/react";
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 import { AuthContext } from "../../../Contexts/UserContext";
 import ServicesCard from "./Card";
 
-const ServiceCategory = ({ initialLimit }) => {
+const Service = ({ initialLimit }) => {
     const { user } = useContext(AuthContext);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -52,4 +52,4 @@ const ServiceCategory = ({ initialLimit }) => {
     }
 };
 
-export default ServiceCategory;
+export default Service;

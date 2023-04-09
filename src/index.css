@@ -10,7 +10,7 @@
         @apply text-2xl font-bold;
     }
     h5 {
-        @apply text-sm text-gray-700;
+        @apply text-xl font-semibold;
     }
 }
 
@@ -22,7 +22,7 @@
         @apply max-w-md mx-auto px-6;
     }
     .section-gap {
-        @apply my-12 sm:my-14 lg:my-16;
+        @apply py-12 sm:py-14 lg:py-16;
     }
     .card-top-m {
         @apply mt-16 sm:mt-[72px] lg:mt-20;

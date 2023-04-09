@@ -16,12 +16,10 @@ export default function ServicesCard({ category }) {
                 </PhotoProvider>
             </CardHeader>
             <CardBody className="text-center">
-                <Typography variant="h5" className="mb-2">
-                    {name}
-                </Typography>
-                <Typography className="line-clamp-4">{about}</Typography>
+                <h5 className="mb-2">{name}</h5>
+                <p className="line-clamp-4">{about}</p>
             </CardBody>
-            <CardFooter divider className="flex items-center justify-between py-3">
+            <CardFooter divider className="mt-auto flex items-center justify-between py-3">
                 <Typography variant="h5">${price}</Typography>
                 <Link to={`/service/${_id}`}>
                     <Button variant="gradient" fullWidth>

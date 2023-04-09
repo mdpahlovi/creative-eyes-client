@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AboutUs from "../Components/About/AboutUs";
+import AboutUs from "../Components/About";
 import Header from "../Components/Common/Header";
 import SetTitle from "../Components/Common/SetTitle";
 import TeamCard from "../Components/About/TeamCard";
+import { team } from "../Components/Common/FakeData";
 
 const About = () => {
     SetTitle("Creative Eyes | About");
@@ -19,8 +20,8 @@ const About = () => {
                     <h1>Our Team</h1>
                 </div>
                 <div className="flex flex-wrap gap-x-32 xl:gap-x-40 gap-y-12 sm:gap-y-4 justify-center pt-4">
-                    {[...Array(3)].map((team, index) => (
-                        <TeamCard key={index} />
+                    {team.map((member, index) => (
+                        <TeamCard key={index} member={member} />
                     ))}
                 </div>
             </section>

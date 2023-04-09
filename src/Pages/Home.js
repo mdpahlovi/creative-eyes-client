@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SetTitle from "../Components/Common/SetTitle";
 import Hero from "../Components/Home/Hero";
-import AboutUs from "../Components/About/AboutUs";
-import ServiceCategory from "../Components/Common/Service/Category";
-import TestimonialCard from "../Components/Home/TestimonialCard";
+import Stats from "../Components/Home/Stats";
+import Service from "../Components/Common/Service";
+import Testimonial from "../Components/Home/Testimonial";
 
 const Home = () => {
     SetTitle("Creative Eyes Photography");
@@ -26,18 +26,12 @@ const Home = () => {
     return (
         <>
             <Hero />
-            <AboutUs />
             <section className="container section-gap space-y-6">
                 <h1>Our Services</h1>
-                <ServiceCategory initialLimit={size} />
+                <Service initialLimit={size} />
             </section>
-            <section className="container section-gap space-y-6">
-                <h1>Client Testimonial</h1>
-                <div className="grid grid-cols-2 gap-8">
-                    <TestimonialCard />
-                    <TestimonialCard />
-                </div>
-            </section>
+            <Stats />
+            <Testimonial />
         </>
     );
 };

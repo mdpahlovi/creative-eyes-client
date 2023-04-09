@@ -1,13 +1,13 @@
 import { Button } from "@material-tailwind/react";
-import React from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRightShort, BsYoutube, BsDribbble } from "react-icons/bs";
 import { FaUnsplash } from "react-icons/fa";
+import { isBrowser } from "react-device-detect";
 
 const Hero = () => {
     return (
-        <section className="relative">
-            <div className="container text-center py-14 lg:py-16 text-white">
+        <section className={`relative bg-hero bg-cover bg-center ${isBrowser ? "h-[calc(100vh-5rem)]" : ""} min-h-[34rem] flex justify-center items-center`}>
+            <div className="relative z-[1] container text-center text-white">
                 <Link to="/" className="hidden xs:inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full bg-white/20" role="alert">
                     <Button className="rounded-full mr-2" variant="gradient" size="sm">
                         New
@@ -25,7 +25,7 @@ const Hero = () => {
                 <div className="flex flex-col mb-10 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                     <Link>
                         <Button className="w-full sm:w-auto" variant="gradient">
-                            Hire Me
+                            Hire Us
                         </Button>
                     </Link>
                     <Button variant="outlined">Watch Video</Button>
@@ -48,8 +48,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="absolute w-full h-full bg-hero bg-cover bg-center top-0 left-0 -z-[2]"></div>
-            <div className="absolute w-full h-full bg-black/75 top-0 left-0 -z-[1]"></div>
+            <div className="absolute w-full h-full bg-black/75 top-0 left-0"></div>
         </section>
     );
 };
