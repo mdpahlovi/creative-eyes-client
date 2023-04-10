@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
 import { toast } from "react-toastify";
 import SetTitle from "../Components/Common/SetTitle";
+import axios from "axios";
+import { api_url } from "../Api/api_url";
 
 const Registration = () => {
     SetTitle("Creative Eyes | Registration");
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, setUser, setLoading } = useContext(AuthContext);
 
     const handelSubmit = (event) => {
         // Get Form Data
@@ -21,7 +23,7 @@ const Registration = () => {
 
         // Check Password
         if (password.length < 6) {
-            toast.error("Password sould be 6 cherecter or more");
+            toast.error("Password should be 6 character or more");
             return;
         }
         if (password !== confirmPass) {
@@ -31,26 +33,12 @@ const Registration = () => {
 
         // Create New User
         createUser(email, password)
-            .then((result) => {
-                const user = result.user;
-                user.displayName = name;
-                const currentUser = {
-                    email: user.email,
-                };
-                // get jwt token
-                fetch("https://photographer-server.vercel.app/jwt", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                    body: JSON.stringify(currentUser),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        localStorage.setItem("my-token", data.token);
-                        toast.success("Account Created");
-                        form.reset();
-                    });
+            .then(({ user }) => {
+                const authUser = { name: name, email: user?.email };
+                axios.post(`${api_url}/user`, authUser).then((res) => {
+                    setUser(res.data);
+                    setLoading(false);
+                });
             })
             .catch((error) => console.error(error));
     };

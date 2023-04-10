@@ -11,6 +11,8 @@ import {
     signOut,
 } from "firebase/auth";
 import app from "../Config/firebase.config";
+import axios from "axios";
+import { api_url } from "../Api/api_url";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -50,14 +52,22 @@ const UserContext = ({ children }) => {
     };
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (correntUser) => {
-            setUser(correntUser);
-            setLoading(false);
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser?.uid) {
+                const authUser = { name: currentUser?.displayName, email: currentUser?.email, avatar: currentUser?.photoURL };
+                axios.post(`${api_url}/user`, authUser).then((res) => {
+                    setUser(res.data);
+                    setLoading(false);
+                });
+            } else {
+                setUser(null);
+                setLoading(false);
+            }
         });
         return () => unSubscribe();
     }, []);
 
-    const authInfo = { user, loading, createUser, signIn, signInByGoogle, signInByFacebook, signInByGithub, signout };
+    const authInfo = { user, setUser, loading, setLoading, createUser, signIn, signInByGoogle, signInByFacebook, signInByGithub, signout };
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 

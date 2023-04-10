@@ -4,15 +4,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/UserContext";
 import { toast } from "react-toastify";
 import SetTitle from "../Components/Common/SetTitle";
+import axios from "axios";
+import { api_url } from "../Api/api_url";
 
 const Login = () => {
     SetTitle("Creative Eyes | Login");
 
-    const { signIn, signInByGoogle, signInByFacebook, signInByGithub } = useContext(AuthContext);
+    const { setUser, setLoading, signIn, signInByGoogle, signInByFacebook, signInByGithub } = useContext(AuthContext);
 
     const navigate = useNavigate();
-    const loaction = useLocation();
-    const from = loaction.state?.from?.pathname || "/";
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handelSubmit = (event) => {
         // Get Form Data
@@ -22,26 +24,14 @@ const Login = () => {
         const password = form.password.value;
 
         signIn(email, password)
-            .then((result) => {
-                const user = result.user;
-                const currentUser = {
-                    email: user.email,
-                };
-                // get jwt token
-                fetch("https://photographer-server.vercel.app/jwt", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                    body: JSON.stringify(currentUser),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        localStorage.setItem("my-token", data.token);
-                        toast.success("User Signin Completed");
-                        form.reset();
-                        navigate(from, { replace: true });
-                    });
+            .then(({ user }) => {
+                const authUser = { email: user?.email };
+                axios.post(`${api_url}/user`, authUser).then((res) => {
+                    setUser(res.data);
+                    setLoading(false);
+                    toast.success("User Signin Done");
+                    navigate(from, { replace: true });
+                });
             })
             .catch((error) => console.error(error.message));
     };
@@ -49,41 +39,40 @@ const Login = () => {
     // Social Signin
     const handelGoogleSignIn = () => {
         signInByGoogle()
-            .then((result) => {
-                const user = result.user;
-                const currentUser = {
-                    email: user.email,
-                };
-                // get jwt token
-                fetch("https://photographer-server.vercel.app/jwt", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                    body: JSON.stringify(currentUser),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        localStorage.setItem("my-token", data.token);
-                        toast.success("Google Signin Done");
-                        navigate(from, { replace: true });
-                    });
+            .then(({ user }) => {
+                const authUser = { name: user?.displayName, email: user?.email, avatar: user?.photoURL };
+                axios.post(`${api_url}/user`, authUser).then((res) => {
+                    setUser(res.data);
+                    setLoading(false);
+                    toast.success("Google Signin Done");
+                    navigate(from, { replace: true });
+                });
             })
             .catch((error) => console.error(error.message));
     };
     const handelFacebookSignIn = () => {
         signInByFacebook()
-            .then((result) => {
-                toast.success("Facebook Signin Done");
-                navigate(from, { replace: true });
+            .then(({ user }) => {
+                const authUser = { name: user?.displayName, email: user?.email, avatar: user?.photoURL };
+                axios.post(`${api_url}/user`, authUser).then((res) => {
+                    setUser(res.data);
+                    setLoading(false);
+                    toast.success("Facebook Signin Done");
+                    navigate(from, { replace: true });
+                });
             })
             .catch((error) => console.error(error.message));
     };
     const handelGithubSignIn = () => {
         signInByGithub()
-            .then((result) => {
-                toast.success("Github Signin Done");
-                navigate(from, { replace: true });
+            .then(({ user }) => {
+                const authUser = { name: user?.displayName, email: user?.email, avatar: user?.photoURL };
+                axios.post(`${api_url}/user`, authUser).then((res) => {
+                    setUser(res.data);
+                    setLoading(false);
+                    toast.success("Github Signin Done");
+                    navigate(from, { replace: true });
+                });
             })
             .catch((error) => console.error(error.message));
     };

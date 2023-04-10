@@ -19,12 +19,12 @@ const DynamicMenu = ({ className, position }) => {
                 <Button variant="outlined" color="gray" size="sm" className="flex items-center">
                     Loading <PulseLoader color="#000000" size={10} />
                 </Button>
-            ) : user?.uid ? (
+            ) : user?._id ? (
                 <Menu placement={position}>
                     <MenuHandler>
                         <Button variant="outlined" color="gray" size="sm" className="relative">
-                            <img src={user?.photoURL ? user?.photoURL : NoPhoto} alt="" className="absolute inset-0 w-8 h-8 rounded-lg" />
-                            <span className="pl-6">{user?.displayName ? twoWord(user.displayName) : "No Name"}</span>
+                            <img src={user?.avatar ? user.avatar : NoPhoto} alt="" className="absolute inset-0 w-8 h-8 rounded-lg" />
+                            <span className="pl-6">{user?.name ? twoWord(user.name) : "No Name"}</span>
                         </Button>
                     </MenuHandler>
                     <MenuList className="p-1">
