@@ -16,9 +16,9 @@ module.exports = withMT({
         },
         extend: {
             backgroundImage: {
-                hero: "url('/src/Assets/hero.jpg')",
-                header: "url('/src/Assets/header.jpg')",
-                about: "url('/src/Assets/Profile.jpg')",
+                hero: "url('/src/Assets/images/hero.jpg')",
+                header: "url('/src/Assets/images/header.jpg')",
+                about: "url('/src/Assets/images/Profile.jpg')",
             },
         },
     },

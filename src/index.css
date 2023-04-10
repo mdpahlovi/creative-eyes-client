@@ -30,4 +30,7 @@
     .line-x {
         @apply flex items-center before:flex-1 before:border before:border-black/50 after:flex-1 after:border after:border-black/50;
     }
+    .icon {
+        @apply flex items-center gap-2;
+    }
 }

@@ -1,7 +1,6 @@
 import { Button } from "@material-tailwind/react";
-import React from "react";
 import { Link } from "react-router-dom";
-import Profile from "../../Assets/Profile.jpg";
+import Profile from "../../Assets/images/Profile.jpg";
 
 const AboutUs = () => {
     return (

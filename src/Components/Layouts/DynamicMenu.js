@@ -1,62 +1,53 @@
-import { Button, Menu, MenuHandler, MenuItem, MenuList, Avatar, Popover, PopoverHandler, PopoverContent } from "@material-tailwind/react";
+import { Button, Menu, MenuHandler, MenuItem, MenuList } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/UserContext";
 import { PulseLoader } from "react-spinners";
+import twoWord from "../../Utilities/twoWord";
+import { FiLogOut } from "react-icons/fi";
+import NoPhoto from "../../Assets/icon/NoPhoto.png";
+import { profileRoutes } from "../../Hooks/useRoutes";
+
+// profile menu component
 
 const DynamicMenu = ({ className, position }) => {
     const { user, loading, signout } = useContext(AuthContext);
 
-    const UserPopup = ({ children, name }) => {
-        return (
-            <Popover placement={position}>
-                <PopoverHandler>{children}</PopoverHandler>
-                <PopoverContent>
-                    <span>{name}</span>
-                </PopoverContent>
-            </Popover>
-        );
-    };
-
     return (
-        <div className={className}>
+        <div className={`${className} mb-4 lg:mb-0`}>
             {loading ? (
-                <Button variant="gradient" size="sm" className="flex items-center">
-                    Loading <PulseLoader color="#ffffff" size={10} />
+                <Button variant="outlined" color="gray" size="sm" className="flex items-center">
+                    Loading <PulseLoader color="#000000" size={10} />
                 </Button>
             ) : user?.uid ? (
-                <div className="space-x-6">
-                    {user.photoURL ? (
-                        <UserPopup name={user.displayName ? user.displayName : "No Name"}>
-                            <Avatar src={user.photoURL} alt="avatar" variant="circular" size="sm" />
-                        </UserPopup>
-                    ) : (
-                        <UserPopup name={user.displayName}>
-                            <Button variant="gradient" size="sm">
-                                NoPhoto
-                            </Button>
-                        </UserPopup>
-                    )}
-                    <Menu placement={position}>
-                        <MenuHandler>
-                            <Button variant="gradient" size="sm">
-                                Click Me
-                            </Button>
-                        </MenuHandler>
-                        <MenuList>
-                            <Link to="/my-review">
-                                <MenuItem>My Review</MenuItem>
-                            </Link>
-                            <Link to="/add-service">
-                                <MenuItem>Add Service</MenuItem>
-                            </Link>
-                            <MenuItem onClick={() => signout()}>LogOut</MenuItem>
-                        </MenuList>
-                    </Menu>
-                </div>
+                <Menu placement={position}>
+                    <MenuHandler>
+                        <Button variant="outlined" color="gray" size="sm" className="relative">
+                            <img src={user?.photoURL ? user?.photoURL : NoPhoto} alt="" className="absolute inset-0 w-8 h-8 rounded-lg" />
+                            <span className="pl-6">{user?.displayName ? twoWord(user.displayName) : "No Name"}</span>
+                        </Button>
+                    </MenuHandler>
+                    <MenuList className="p-1">
+                        {profileRoutes.map(({ to, icon, label }, idx) => (
+                            <MenuItem key={idx}>
+                                <Link to={to} className="icon">
+                                    {icon}
+                                    {label}
+                                </Link>
+                            </MenuItem>
+                        ))}
+                        <hr className="my-1" />
+                        <MenuItem className="hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10">
+                            <button onClick={signout} className="text-red-500 icon">
+                                <FiLogOut size={16} />
+                                Logout
+                            </button>
+                        </MenuItem>
+                    </MenuList>
+                </Menu>
             ) : (
                 <Link to="login">
-                    <Button variant="gradient" size="sm">
+                    <Button variant="outlined" color="gray" size="sm">
                         Login
                     </Button>
                 </Link>
