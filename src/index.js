@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { router } from "./Routes/Routes";
@@ -10,6 +11,7 @@ import "./index.css";
 import "swiper/css";
 
 const queryClient = new QueryClient();
+axios.defaults.baseURL = "https://photographer-server.vercel.app";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

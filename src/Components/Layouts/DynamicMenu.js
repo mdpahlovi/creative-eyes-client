@@ -1,17 +1,16 @@
 import { Button, Menu, MenuHandler, MenuItem, MenuList } from "@material-tailwind/react";
-import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Contexts/UserContext";
 import { PulseLoader } from "react-spinners";
-import twoWord from "../../Utilities/twoWord";
 import { FiLogOut } from "react-icons/fi";
 import NoPhoto from "../../Assets/icon/NoPhoto.png";
-import { profileRoutes } from "../../Hooks/useRoutes";
+import { useRouter } from "../../Hooks/useRoutes";
+import { useAuth } from "../../Hooks/useAuth";
 
 // profile menu component
 
 const DynamicMenu = ({ className, position }) => {
-    const { user, loading, signout } = useContext(AuthContext);
+    const { user, loading, signout } = useAuth();
+    const routers = useRouter();
 
     return (
         <div className={`${className} mb-4 lg:mb-0`}>
@@ -24,11 +23,11 @@ const DynamicMenu = ({ className, position }) => {
                     <MenuHandler>
                         <Button variant="outlined" color="gray" size="sm" className="relative">
                             <img src={user?.avatar ? user.avatar : NoPhoto} alt="" className="absolute inset-0 w-8 h-8 rounded-lg" />
-                            <span className="pl-6">{user?.name ? twoWord(user.name) : "No Name"}</span>
+                            <span className="pl-6">{user?.name ? user.name : "No Name"}</span>
                         </Button>
                     </MenuHandler>
                     <MenuList className="p-1">
-                        {profileRoutes.map(({ to, icon, label }, idx) => (
+                        {routers.map(({ to, icon, label }, idx) => (
                             <MenuItem key={idx}>
                                 <Link to={to} className="icon">
                                     {icon}

@@ -1,7 +1,6 @@
-import { IconButton } from "@material-tailwind/react";
-import React from "react";
-import { ImTwitter, ImFacebook, ImDribbble, ImLinkedin2 } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { IconButton } from "@material-tailwind/react";
+import { ImTwitter, ImFacebook, ImDribbble, ImLinkedin2 } from "react-icons/im";
 
 const Footer = () => {
     return (

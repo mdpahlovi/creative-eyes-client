@@ -22,13 +22,10 @@
         @apply mx-auto px-6;
     }
     .form-container {
-        @apply max-w-md mx-auto px-6;
+        @apply max-w-md mx-auto;
     }
     .section-gap {
         @apply py-12 sm:py-14 lg:py-16;
-    }
-    .card-top-m {
-        @apply mt-16 sm:mt-[72px] lg:mt-20;
     }
     .line-x {
         @apply flex items-center before:flex-1 before:border before:border-black/50 after:flex-1 after:border after:border-black/50;

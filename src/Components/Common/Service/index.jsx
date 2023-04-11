@@ -8,7 +8,7 @@ import ServicesCard from "./Card";
 const Service = ({ initialLimit }) => {
     const location = useLocation();
 
-    const { isLoading, data: services } = useQuery("service", () => axios("/service").then((res) => res.data));
+    const { isLoading, data: services = [] } = useQuery("service", () => axios("/service").then((res) => res.data));
 
     if (isLoading) {
         return (
