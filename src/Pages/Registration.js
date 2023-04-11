@@ -35,7 +35,7 @@ const Registration = () => {
         createUser(email, password)
             .then(({ user }) => {
                 const authUser = { name: name, email: user?.email };
-                axios.post(`${api_url}/user`, authUser).then((res) => {
+                axios.post(`/user`, authUser).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                 });

@@ -1,28 +1,16 @@
+import axios from "axios";
+import { useQuery } from "react-query";
 import { Button } from "@material-tailwind/react";
-import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HashLoader } from "react-spinners";
-import { AuthContext } from "../../../Contexts/UserContext";
 import ServicesCard from "./Card";
 
 const Service = ({ initialLimit }) => {
-    const { user } = useContext(AuthContext);
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
     const location = useLocation();
 
-    // Get Services by limit
-    useEffect(() => {
-        fetch("https://photographer-server.vercel.app/services")
-            .then((res) => res.json())
-            .then((data) => {
-                setCategories(data);
-                setLoading(false);
-            })
-            .catch((error) => console.log(error));
-    }, []);
+    const { isLoading, data: services } = useQuery("service", () => axios("/service").then((res) => res.data));
 
-    if (loading) {
+    if (isLoading) {
         return (
             <div className="w-full h-[400px] flex justify-center items-center">
                 <HashLoader color="#3388FF" size={100} />
@@ -32,20 +20,14 @@ const Service = ({ initialLimit }) => {
         return (
             <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {categories.slice(0, initialLimit ? initialLimit : categories.length).map((category) => (
-                        <ServicesCard key={category._id} category={category} />
+                    {services.slice(0, initialLimit ? initialLimit : services.length).map((service) => (
+                        <ServicesCard key={service._id} service={service} />
                     ))}
                 </div>
-                {location?.pathname === "/" ? (
+                {location?.pathname === "/" && (
                     <Link to="/services" className="flex justify-center">
                         <Button variant="gradient">See All</Button>
                     </Link>
-                ) : user?.uid ? (
-                    <Link to="/add-service" className="flex justify-center">
-                        <Button variant="gradient">Add Service</Button>
-                    </Link>
-                ) : (
-                    ""
                 )}
             </>
         );

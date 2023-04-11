@@ -12,6 +12,9 @@
     h5 {
         @apply text-xl font-semibold;
     }
+    h6 {
+        @apply text-lg font-semibold;
+    }
 }
 
 @layer components {

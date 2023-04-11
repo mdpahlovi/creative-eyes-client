@@ -12,7 +12,6 @@ import {
 } from "firebase/auth";
 import app from "../Config/firebase.config";
 import axios from "axios";
-import { api_url } from "../Api/api_url";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -55,7 +54,7 @@ const UserContext = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser?.uid) {
                 const authUser = { name: currentUser?.displayName, email: currentUser?.email, avatar: currentUser?.photoURL };
-                axios.post(`${api_url}/user`, authUser).then((res) => {
+                axios.post(`/user`, authUser).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                 });

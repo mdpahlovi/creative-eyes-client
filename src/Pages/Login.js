@@ -26,7 +26,7 @@ const Login = () => {
         signIn(email, password)
             .then(({ user }) => {
                 const authUser = { email: user?.email };
-                axios.post(`${api_url}/user`, authUser).then((res) => {
+                axios.post(`/user`, authUser).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                     toast.success("User Signin Done");
@@ -41,7 +41,7 @@ const Login = () => {
         signInByGoogle()
             .then(({ user }) => {
                 const authUser = { name: user?.displayName, email: user?.email, avatar: user?.photoURL };
-                axios.post(`${api_url}/user`, authUser).then((res) => {
+                axios.post(`/user`, authUser).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                     toast.success("Google Signin Done");
@@ -54,7 +54,7 @@ const Login = () => {
         signInByFacebook()
             .then(({ user }) => {
                 const authUser = { name: user?.displayName, email: user?.email, avatar: user?.photoURL };
-                axios.post(`${api_url}/user`, authUser).then((res) => {
+                axios.post(`/user`, authUser).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                     toast.success("Facebook Signin Done");
@@ -67,7 +67,7 @@ const Login = () => {
         signInByGithub()
             .then(({ user }) => {
                 const authUser = { name: user?.displayName, email: user?.email, avatar: user?.photoURL };
-                axios.post(`${api_url}/user`, authUser).then((res) => {
+                axios.post(`/user`, authUser).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                     toast.success("Github Signin Done");

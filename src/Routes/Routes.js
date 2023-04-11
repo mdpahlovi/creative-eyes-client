@@ -6,12 +6,13 @@ import Services from "../Pages/Services";
 import Blogs from "../Pages/Blogs";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
-import DynamicService from "../Pages/DynamicService";
+
 import AddService from "../Pages/AddService";
 import MyReview from "../Pages/MyReview";
 import PrivateRoute from "./PrivateRoute";
 import EditReview from "../Pages/EditReview";
 import ErrorPage from "../Pages/ErrorPage";
+import ServiceById from "../Pages/Services/ServiceById";
 
 const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/service/:id",
-                element: <DynamicService />,
+                element: <ServiceById />,
             },
             {
                 path: "/my-review",
