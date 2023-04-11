@@ -4,7 +4,6 @@ import { Button } from "@material-tailwind/react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../../Components/Common/Header";
-import SetTitle from "../../Components/Common/SetTitle";
 import { HashLoader } from "react-spinners";
 
 const ServiceById = () => {

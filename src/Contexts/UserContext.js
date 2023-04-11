@@ -53,8 +53,7 @@ const UserContext = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser?.uid) {
-                const authUser = { name: currentUser?.displayName, email: currentUser?.email, avatar: currentUser?.photoURL };
-                axios.post(`/user`, authUser).then((res) => {
+                axios.get(`/user/${currentUser?.email}`).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                 });

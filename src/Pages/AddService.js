@@ -2,56 +2,53 @@ import { Card, CardHeader, Typography, Button, Input, Textarea } from "@material
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import SetTitle from "../Components/Common/SetTitle";
+import axios from "axios";
+import { useState } from "react";
 
 export default function AddService() {
     SetTitle("Creative Eyes | Add Service");
+    const [isUploading, setIsUploading] = useState(false);
+
     const navigate = useNavigate();
     const handelSubmit = (event) => {
+        setIsUploading(true);
         // Get Form Data
         event.preventDefault();
         const form = event.target;
-        const img = form.img.value;
+        const image = form.image.value;
         const name = form.name.value;
         const price = form.price.value;
-        const ratings = form.ratings.value;
-        const about = form.about.value;
-        const addService = { img, name, price, ratings, about };
+        const details = form.details.value;
+        const service = { name, image, price, details };
 
-        // Add Service
-        fetch("https://photographer-server.vercel.app/services", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(addService),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                toast.success(data.message);
+        // ADD Service
+        axios.post("/service", service).then((res) => {
+            if (res?.data?.acknowledge) {
                 form.reset();
+                setIsUploading(false);
+                toast.success("Service Added Successfully");
                 navigate("/services");
-            })
-            .catch((err) => console.log(err.message));
+            }
+        });
     };
     return (
-        <section className="pt-6">
-            <Card className="max-w-md mx-auto px-6 section-gap">
+        <main className="container section-gap">
+            <Card className="form-container mt-6">
                 <CardHeader variant="gradient" color="blue" className="mb-4 grid h-28 place-items-center">
                     <Typography className="uppercase" variant="h3" color="white">
                         Add Service
                     </Typography>
                 </CardHeader>
-                <form onSubmit={handelSubmit} className="flex flex-col gap-4 p-4 pb-10">
-                    <Input name="img" label="Img" size="lg" />
-                    <Input name="name" label="Name" size="lg" />
-                    <Input name="price" label="Price" size="lg" />
-                    <Input name="ratings" label="Ratings" size="lg" />
-                    <Textarea name="about" label="Description" size="lg" />
+                <form onSubmit={handelSubmit} className="flex flex-col gap-4 p-6 pt-2">
+                    <Input type="text" name="name" label="Name" size="lg" />
+                    <Input type="text" name="image" label="Image URL" size="lg" />
+                    <Input type="number" name="price" label="Price" size="lg" />
+                    <Textarea name="details" label="Description" size="lg" />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
-                        Submit
+                        {isUploading ? "Uploading" : "Submit"}
                     </Button>
                 </form>
             </Card>
-        </section>
+        </main>
     );
 }

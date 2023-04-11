@@ -23,8 +23,7 @@ const Login = () => {
 
         signIn(email, password)
             .then(({ user }) => {
-                const authUser = { email: user?.email };
-                axios.post(`/user`, authUser).then((res) => {
+                axios.get(`/user/${user?.email}`).then((res) => {
                     setUser(res.data);
                     setLoading(false);
                     toast.success("User Signin Done");

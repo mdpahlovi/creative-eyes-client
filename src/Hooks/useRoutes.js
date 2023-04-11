@@ -3,25 +3,31 @@ import { useEffect, useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { BsJournalBookmark } from "react-icons/bs";
 import { MdOutlinePermMedia } from "react-icons/md";
+import { TbBrandBooking } from "react-icons/tb";
+import { FaUsers } from "react-icons/fa";
+import { HiViewGridAdd } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 
 export const useRouter = () => {
     const { user } = useAuth();
-    let routers;
+    const { pathname } = useLocation();
+    const [routers, setRouters] = useState([]);
 
-    if (user?.isAdmin) {
-        routers = [
-            { to: "/bookings", icon: <BiUserCircle size={18} />, label: "Profile" },
-            { to: "/users", icon: <MdOutlinePermMedia size={16} />, label: "Media" },
-            { to: "/add-service", icon: <BsJournalBookmark />, label: "Add Service" },
-        ];
-    } else {
-        routers = [
-            { to: "/profile", icon: <BiUserCircle size={18} />, label: "Profile" },
-            { to: "/media", icon: <MdOutlinePermMedia size={16} />, label: "Media" },
-            { to: "/booking", icon: <BsJournalBookmark />, label: "Booking" },
-        ];
-    }
+    useEffect(() => {
+        if (user?.isAdmin) {
+            setRouters([
+                { to: "/bookings", icon: <TbBrandBooking size={18} />, label: "Bookings" },
+                { to: "/users", icon: <FaUsers size={16} />, label: "Users" },
+                { to: "/add-service", icon: <HiViewGridAdd size={18} />, label: "Add Service" },
+            ]);
+        } else {
+            setRouters([
+                { to: "/profile", icon: <BiUserCircle size={18} />, label: "Profile" },
+                { to: "/media", icon: <MdOutlinePermMedia size={16} />, label: "Media" },
+                { to: "/booking", icon: <BsJournalBookmark />, label: "Booking" },
+            ]);
+        }
+    }, [user?.isAdmin, pathname]);
 
     return routers;
 };

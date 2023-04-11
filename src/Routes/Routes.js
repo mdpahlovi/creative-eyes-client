@@ -6,13 +6,11 @@ import Services from "../Pages/Services";
 import Blogs from "../Pages/Blogs";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
-
 import AddService from "../Pages/AddService";
-import MyReview from "../Pages/MyReview";
 import PrivateRoute from "./PrivateRoute";
-import EditReview from "../Pages/EditReview";
 import ErrorPage from "../Pages/ErrorPage";
 import ServiceById from "../Pages/Services/ServiceById";
+import Users from "../Pages/Users";
 
 const router = createBrowserRouter([
     {
@@ -44,22 +42,6 @@ const router = createBrowserRouter([
                 element: <ServiceById />,
             },
             {
-                path: "/my-review",
-                element: (
-                    <PrivateRoute>
-                        <MyReview />
-                    </PrivateRoute>
-                ),
-            },
-            {
-                path: "/edit-review/:id",
-                element: (
-                    <PrivateRoute>
-                        <EditReview />
-                    </PrivateRoute>
-                ),
-            },
-            {
                 path: "/blogs",
                 element: <Blogs />,
             },
@@ -70,6 +52,14 @@ const router = createBrowserRouter([
             {
                 path: "registration",
                 element: <Registration />,
+            },
+            {
+                path: "/users",
+                element: (
+                    <PrivateRoute>
+                        <Users />
+                    </PrivateRoute>
+                ),
             },
         ],
     },
