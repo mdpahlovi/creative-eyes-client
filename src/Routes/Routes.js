@@ -6,12 +6,13 @@ import Services from "../Pages/Services";
 import Blogs from "../Pages/Blogs";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
-import AddService from "../Pages/AddService";
+import AddService from "../Pages/Admin/AddService";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
 import ServiceById from "../Pages/Services/ServiceById";
-import Users from "../Pages/Users";
+import Users from "../Pages/Admin/Users";
 import Book from "../Pages/Services/Book";
+import Booking from "../Pages/User/Booking";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +68,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <Users />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/booking",
+                element: (
+                    <PrivateRoute>
+                        <Booking />
                     </PrivateRoute>
                 ),
             },

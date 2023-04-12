@@ -34,6 +34,7 @@ const Registration = () => {
             .then(({ user }) => {
                 const authUser = { name: name, email: user?.email };
                 axios.post(`/user`, authUser).then((res) => {
+                    form.reset();
                     setUser(res.data);
                     setLoading(false);
                 });

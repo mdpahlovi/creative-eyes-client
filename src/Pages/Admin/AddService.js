@@ -1,7 +1,7 @@
 import { Card, CardHeader, Typography, Button, Input, Textarea } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import SetTitle from "../Components/Common/SetTitle";
+import SetTitle from "../../Components/Common/SetTitle";
 import axios from "axios";
 import { useState } from "react";
 

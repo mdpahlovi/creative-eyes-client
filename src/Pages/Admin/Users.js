@@ -2,7 +2,7 @@ import { Avatar, IconButton } from "@material-tailwind/react";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { HashLoader } from "react-spinners";
-import NoPhoto from "../Assets/icon/NoPhoto.png";
+import NoPhoto from "../../Assets/icon/NoPhoto.png";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Users = () => {

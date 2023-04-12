@@ -24,6 +24,7 @@ const Login = () => {
         signIn(email, password)
             .then(({ user }) => {
                 axios.get(`/user/${user?.email}`).then((res) => {
+                    form.reset();
                     setUser(res.data);
                     setLoading(false);
                     toast.success("User Signin Done");

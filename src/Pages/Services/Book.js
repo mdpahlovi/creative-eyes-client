@@ -1,30 +1,66 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import Datepicker from "react-tailwindcss-datepicker";
+import { useAuth } from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material-tailwind/react";
-import { useSearchParams } from "react-router-dom";
 
 const Book = () => {
+    const { user } = useAuth();
+    const navigate = useNavigate();
     const [query] = useSearchParams();
-    const service_id = query.get("id");
-    const service_name = query.get("service");
+    const [date, setDate] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = (event) => {
+        setIsSubmitting(true);
+        // Get Form Data
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const location = form.location.value;
+        const phone = form.phone.value;
+        const details = form.details.value;
+
+        if (!date.startDate || !date.endDate) {
+            return toast.error("Please Select Date");
+        }
+
+        const booking_data = { name, location, phone, details, date, userId: user?._id, serviceId: query.get("id") };
+        axios.post("/book", booking_data).then((res) => {
+            form.reset();
+            setIsSubmitting(false);
+            toast.success("Project Successfully Booked");
+            navigate(`/booking`);
+        });
+    };
 
     return (
         <main className="container section-gap">
             <Card className="form-container mt-6">
                 <CardHeader variant="gradient" color="blue" className="mb-4 grid h-28 place-items-center">
                     <Typography className="uppercase text-center" variant="h3" color="white">
-                        Book {service_name}
+                        Book {query.get("service")}
                     </Typography>
                 </CardHeader>
-                <form className="flex flex-col gap-4 p-6 pt-2">
-                    <Input type="text" name="name" label="Project Name" size="lg" />
-                    <Input type="text" name="image" label="Location" size="lg" />
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        <Input type="date" name="price" label="From" size="lg" containerProps={{ className: "min-w-[192px]" }} />
-                        <Input type="date" name="price" label="To" size="lg" containerProps={{ className: "min-w-[192px]" }} />
-                    </div>
-                    <Input type="text" name="image" label="Phone" size="lg" />
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-6 pt-2">
+                    <Input type="text" name="name" label="Name" size="lg" />
+                    <Input type="text" name="location" label="Location" size="lg" />
+                    <Datepicker
+                        useRange={false}
+                        placeholder="Select Date"
+                        popoverDirection="down"
+                        value={date}
+                        onChange={(date) => setDate(date)}
+                        inputClassName="w-full h-[44px] text-blue-gray-700 focus:outline-none border focus:border-2 text-sm px-3 rounded-md border-blue-gray-200 focus:border-blue-500"
+                    >
+                        <div>Pahlovi</div>
+                    </Datepicker>
+                    <Input type="text" name="phone" label="Phone" size="lg" />
                     <Textarea name="details" label="Description" size="lg" />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
-                        Submit
+                        {isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
                 </form>
             </Card>
