@@ -44,7 +44,7 @@ const Registration = () => {
         <main className="container section-gap">
             <Card className="form-container mt-6">
                 <CardHeader variant="gradient" color="blue" className="mb-4 grid h-28 place-items-center">
-                    <Typography className="uppercase" variant="h3" color="white">
+                    <Typography className="uppercase text-center" variant="h3" color="white">
                         Registration
                     </Typography>
                 </CardHeader>

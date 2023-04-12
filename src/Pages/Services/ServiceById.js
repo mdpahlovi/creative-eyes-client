@@ -18,7 +18,7 @@ const ServiceById = () => {
             </div>
         );
     } else {
-        const { image, name, details, price, ratings } = service;
+        const { _id, image, name, details, price, ratings } = service;
         return (
             <>
                 <Header title={name}>
@@ -40,9 +40,11 @@ const ServiceById = () => {
                             <h6>Description: </h6>
                             <p>{details}</p>
                         </div>
-                        <Button className="mt-2" variant="gradient" fullWidth>
-                            Book This Services
-                        </Button>
+                        <Link to={`/book?service=${name}&id=${_id}`}>
+                            <Button className="mt-2" variant="gradient" fullWidth>
+                                Book This Services
+                            </Button>
+                        </Link>
                     </div>
                 </section>
                 {/* <section className="container space-y-6 mb-12 sm:mb-14 lg:mb-16">

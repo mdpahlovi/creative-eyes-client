@@ -78,7 +78,7 @@ const Login = () => {
         <main className="container section-gap">
             <Card className="form-container mt-6 space-y-4">
                 <CardHeader variant="gradient" color="blue" className="grid h-28 place-items-center">
-                    <Typography className="uppercase" variant="h3" color="white">
+                    <Typography className="uppercase text-center" variant="h3" color="white">
                         Login
                     </Typography>
                 </CardHeader>

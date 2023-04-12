@@ -1,5 +1,6 @@
 import { Avatar } from "@material-tailwind/react";
-import { HiStar } from "react-icons/hi2";
+import { BsStar, BsStarFill } from "react-icons/bs";
+import Rating from "react-rating";
 
 export default function TestimonialCard({ testimonial }) {
     const { avatar, name, occupation, detail, review } = testimonial;
@@ -11,16 +12,17 @@ export default function TestimonialCard({ testimonial }) {
                 <div className="flex w-full flex-col gap-0.5">
                     <div className="flex items-center justify-between">
                         <h5>{name}</h5>
-                        <h5 className="text-yellow-700 xs:hidden flex items-center gap-1.5">
-                            <HiStar size={20} />
+                        <h5 className="text-blue-500 xs:hidden flex items-center gap-0.5">
+                            <BsStarFill size={18} />
                             {`(${review})`}
                         </h5>
-                        <div className="hidden xs:flex items-center gap-0">
-                            <HiStar size={20} className="text-yellow-700" />
-                            <HiStar size={20} className="text-yellow-700" />
-                            <HiStar size={20} className="text-yellow-700" />
-                            <HiStar size={20} className="text-yellow-700" />
-                            <HiStar size={20} className="text-yellow-700" />
+                        <div className="hidden xs:block">
+                            <Rating
+                                initialRating={parseFloat(review)}
+                                fullSymbol={<BsStarFill size={18} className="text-blue-500" />}
+                                emptySymbol={<BsStar size={18} className="text-blue-500" />}
+                                readonly
+                            />
                         </div>
                     </div>
                     <p>{occupation}</p>

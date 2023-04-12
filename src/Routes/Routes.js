@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
 import ServiceById from "../Pages/Services/ServiceById";
 import Users from "../Pages/Users";
+import Book from "../Pages/Services/Book";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
             {
                 path: "/service/:id",
                 element: <ServiceById />,
+            },
+            {
+                path: "/book",
+                element: (
+                    <PrivateRoute>
+                        <Book />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/blogs",
