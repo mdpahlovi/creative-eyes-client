@@ -8,7 +8,7 @@ const Hero = () => {
     return (
         <section
             className={`relative bg-hero bg-cover bg-center ${
-                isBrowser ? "md:h-[calc(100vh-5rem)]" : ""
+                isBrowser ? "md:h-[calc(100vh-4.5rem)]" : ""
             } section-gap md:min-h-[34rem] flex justify-center items-center`}
         >
             <div className="relative z-[1] container text-center text-white">

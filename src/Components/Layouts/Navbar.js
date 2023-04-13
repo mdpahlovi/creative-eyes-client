@@ -40,9 +40,9 @@ const NavigationBar = () => {
     );
 
     return (
-        <Navbar className="py-2 shadow">
-            <div className="container px-0 flex items-center justify-between text-black">
-                <Link to="/" className="mr-4 py-1">
+        <Navbar className="py-[8.35px] shadow sticky inset-0 z-10">
+            <div className="container flex items-center justify-between text-black">
+                <Link to="/">
                     <img className="w-32" src={Logo} alt="" />
                 </Link>
                 <div className="hidden lg:block">{navList}</div>

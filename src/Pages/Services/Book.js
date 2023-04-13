@@ -27,7 +27,7 @@ const Book = () => {
             return toast.error("Please Select Date");
         }
 
-        const booking_data = { name, location, phone, details, date, userId: user?._id, serviceId: query.get("id") };
+        const booking_data = { name, location, phone, details, date, userId: user?._id, service: { id: query.get("id"), name: query.get("service") } };
         axios.post("/book", booking_data).then((res) => {
             form.reset();
             setIsSubmitting(false);
