@@ -13,6 +13,7 @@ import ServiceById from "../Pages/Services/ServiceById";
 import Users from "../Pages/Admin/Users";
 import Book from "../Pages/Services/Book";
 import Booking from "../Pages/User/Booking";
+import Bookings from "../Pages/Admin/Bookings";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <Booking />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/bookings",
+                element: (
+                    <PrivateRoute>
+                        <Bookings />
                     </PrivateRoute>
                 ),
             },

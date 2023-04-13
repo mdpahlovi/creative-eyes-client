@@ -15,7 +15,7 @@ const NavigationBar = () => {
     const navLink = ({ isActive }) => (isActive ? "font-bold underline text-base" : "text-base");
 
     const navList = (
-        <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+        <ul className="my-4 flex flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
             <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/">
                     Home
@@ -40,7 +40,7 @@ const NavigationBar = () => {
     );
 
     return (
-        <Navbar className="py-[8.35px] shadow sticky inset-0 z-10">
+        <Navbar className="py-[8.35px] px-0 shadow sticky inset-0 z-50">
             <div className="container flex items-center justify-between text-black">
                 <Link to="/">
                     <img className="w-32" src={Logo} alt="" />
@@ -51,7 +51,7 @@ const NavigationBar = () => {
                 </button>
                 <DynamicMenu position={"bottom-end"} className={"hidden lg:block"} />
             </div>
-            <MobileNav open={openNav}>
+            <MobileNav open={openNav} className="container">
                 {navList}
                 <DynamicMenu position={"bottom-start"} />
             </MobileNav>

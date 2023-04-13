@@ -16,26 +16,26 @@ const Users = () => {
                 </div>
             ) : (
                 <table className="w-full table-auto border text-left">
-                    <thead className="bg-gray-300 text-lg font-semibold border-b">
+                    <thead className="bg-gray-300 border-b">
                         <tr>
-                            <th className="py-3 px-6">No</th>
-                            <th className="py-3 px-6">Name</th>
-                            <th className="py-3 px-6">Email</th>
-                            <th className="py-3 px-6">Service</th>
-                            <th className="py-3 px-6">Action</th>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Service</th>
+                            <th className="pr-6">Action</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y">
                         {users.map(({ name, email, avatar }, idx) => (
                             <tr key={idx}>
-                                <td className="py-3 px-6">{`${idx < 9 ? "0" : ""}${idx + 1}`}</td>
-                                <td className="flex items-center gap-x-3 py-3 px-6 whitespace-nowrap">
+                                <td>{`${idx < 9 ? "0" : ""}${idx + 1}`}</td>
+                                <td className="w-max flex items-center gap-x-3">
                                     <Avatar src={avatar ? avatar : NoPhoto} size="sm" />
                                     <p>{name}</p>
                                 </td>
-                                <td className="py-3 px-6 whitespace-nowrap">{email}</td>
-                                <td className="py-3 px-6 whitespace-nowrap">No Service</td>
-                                <td className="py-3 px-6 whitespace-nowrap">
+                                <td>{email}</td>
+                                <td>No Service</td>
+                                <td className="pr-6">
                                     <IconButton variant="outlined" size="sm" color="gray">
                                         <RiDeleteBin5Fill size={16} />
                                     </IconButton>
