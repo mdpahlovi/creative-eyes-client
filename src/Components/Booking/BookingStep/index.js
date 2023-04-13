@@ -22,8 +22,8 @@ const ConditionalStep = ({ project }) => {
         return (
             <>
                 <Step no={2} heading="Project Completed Successfully : " done />
-                <Step no={3} heading="Please wait for your Medias : " end>
-                    <p>We are working on your media. Please with for you mail. If you have any specific requests or ideas communicate with us.</p>
+                <Step no={3} heading="Please wait for the Media : " end>
+                    <p>We are working on your media. Please with for our mail. If you have any specific requests or ideas communicate with us.</p>
                 </Step>
             </>
         );

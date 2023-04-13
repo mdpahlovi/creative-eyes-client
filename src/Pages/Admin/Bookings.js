@@ -2,10 +2,22 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { HashLoader } from "react-spinners";
 import BookingTable from "../../Components/Booking/BookingTable";
+import { toast } from "react-toastify";
 
 const Bookings = () => {
-    const { isLoading, data: bookings = [] } = useQuery("book", () => axios(`/book`).then((res) => res.data));
-    console.log(bookings);
+    const { isLoading, refetch, data: bookings = [] } = useQuery("book", () => axios(`/book`).then((res) => res.data));
+
+    const handleComplete = (id) => {
+        axios.patch(`/book/${id}`, { isComplete: true }).then((res) => {
+            if (res.data.acknowledge) {
+                refetch();
+                toast.success("Project Completed Successfully");
+            }
+        });
+    };
+    const handleUploadMedia = (mediaObj) => {
+        console.log(mediaObj);
+    };
 
     return (
         <main className="container section-gap overflow-x-auto">
@@ -27,7 +39,12 @@ const Bookings = () => {
                     </thead>
                     <tbody className="divide-y">
                         {bookings.map((bookingData) => (
-                            <BookingTable key={bookingData._id} bookingData={bookingData} />
+                            <BookingTable
+                                key={bookingData._id}
+                                bookingData={bookingData}
+                                handleComplete={handleComplete}
+                                handleUploadMedia={handleUploadMedia}
+                            />
                         ))}
                     </tbody>
                 </table>

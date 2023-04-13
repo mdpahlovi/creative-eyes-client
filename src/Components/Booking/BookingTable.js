@@ -1,9 +1,10 @@
 import { differenceInCalendarDays } from "date-fns";
 import NoPhoto from "../../Assets/icon/NoPhoto.png";
-import { Avatar, Checkbox, Tooltip } from "@material-tailwind/react";
+import { Avatar, Checkbox, Chip, Tooltip } from "@material-tailwind/react";
+import UploadWidget from "./UploadWidget";
 
-const BookingTable = ({ bookingData }) => {
-    const { userId, phone, service, name, location, date, details } = bookingData;
+const BookingTable = ({ bookingData, handleComplete, handleUploadMedia }) => {
+    const { _id, userId, phone, service, name, location, date, details, isComplete, isMediaUpdated } = bookingData;
     const dayLeft = differenceInCalendarDays(new Date(date.startDate), new Date());
 
     return (
@@ -26,10 +27,16 @@ const BookingTable = ({ bookingData }) => {
             <td>{location}</td>
             <td>{`${date.startDate} to ${date.endDate}`}</td>
             <td className="pl-3">
-                <Checkbox label={`${dayLeft} Days Left`} />
+                {isComplete ? <Chip value="Completed" className="ml-3" /> : <Checkbox onClick={() => handleComplete(_id)} label={`${dayLeft} Days Left`} />}
             </td>
-            <td className="pl-3 pr-6">
-                <Checkbox label="Remember Me" />
+            <td className="pr-6">
+                {isComplete ? (
+                    <UploadWidget bookingData={bookingData} handleUploadMedia={handleUploadMedia}>
+                        {isMediaUpdated ? "Upload More" : "Upload Media"}
+                    </UploadWidget>
+                ) : (
+                    <Chip value="inCompleted" />
+                )}
             </td>
         </tr>
     );
