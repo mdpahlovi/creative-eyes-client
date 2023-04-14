@@ -31,7 +31,7 @@ const ConditionalStep = ({ project }) => {
         return (
             <>
                 <Step no={2} heading="Project Completed Successfully :" done />
-                <Step no={3} heading="Receive and Review Your Medias : " done end>
+                <Step no={3} heading="Receive and Review Your Media : " done end>
                     <p>
                         You can see and download all of your media from{" "}
                         <Link to={`/media/${_id}`} className="text-blue-500 underline">

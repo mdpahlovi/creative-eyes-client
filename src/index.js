@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import UserContext from "./Contexts/UserContext";
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "react-photo-view/dist/react-photo-view.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import "swiper/css";

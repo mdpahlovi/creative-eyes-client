@@ -1,10 +1,13 @@
 import axios from "axios";
+import { useState } from "react";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import { HashLoader } from "react-spinners";
 import BookingTable from "../../Components/Booking/BookingTable";
-import { toast } from "react-toastify";
 
 const Bookings = () => {
+    const [media, setMedia] = useState({ image: [], audio: [], video: [] });
+
     const { isLoading, refetch, data: bookings = [] } = useQuery("book", () => axios(`/book`).then((res) => res.data));
 
     const handleComplete = (id) => {
@@ -16,7 +19,17 @@ const Bookings = () => {
         });
     };
     const handleUploadMedia = (mediaObj) => {
-        console.log(mediaObj);
+        axios.post("/media", mediaObj).then((res) => {
+            if (res.data.acknowledge) {
+                setMedia({ image: [], audio: [], video: [] });
+                axios.patch(`/book/${mediaObj.bookingId}`, { isMediaUpdated: true }).then((res) => {
+                    if (res.data.acknowledge) {
+                        refetch();
+                        toast.success("Media Updated Successfully");
+                    }
+                });
+            }
+        });
     };
 
     return (
@@ -40,6 +53,7 @@ const Bookings = () => {
                     <tbody className="divide-y">
                         {bookings.map((bookingData) => (
                             <BookingTable
+                                media={media}
                                 key={bookingData._id}
                                 bookingData={bookingData}
                                 handleComplete={handleComplete}

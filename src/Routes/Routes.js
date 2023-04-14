@@ -14,6 +14,7 @@ import Users from "../Pages/Admin/Users";
 import Book from "../Pages/Services/Book";
 import Booking from "../Pages/User/Booking";
 import Bookings from "../Pages/Admin/Bookings";
+import MediaDetails from "../Pages/User/Media/Details";
 
 const router = createBrowserRouter([
     {
@@ -85,6 +86,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <Bookings />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/media/:id",
+                element: (
+                    <PrivateRoute>
+                        <MediaDetails />
                     </PrivateRoute>
                 ),
             },

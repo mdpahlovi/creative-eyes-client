@@ -37,4 +37,10 @@
     .icon {
         @apply flex items-center gap-2;
     }
+    .media-container {
+        @apply mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4;
+    }
+    .media-box {
+        @apply w-full h-full rounded-lg border shadow-md;
+    }
 }
