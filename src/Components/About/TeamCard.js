@@ -19,7 +19,7 @@ const TeamCard = ({ member }) => {
             </div>
             <div className="pt-6 pb-2">
                 <h5>{name}</h5>
-                <hp>{title}</hp>
+                <p>{title}</p>
             </div>
             <h5 className="flex justify-center space-x-4 text-2xl">
                 <a href={linkedin}>

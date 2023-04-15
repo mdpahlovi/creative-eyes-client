@@ -84,7 +84,7 @@ const Login = () => {
                     </Typography>
                 </CardHeader>
                 <div className="line-x px-6">
-                    <p className="mx-2">Login with</p>
+                    <p className="mx-2">Login With</p>
                 </div>
                 <div className="px-6 grid grid-cols-1 xs:grid-cols-3 gap-4">
                     <Button onClick={handelGoogleSignIn} variant="outlined">
@@ -98,7 +98,7 @@ const Login = () => {
                     </Button>
                 </div>
                 <div className="line-x px-6">
-                    <p className="mx-2">Or</p>
+                    <p className="mx-2">Or Use Email</p>
                 </div>
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 px-6">
                     <Input type="email" name="email" label="Email" size="lg" />

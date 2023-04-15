@@ -47,7 +47,7 @@ export default function MediaDetails() {
                         ))}
                     </TabsHeader>
                     <TabsBody>
-                        <TabPanel value="image" className="p-0 media-container">
+                        <TabPanel value="image" className="media-container">
                             <PhotoProvider>
                                 {image.map((url) => (
                                     <PhotoView src={url}>
@@ -56,12 +56,12 @@ export default function MediaDetails() {
                                 ))}
                             </PhotoProvider>
                         </TabPanel>
-                        <TabPanel value="video" className="p-0 media-container">
+                        <TabPanel value="video" className="media-container">
                             {video.map((url) => (
                                 <video src={url} className="aspect-video media-box" controls></video>
                             ))}
                         </TabPanel>
-                        <TabPanel value="audio" className="p-0 media-container">
+                        <TabPanel value="audio" className="media-container">
                             {audio.map((url) => (
                                 <div className="relative aspect-video media-box flex justify-center items-center">
                                     <SiAudiomack size={56} className="-mt-4 absolute" />

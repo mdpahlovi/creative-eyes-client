@@ -32,13 +32,13 @@
         @apply py-12 sm:py-14 lg:py-16;
     }
     .line-x {
-        @apply flex items-center before:flex-1 before:border before:border-black/50 after:flex-1 after:border after:border-black/50;
+        @apply flex items-center before:flex-1 before:border before:border-gray-400 after:flex-1 after:border after:border-gray-400;
     }
     .icon {
         @apply flex items-center gap-2;
     }
     .media-container {
-        @apply mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4;
+        @apply grid sm:grid-cols-2 lg:grid-cols-3 gap-4;
     }
     .media-box {
         @apply w-full h-full rounded-lg border shadow-md;

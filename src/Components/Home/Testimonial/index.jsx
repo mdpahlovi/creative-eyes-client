@@ -44,10 +44,10 @@ const Testimonial = () => {
                 ))}
             </Swiper>
             <div className="flex justify-end gap-4">
-                <IconButton onClick={handlePrev} className="rounded-full">
+                <IconButton onClick={handlePrev}>
                     <RiArrowLeftSLine size={24} />
                 </IconButton>
-                <IconButton onClick={handleNext} className="rounded-full">
+                <IconButton onClick={handleNext}>
                     <RiArrowRightSLine size={24} />
                 </IconButton>
             </div>

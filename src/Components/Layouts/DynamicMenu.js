@@ -13,7 +13,7 @@ const DynamicMenu = ({ className, position }) => {
     const routers = useRouter();
 
     return (
-        <div className={`${className} mb-4 lg:mb-0`}>
+        <div className={`${className} mb-4 lg:mb-0 text-black`}>
             {loading ? (
                 <Button variant="outlined" color="gray" size="sm" className="flex items-center">
                     Loading <PulseLoader color="#000000" size={10} />
@@ -22,14 +22,14 @@ const DynamicMenu = ({ className, position }) => {
                 <Menu placement={position}>
                     <MenuHandler>
                         <Button variant="outlined" color="gray" size="sm" className="relative">
-                            <img src={user?.avatar ? user.avatar : NoPhoto} alt="" className="absolute inset-0 w-8 h-8 rounded-lg" />
-                            <span className="pl-6">{user?.name ? user.name : "No Name"}</span>
+                            <img src={user?.avatar ? user.avatar : NoPhoto} alt="" className="absolute inset-0 w-10 h-10 rounded-full" />
+                            <span className="pl-8">{user?.name ? user.name : "No Name"}</span>
                         </Button>
                     </MenuHandler>
                     <MenuList className="p-1">
                         {routers.map(({ to, icon, label }, idx) => (
                             <MenuItem key={idx}>
-                                <Link to={to} className="icon">
+                                <Link to={to} className="icon px-3 py-2">
                                     {icon}
                                     {label}
                                 </Link>
@@ -37,7 +37,7 @@ const DynamicMenu = ({ className, position }) => {
                         ))}
                         <hr className="my-1" />
                         <MenuItem className="hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10">
-                            <button onClick={signout} className="text-red-500 icon">
+                            <button onClick={signout} className="text-red-500 icon px-3 py-2">
                                 <FiLogOut size={16} />
                                 Logout
                             </button>

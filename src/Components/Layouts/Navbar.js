@@ -40,8 +40,8 @@ const NavigationBar = () => {
     );
 
     return (
-        <Navbar className="py-[8.35px] px-0 shadow sticky inset-0 z-50">
-            <div className="container flex items-center justify-between text-black">
+        <Navbar className="shadow sticky inset-0 z-50">
+            <div className="container flex items-center justify-between">
                 <Link to="/">
                     <img className="w-32" src={Logo} alt="" />
                 </Link>

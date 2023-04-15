@@ -11,16 +11,16 @@ const Footer = () => {
                         <h3 className="mb-2">Let's keep in touch!</h3>
                         <p className="text-lg mt-0 mb-2">Find us on any of these platforms, I respond 1-2 business days.</p>
                         <div className="my-6 lg:mb-0 space-x-4 flex flex-wrap justify-center lg:justify-start">
-                            <IconButton variant="outlined" color="gray" className="rounded-full">
+                            <IconButton variant="outlined" color="gray">
                                 <ImTwitter className="text-lg" />
                             </IconButton>
-                            <IconButton variant="outlined" color="gray" className="rounded-full">
+                            <IconButton variant="outlined" color="gray">
                                 <ImFacebook className="text-lg" />
                             </IconButton>
-                            <IconButton variant="outlined" color="gray" className="rounded-full">
+                            <IconButton variant="outlined" color="gray">
                                 <ImDribbble className="text-lg" />
                             </IconButton>
-                            <IconButton variant="outlined" color="gray" className="rounded-full">
+                            <IconButton variant="outlined" color="gray">
                                 <ImLinkedin2 className="text-lg" />
                             </IconButton>
                         </div>

@@ -41,7 +41,7 @@ export default function Booking() {
                 </TabsHeader>
                 <TabsBody>
                     {bookingData.map((project) => (
-                        <TabPanel key={project._id} value={project._id} className="mt-6 p-0 text-black">
+                        <TabPanel key={project._id} value={project._id}>
                             <BookingStep project={project} />
                         </TabPanel>
                     ))}

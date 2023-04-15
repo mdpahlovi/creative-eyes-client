@@ -12,8 +12,12 @@ const Hero = () => {
             } section-gap md:min-h-[34rem] flex justify-center items-center`}
         >
             <div className="relative z-[1] container text-center text-white">
-                <Link to="/" className="hidden xs:inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full bg-white/20" role="alert">
-                    <Button className="rounded-full mr-2" variant="gradient" size="sm">
+                <Link
+                    to="/"
+                    className="hidden xs:inline-flex justify-between items-center gap-2 py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-white/20"
+                    role="alert"
+                >
+                    <Button variant="gradient" size="sm">
                         New
                     </Button>
                     <span className="text-sm font-medium flex items-center">
