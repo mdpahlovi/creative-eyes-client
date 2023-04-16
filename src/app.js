@@ -37,6 +37,7 @@ const App = () => {
         input: { styles: { base: { label: { color: "peer-placeholder-shown:text-gray-400" } } } },
         textarea: { styles: { base: { label: { color: "peer-placeholder-shown:text-gray-400" } } } },
         tabPanel: { styles: { base: { color: "", p: "pt-6" } } },
+        dialog: { styles: { base: { container: { color: "" }, sizes: { md: { maxWidth: "", minWidth: "", width: "" } } } } },
     };
     console.log(useTheme());
     return (
