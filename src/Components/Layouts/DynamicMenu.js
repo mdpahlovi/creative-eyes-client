@@ -13,7 +13,7 @@ const DynamicMenu = ({ className, position }) => {
     const routers = useRouter();
 
     return (
-        <div className={`${className} mb-4 lg:mb-0 text-black`}>
+        <div className={`${className} mb-4 lg:mb-0`}>
             {loading ? (
                 <Button variant="outlined" color="gray" size="sm" className="flex items-center">
                     Loading <PulseLoader color="#000000" size={10} />

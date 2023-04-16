@@ -5,7 +5,7 @@ const UploadWidget = ({ children, media, bookingData, handleUploadMedia }) => {
     const widgetRef = useRef();
     const cloudinaryRef = useRef();
 
-    const { _id, userId } = bookingData;
+    const { _id, name, userId } = bookingData;
 
     useEffect(() => {
         cloudinaryRef.current = window.cloudinary;
@@ -25,11 +25,11 @@ const UploadWidget = ({ children, media, bookingData, handleUploadMedia }) => {
                         audio.push(result.info.url);
                     }
                 } else if ((image.length || audio.length || video.length) && result.event === "close") {
-                    handleUploadMedia({ media, bookingId: _id, userId: userId._id });
+                    handleUploadMedia({ media, booking: { id: _id, name }, userId: userId._id });
                 }
             }
         );
-    }, [_id, handleUploadMedia, media, userId]);
+    }, [_id, handleUploadMedia, media, name, userId]);
 
     return (
         <Button variant="outlined" size="sm" onClick={() => widgetRef.current.open()}>

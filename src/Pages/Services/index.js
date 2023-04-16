@@ -7,7 +7,7 @@ const Services = () => {
     SetTitle("Creative Eyes | Services");
     return (
         <>
-            <Header title={"Explore My Services"}>
+            <Header title={"Explore Our Service"}>
                 <Link to="/services">Services</Link>
             </Header>
             <section className="container section-gap space-y-6">

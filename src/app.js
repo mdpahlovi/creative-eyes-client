@@ -28,16 +28,12 @@ const App = () => {
                 variants: { outlined: { gray: { border: "border border-black", color: "" } } },
             },
         },
-        menu: {
-            styles: {
-                base: {
-                    item: { initial: { borderRadius: "rounded", color: "", pb: "", pt: "", px: "" } },
-                    menu: { color: "" },
-                },
-            },
-        },
-        navbar: { styles: { base: { navbar: { initial: { px: "", py: "py-[8.35px]" } } }, variants: { white: { color: "text-black" } } } },
+        menu: { styles: { base: { item: { initial: { borderRadius: "rounded", color: "", pb: "", pt: "", px: "" } }, menu: { color: "" } } } },
+        navbar: { styles: { base: { navbar: { initial: { px: "", py: "py-[8.35px]" } } }, variants: { filled: { white: { color: "" } } } } },
         card: { styles: { variants: { filled: { white: { color: "" } } } } },
+        cardHeader: { styles: { base: { shadow: { boxShadow: "shadow" } } } },
+        cardBody: { styles: { base: { p: "px-6 pt-4 pb-[1.125rem]" } } },
+        cardFooter: { styles: { base: { initial: { p: "px-6 py-4" } } } },
         input: { styles: { base: { label: { color: "peer-placeholder-shown:text-gray-400" } } } },
         textarea: { styles: { base: { label: { color: "peer-placeholder-shown:text-gray-400" } } } },
         tabPanel: { styles: { base: { color: "", p: "pt-6" } } },

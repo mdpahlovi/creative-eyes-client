@@ -1,10 +1,12 @@
 import { Tabs, TabsHeader, TabsBody, Tab, TabPanel } from "@material-tailwind/react";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { useAuth } from "../../Hooks/useAuth";
 import { HashLoader } from "react-spinners";
+import Header from "../../Components/Common/Header";
 import BookingStep from "../../Components/Booking/BookingStep";
-import { useEffect, useRef } from "react";
 
 export default function Booking() {
     const tabs = useRef();
@@ -26,27 +28,32 @@ export default function Booking() {
     } else if (bookingData.length === 0) {
         return (
             <div className="container section-gap h-[calc(100vh-4.5rem)] flex items-center justify-center text-center">
-                <h5>Sorry! You didn't book any service.</h5>
+                <h3>Sorry! You didn't book any service.</h3>
             </div>
         );
     } else {
         return (
-            <Tabs ref={tabs} value={bookingData[0]?._id} className="container section-gap ">
-                <TabsHeader className="w-max whitespace-nowrap mx-auto">
-                    {bookingData.map(({ _id, name }) => (
-                        <Tab key={_id} value={_id} className="px-6 py-2.5 text-lg font-semibold">
-                            {name}
-                        </Tab>
-                    ))}
-                </TabsHeader>
-                <TabsBody>
-                    {bookingData.map((project) => (
-                        <TabPanel key={project._id} value={project._id}>
-                            <BookingStep project={project} />
-                        </TabPanel>
-                    ))}
-                </TabsBody>
-            </Tabs>
+            <>
+                <Header title="Booked Project">
+                    <Link to="/booking">Booking</Link>
+                </Header>
+                <Tabs ref={tabs} value={bookingData[0]?._id} className="container section-gap ">
+                    <TabsHeader className="w-max whitespace-nowrap mx-auto">
+                        {bookingData.map(({ _id, name }) => (
+                            <Tab key={_id} value={_id} className="px-6 py-2.5 text-lg font-semibold">
+                                {name}
+                            </Tab>
+                        ))}
+                    </TabsHeader>
+                    <TabsBody>
+                        {bookingData.map((project) => (
+                            <TabPanel key={project._id} value={project._id}>
+                                <BookingStep project={project} />
+                            </TabPanel>
+                        ))}
+                    </TabsBody>
+                </Tabs>
+            </>
         );
     }
 }

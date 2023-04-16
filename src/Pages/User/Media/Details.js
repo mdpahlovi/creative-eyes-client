@@ -28,15 +28,15 @@ export default function MediaDetails() {
             </div>
         );
     } else {
-        const { media, bookingId } = mediaData;
+        const { media = {}, booking } = mediaData;
         const { image = [], audio = [], video = [] } = media;
         return (
             <>
-                <Header title={bookingId?.name}>
+                <Header title={booking?.name}>
                     <Link to="/media" className="opacity-60">
                         Media
                     </Link>
-                    <Link>{bookingId?.name}</Link>
+                    <Link>{booking?.name}</Link>
                 </Header>
                 <Tabs ref={tabs} value="image" className="container section-gap">
                     <TabsHeader className="w-max whitespace-nowrap mx-auto">
