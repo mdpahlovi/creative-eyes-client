@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import SetTitle from "../Components/Common/SetTitle";
+import { useEffect, useState } from "react";
 import Hero from "../Components/Home/Hero";
 import Stats from "../Components/Home/Stats";
 import Service from "../Components/Common/Service";
 import Testimonial from "../Components/Home/Testimonial";
 
 const Home = () => {
-    SetTitle("Creative Eyes Photography");
     const [width, setWidth] = useState(window.innerWidth);
     const [size, setSize] = useState(3);
 

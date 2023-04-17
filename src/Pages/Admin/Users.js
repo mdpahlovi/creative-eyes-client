@@ -1,9 +1,9 @@
-import { Avatar, IconButton } from "@material-tailwind/react";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { HashLoader } from "react-spinners";
 import NoPhoto from "../../Assets/icon/NoPhoto.png";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import Loader from "../../Components/Common/Loader";
+import { Avatar, IconButton } from "@material-tailwind/react";
 
 const Users = () => {
     const { isLoading, data: users = [] } = useQuery("user", () => axios(`/user`).then((res) => res.data));
@@ -11,9 +11,7 @@ const Users = () => {
     return (
         <main className="container section-gap overflow-x-auto">
             {isLoading ? (
-                <div className="w-full h-[calc(100vh-4.5rem)] flex justify-center items-center">
-                    <HashLoader color="#3388FF" size={100} />
-                </div>
+                <Loader />
             ) : (
                 <table className="w-full table-auto border text-left">
                     <thead className="bg-gray-300 border-b">

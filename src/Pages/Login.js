@@ -1,13 +1,10 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../Hooks/useAuth";
-import SetTitle from "../Components/Common/SetTitle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Card, CardHeader, Typography, Button, Checkbox, Input } from "@material-tailwind/react";
 
 const Login = () => {
-    SetTitle("Creative Eyes | Login");
-
     const { setUser, setLoading, signIn, signInByGoogle, signInByFacebook, signInByGithub } = useAuth();
 
     const navigate = useNavigate();

@@ -2,12 +2,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Hooks/useAuth";
-import SetTitle from "../Components/Common/SetTitle";
 import { Card, CardHeader, Typography, Button, Checkbox, Input } from "@material-tailwind/react";
 
 const Registration = () => {
-    SetTitle("Creative Eyes | Registration");
-
     const { createUser, setUser, setLoading } = useAuth();
 
     const handelSubmit = (event) => {

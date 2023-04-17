@@ -1,10 +1,8 @@
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import ErrorImg from "../Assets/error-img.svg";
-import SetTitle from "../Components/Common/SetTitle";
 
 const ErrorPage = () => {
-    SetTitle("Creative Eyes | Error Page");
     return (
         <div className="max-w-lg mx-auto h-screen flex flex-col justify-center items-center">
             <img className="px-3 sm:px-6" src={ErrorImg} alt="" />

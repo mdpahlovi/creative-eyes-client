@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
-import { HashLoader } from "react-spinners";
+import Loader from "../../Components/Common/Loader";
 import BookingTable from "../../Components/Booking/BookingTable";
 
 const Bookings = () => {
@@ -35,9 +35,7 @@ const Bookings = () => {
     return (
         <main className="container section-gap overflow-x-auto">
             {isLoading ? (
-                <div className="w-full h-[calc(100vh-4.5rem)] flex justify-center items-center">
-                    <HashLoader color="#3388FF" size={100} />
-                </div>
+                <Loader />
             ) : (
                 <table className="w-full table-auto border text-left">
                     <thead className="bg-gray-300 border-b">

@@ -1,12 +1,12 @@
-import { Tabs, TabsHeader, TabsBody, Tab, TabPanel } from "@material-tailwind/react";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useAuth } from "../../Hooks/useAuth";
-import { HashLoader } from "react-spinners";
 import Header from "../../Components/Common/Header";
+import Loader from "../../Components/Common/Loader";
 import BookingStep from "../../Components/Booking/BookingStep";
+import { Tabs, TabsHeader, TabsBody, Tab, TabPanel } from "@material-tailwind/react";
 
 export default function Booking() {
     const tabs = useRef();
@@ -20,11 +20,7 @@ export default function Booking() {
     }, [bookingData.length]);
 
     if (loading || isLoading) {
-        return (
-            <div className="w-full h-[calc(100vh-4.5rem)] flex justify-center items-center">
-                <HashLoader color="#3388FF" size={100} />
-            </div>
-        );
+        return <Loader />;
     } else if (bookingData.length === 0) {
         return (
             <div className="container section-gap h-[calc(100vh-4.5rem)] flex items-center justify-center text-center">

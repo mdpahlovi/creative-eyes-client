@@ -6,7 +6,7 @@ const BlogModal = ({ blog, setBlog }) => {
     const date = format(parseISO(createdAt), "PP");
 
     return (
-        <Dialog size="md" open={_id ? true : false} handler={() => setBlog(null)}>
+        <Dialog open={_id ? true : false} handler={() => setBlog(null)}>
             <CardHeader floated={false} shadow={false} color="transparent" className="m-0 rounded-none aspect-video">
                 <img src={image} alt="" />
             </CardHeader>

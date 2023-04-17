@@ -1,14 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import AboutUs from "../Components/About";
 import Header from "../Components/Common/Header";
-import SetTitle from "../Components/Common/SetTitle";
 import TeamCard from "../Components/About/TeamCard";
 import { team } from "../Components/Common/FakeData";
 
 const About = () => {
-    SetTitle("Creative Eyes | About");
-
     return (
         <>
             <Header title={"More About US"}>

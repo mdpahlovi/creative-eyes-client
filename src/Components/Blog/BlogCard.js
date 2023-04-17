@@ -1,8 +1,10 @@
 import { Card, CardHeader, CardBody, Avatar, CardFooter, Button } from "@material-tailwind/react";
 import { MdEditNote } from "react-icons/md";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { useAuth } from "../../Hooks/useAuth";
 
 const BlogCard = ({ blog, handleDelete, setBlogData }) => {
+    const { user } = useAuth();
     const { _id, author, title, description, image } = blog;
 
     return (
@@ -19,14 +21,18 @@ const BlogCard = ({ blog, handleDelete, setBlogData }) => {
                 <Button onClick={() => setBlogData(blog)} size="sm" className="hover:shadow-none">
                     See More
                 </Button>
-                <div className="flex gap-2.5">
-                    <button className="icon-button">
-                        <MdEditNote size={18} />
-                    </button>
-                    <button onClick={() => handleDelete(_id)} className="icon-button">
-                        <RiDeleteBin5Fill />
-                    </button>
-                </div>
+                {(user?.isAdmin || user?._id === author?._id) && (
+                    <div className="flex gap-2.5">
+                        <button className="icon-button">
+                            <MdEditNote size={18} />
+                        </button>
+                        {user?.isAdmin && (
+                            <button onClick={() => handleDelete(_id)} className="icon-button">
+                                <RiDeleteBin5Fill />
+                            </button>
+                        )}
+                    </div>
+                )}
             </CardFooter>
         </Card>
     );
