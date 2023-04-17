@@ -3,6 +3,7 @@ import Hero from "../Components/Home/Hero";
 import Stats from "../Components/Home/Stats";
 import Service from "../Components/Common/Service";
 import Testimonial from "../Components/Home/Testimonial";
+import NewsLetter from "../Components/Home/NewsLetter";
 
 const Home = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -30,6 +31,7 @@ const Home = () => {
             </section>
             <Stats />
             <Testimonial />
+            <NewsLetter />
         </>
     );
 };

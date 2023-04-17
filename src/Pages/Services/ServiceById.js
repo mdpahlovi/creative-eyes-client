@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../../Components/Common/Header";
 import Loader from "../../Components/Common/Loader";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const ServiceById = () => {
     const { id } = useParams();
@@ -29,10 +30,17 @@ const ServiceById = () => {
                 ></div>
                 <div className="flex flex-col gap-2 p-6 xl:px-8 xl:py-10">
                     <h3 className="p-4 shadow rounded-md mb-2">{name}</h3>
-                    <h6>Price: {price}$</h6>
-                    <h6>Rating: {ratings}</h6>
+                    <h5 className="flex gap-1">
+                        Price :
+                        <span className="inline-flex items-center">
+                            {price}
+                            <TbCurrencyTaka className="-ml-1" />
+                            <span className="text-sm font-normal">(Per Day)</span>
+                        </span>
+                    </h5>
+                    <h5>Rating : {ratings}</h5>
                     <div>
-                        <h6>Description: </h6>
+                        <h5>Description : </h5>
                         <p>{details}</p>
                     </div>
                     <Link to={`/book?service=${name}&id=${_id}`}>

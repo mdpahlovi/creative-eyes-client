@@ -15,7 +15,7 @@ export default function Media() {
     } else if (media.length === 0) {
         return (
             <div className="container section-gap h-[calc(100vh-4.5rem)] flex items-center justify-center text-center">
-                <h3>Sorry! You didn't book any service.</h3>
+                <h3>Sorry! You didn't have any media.</h3>
             </div>
         );
     } else {
