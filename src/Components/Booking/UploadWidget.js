@@ -1,11 +1,11 @@
 import { useRef, useEffect } from "react";
 import { Button } from "@material-tailwind/react";
 
-const UploadWidget = ({ children, media, bookingData, handleUploadMedia }) => {
+const UploadWidget = ({ children, media, bookingData, handleUploadMedia, handleUploadMore }) => {
     const widgetRef = useRef();
     const cloudinaryRef = useRef();
 
-    const { _id, name, userId } = bookingData;
+    const { _id, name, userId, isMediaUpdated } = bookingData;
 
     useEffect(() => {
         cloudinaryRef.current = window.cloudinary;
@@ -25,11 +25,15 @@ const UploadWidget = ({ children, media, bookingData, handleUploadMedia }) => {
                         audio.push(result.info.url);
                     }
                 } else if ((image.length || audio.length || video.length) && result.event === "close") {
-                    handleUploadMedia({ media, booking: { id: _id, name }, userId: userId._id });
+                    if (!isMediaUpdated) {
+                        handleUploadMedia({ media, booking: { id: _id, name }, userId: userId._id });
+                    } else {
+                        handleUploadMore(_id, media);
+                    }
                 }
             }
         );
-    }, [_id, handleUploadMedia, media, name, userId]);
+    }, [_id, handleUploadMedia, handleUploadMore, isMediaUpdated, media, name, userId]);
 
     return (
         <Button variant="outlined" size="sm" onClick={() => widgetRef.current.open()}>

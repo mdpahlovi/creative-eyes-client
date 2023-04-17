@@ -31,6 +31,15 @@ const Bookings = () => {
             }
         });
     };
+    const handleUploadMore = (id, media) => {
+        axios.patch(`media/book/${id}`, media).then((res) => {
+            if (res.data.acknowledge) {
+                setMedia({ image: [], audio: [], video: [] });
+                refetch();
+                toast.success("More Media Uploaded");
+            }
+        });
+    };
 
     return (
         <main className="container section-gap overflow-x-auto">
@@ -55,6 +64,7 @@ const Bookings = () => {
                                 key={bookingData._id}
                                 bookingData={bookingData}
                                 handleComplete={handleComplete}
+                                handleUploadMore={handleUploadMore}
                                 handleUploadMedia={handleUploadMedia}
                             />
                         ))}

@@ -3,7 +3,7 @@ import NoPhoto from "../../Assets/icon/NoPhoto.png";
 import { Avatar, Checkbox, Chip, Tooltip } from "@material-tailwind/react";
 import UploadWidget from "./UploadWidget";
 
-const BookingTable = ({ bookingData, handleComplete, handleUploadMedia, media }) => {
+const BookingTable = ({ bookingData, handleComplete, handleUploadMedia, handleUploadMore, media }) => {
     const { _id, userId, phone, service, name, location, date, details, isComplete, isMediaUpdated } = bookingData;
     const dayLeft = differenceInCalendarDays(new Date(date.startDate), new Date());
 
@@ -31,7 +31,7 @@ const BookingTable = ({ bookingData, handleComplete, handleUploadMedia, media })
             </td>
             <td className="pr-6">
                 {isComplete ? (
-                    <UploadWidget media={media} bookingData={bookingData} handleUploadMedia={handleUploadMedia}>
+                    <UploadWidget media={media} bookingData={bookingData} handleUploadMedia={handleUploadMedia} handleUploadMore={handleUploadMore}>
                         {isMediaUpdated ? "Upload More" : "Upload Media"}
                     </UploadWidget>
                 ) : (
