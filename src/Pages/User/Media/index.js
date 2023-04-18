@@ -25,8 +25,8 @@ export default function Media() {
                     <Link to="/media">Media</Link>
                 </Header>
                 <div className="container section-gap flex flex-wrap gap-6">
-                    {media.map(({ booking }) => (
-                        <Link to={`/media/${booking?.id}`}>
+                    {media.map(({ _id, booking }) => (
+                        <Link key={_id} to={`/media/${booking?.id}`}>
                             <Button>{booking?.name}</Button>
                         </Link>
                     ))}

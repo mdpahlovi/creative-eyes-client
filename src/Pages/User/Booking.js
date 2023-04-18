@@ -36,7 +36,7 @@ export default function Booking() {
                 <Tabs ref={tabs} value={bookingData[0]?._id} className="container section-gap ">
                     <TabsHeader className="w-max whitespace-nowrap mx-auto">
                         {bookingData.map(({ _id, name }) => (
-                            <Tab key={_id} value={_id} className="px-6 py-2.5 text-lg font-semibold">
+                            <Tab key={_id} value={_id}>
                                 {name}
                             </Tab>
                         ))}

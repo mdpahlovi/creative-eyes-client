@@ -54,7 +54,8 @@ const Bookings = () => {
                             <th>Location</th>
                             <th>Duration</th>
                             <th>isComplete</th>
-                            <th className="pr-6">isMediaUpdated</th>
+                            <th>isMediaUpdated</th>
+                            <th className="pr-6">Media</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y">

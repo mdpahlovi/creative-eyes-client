@@ -1,68 +1,41 @@
 import axios from "axios";
+import { useState } from "react";
 import { useQuery } from "react-query";
-import { useEffect, useRef } from "react";
-import { SiAudiomack } from "react-icons/si";
 import { Link, useParams } from "react-router-dom";
 import Header from "../../../Components/Common/Header";
 import Loader from "../../../Components/Common/Loader";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Tabs, TabsHeader, TabsBody, Tab, TabPanel } from "@material-tailwind/react";
-
-const tabs_name = ["image", "video", "audio"];
+import TabHeader from "../../../Components/Media/TabHeader";
+import ImagePanel from "../../../Components/Media/ImagePanel";
+import VideoPanel from "../../../Components/Media/VideoPanel";
+import AudioPanel from "../../../Components/Media/AudioPanel";
+import { Tabs, TabsBody, TabPanel } from "@material-tailwind/react";
 
 export default function MediaDetails() {
-    const tabs = useRef();
     const { id } = useParams();
+    const [isSelect, setIsSelect] = useState(false);
     const { isLoading, data: mediaData = {} } = useQuery(["media", id], () => axios(`/media/book/${id}`).then((res) => res.data));
-
-    useEffect(() => {
-        if (mediaData?._id) {
-            tabs.current.childNodes[0].classList.add("overflow-x-auto");
-        }
-    }, [mediaData?._id]);
 
     if (isLoading) return <Loader />;
 
-    const { media = {}, booking } = mediaData;
-    const { image = [], audio = [], video = [] } = media;
     return (
         <>
-            <Header title={booking?.name}>
+            <Header title={mediaData?.booking?.name}>
                 <Link to="/media" className="opacity-60">
                     Media
                 </Link>
-                <Link>{booking?.name}</Link>
+                <Link>{mediaData?.booking?.name}</Link>
             </Header>
-            <Tabs ref={tabs} value="image" className="container section-gap">
-                <TabsHeader className="w-max whitespace-nowrap mx-auto">
-                    {tabs_name.map((tab) => (
-                        <Tab value={tab} className="px-6 py-2.5 text-lg font-semibold">
-                            {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                        </Tab>
-                    ))}
-                </TabsHeader>
+            <Tabs value="image" className="container section-gap">
+                <TabHeader isSelect={isSelect} setIsSelect={setIsSelect} />
                 <TabsBody>
                     <TabPanel value="image" className="media-container">
-                        <PhotoProvider>
-                            {image.map((url) => (
-                                <PhotoView src={url}>
-                                    <img src={url} alt="" className="media-box" />
-                                </PhotoView>
-                            ))}
-                        </PhotoProvider>
+                        <ImagePanel image={mediaData?.media?.image} isSelect={isSelect} />
                     </TabPanel>
                     <TabPanel value="video" className="media-container">
-                        {video.map((url) => (
-                            <video src={url} className="aspect-video media-box" controls></video>
-                        ))}
+                        <VideoPanel video={mediaData?.media?.video} isSelect={isSelect} />
                     </TabPanel>
                     <TabPanel value="audio" className="media-container">
-                        {audio.map((url) => (
-                            <div className="relative aspect-video media-box flex justify-center items-center">
-                                <SiAudiomack size={56} className="-mt-4 absolute" />
-                                <audio src={url} className="w-full h-full rounded-lg" controls></audio>
-                            </div>
-                        ))}
+                        <AudioPanel audio={mediaData?.media?.audio} isSelect={isSelect} />
                     </TabPanel>
                 </TabsBody>
             </Tabs>

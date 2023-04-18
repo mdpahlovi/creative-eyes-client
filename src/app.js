@@ -38,6 +38,7 @@ const App = () => {
         textarea: { styles: { base: { label: { color: "peer-placeholder-shown:text-gray-400" } } } },
         tabPanel: { styles: { base: { color: "", p: "pt-6" } } },
         dialog: { styles: { base: { container: { color: "" } }, sizes: { md: { width: "", minWidth: "", maxWidth: "max-w-lg" } } } },
+        tab: { styles: { base: { tab: { initial: { p: "px-4 py-2", fontWeight: "font-semibold" } } } } },
     };
     console.log(useTheme());
     return (
