@@ -32,7 +32,7 @@ const Bookings = () => {
         });
     };
     const handleUploadMore = (id, media) => {
-        axios.patch(`media/book/${id}`, media).then((res) => {
+        axios.patch(`/media/update/${id}`, media).then((res) => {
             if (res.data.acknowledge) {
                 setMedia({ image: [], audio: [], video: [] });
                 refetch();

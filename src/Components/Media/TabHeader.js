@@ -1,9 +1,11 @@
+import { useParams } from "react-router-dom";
 import { useAuth } from "../../Hooks/useAuth";
 import { Button, Tab, TabsHeader } from "@material-tailwind/react";
 
 const tabs_name = ["image", "video", "audio"];
 
-const TabHeader = ({ isSelect, setIsSelect }) => {
+const TabHeader = ({ isSelect, setIsSelect, handleDelete, media }) => {
+    const { id } = useParams();
     const { user } = useAuth();
 
     return (
@@ -13,7 +15,7 @@ const TabHeader = ({ isSelect, setIsSelect }) => {
                     <Button size="sm" onClick={() => setIsSelect(!isSelect)}>
                         {isSelect ? "DeSelect" : "Select"}
                     </Button>
-                    <Button size="sm" disabled={isSelect ? false : true}>
+                    <Button size="sm" disabled={isSelect ? false : true} onClick={() => handleDelete(id, media)}>
                         Delete
                     </Button>
                 </div>
