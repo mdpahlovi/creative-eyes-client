@@ -2,13 +2,23 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Loader from "../../Components/Common/Loader";
-import { Button } from "@material-tailwind/react";
+import { Button, Tooltip } from "@material-tailwind/react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { MdEditNote } from "react-icons/md";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 const AllService = () => {
-    const { isLoading, data: services = [] } = useQuery("service", () => axios("/service").then((res) => res.data));
+    const { isLoading, refetch, data: services = [] } = useQuery("service", () => axios("/service").then((res) => res.data));
+
+    const handelDelete = (id) => {
+        axios.delete(`/service/${id}`).then((res) => {
+            if (res?.data?.acknowledge) {
+                refetch();
+                toast.success("Service Deleted Successfully");
+            }
+        });
+    };
 
     if (isLoading) return <Loader />;
 
@@ -37,9 +47,11 @@ const AllService = () => {
                                 <td>{`${idx < 9 ? "0" : ""}${idx + 1}`}</td>
                                 <td>{name}</td>
                                 <td>
-                                    <Button size="sm" variant="outlined">
-                                        Details
-                                    </Button>
+                                    <Tooltip content={details} className="max-w-lg">
+                                        <Button size="sm" variant="outlined">
+                                            Details
+                                        </Button>
+                                    </Tooltip>
                                 </td>
                                 <td>
                                     <h5 className="inline-flex items-center">
@@ -50,10 +62,12 @@ const AllService = () => {
                                 </td>
                                 <td className="pr-6">
                                     <div className="flex gap-4">
-                                        <button className="icon-button">
-                                            <MdEditNote size={18} />
-                                        </button>
-                                        <button className="icon-button">
+                                        <Link to={`/edit-service/${_id}`}>
+                                            <button className="icon-button">
+                                                <MdEditNote size={18} />
+                                            </button>
+                                        </Link>
+                                        <button onClick={() => handelDelete(_id)} className="icon-button">
                                             <RiDeleteBin5Fill />
                                         </button>
                                     </div>

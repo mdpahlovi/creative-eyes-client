@@ -17,8 +17,8 @@ export const useRouter = () => {
         if (user?.isAdmin) {
             setRouters([
                 { to: "/all-user", icon: <FaUsers size={16} />, label: "All User" },
-                { to: "/all-booking", icon: <TbBrandBooking size={18} />, label: "All Booking" },
                 { to: "/all-service", icon: <HiViewGridAdd size={18} />, label: "All Service" },
+                { to: "/all-booking", icon: <TbBrandBooking size={18} />, label: "All Booking" },
             ]);
         } else {
             setRouters([

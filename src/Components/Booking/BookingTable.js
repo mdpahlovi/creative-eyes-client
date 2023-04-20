@@ -21,7 +21,7 @@ const BookingTable = ({ bookingData, handleComplete, handleUploadMedia, handleUp
             <td>
                 <p className="font-medium">{name}</p>
                 <p className="-mt-1 text-xs">{service.name}</p>
-                <Tooltip content={details}>
+                <Tooltip content={details} className="max-w-lg">
                     <p className="text-xs text-blue-500 underline">View Details</p>
                 </Tooltip>
             </td>

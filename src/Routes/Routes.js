@@ -19,6 +19,7 @@ import Media from "../Pages/User/Media";
 import AddBlog from "../Pages/Blogs/AddBlog";
 import EditBlog from "../Pages/Blogs/EditBlog";
 import AllService from "../Pages/Admin/AllService";
+import EditService from "../Pages/Admin/EditService";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <AddService />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/edit-service/:id",
+                element: (
+                    <PrivateRoute>
+                        <EditService />
                     </PrivateRoute>
                 ),
             },
