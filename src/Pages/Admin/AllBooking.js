@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import Loader from "../../Components/Common/Loader";
 import BookingTable from "../../Components/Booking/BookingTable";
 
-const Bookings = () => {
+const AllBooking = () => {
     const [media, setMedia] = useState({ image: [], audio: [], video: [] });
 
     const { isLoading, refetch, data: bookings = [] } = useQuery("book", () => axios(`/book`).then((res) => res.data));
@@ -76,4 +76,4 @@ const Bookings = () => {
     );
 };
 
-export default Bookings;
+export default AllBooking;

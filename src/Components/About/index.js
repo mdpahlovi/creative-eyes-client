@@ -16,15 +16,11 @@ const AboutUs = () => {
                     beautiful Montana has to offer with my family.
                 </p>
                 <div className="flex flex-col xs:flex-row gap-4">
-                    <Link>
-                        <Button variant="gradient" className="w-full xs:w-auto">
-                            Contact Me
-                        </Button>
+                    <Link to="/contact">
+                        <Button className="w-full xs:w-auto">Contact Us</Button>
                     </Link>
-                    <Link>
-                        <Button variant="gradient" className="w-full xs:w-auto">
-                            See Portfolio
-                        </Button>
+                    <Link to="portfolio">
+                        <Button className="w-full xs:w-auto">See Portfolio</Button>
                     </Link>
                 </div>
             </div>

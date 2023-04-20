@@ -1,6 +1,6 @@
 import axios from "axios";
 import Loader from "../Loader";
-import ServicesCard from "./Card";
+import ServiceCard from "./ServiceCard";
 import { useQuery } from "react-query";
 import { PhotoProvider } from "react-photo-view";
 import { Button } from "@material-tailwind/react";
@@ -18,7 +18,7 @@ const Service = ({ initialLimit }) => {
             <PhotoProvider>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.slice(0, initialLimit ? initialLimit : services.length).map((service) => (
-                        <ServicesCard key={service._id} service={service} />
+                        <ServiceCard key={service._id} service={service} />
                     ))}
                 </div>
             </PhotoProvider>

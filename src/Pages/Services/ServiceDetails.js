@@ -7,7 +7,7 @@ import Header from "../../Components/Common/Header";
 import Loader from "../../Components/Common/Loader";
 import { TbCurrencyTaka } from "react-icons/tb";
 
-const ServiceById = () => {
+const ServiceDetails = () => {
     const { id } = useParams();
 
     const { isLoading: serviceLoading, data: service } = useQuery(["service", id], () => axios(`/service/${id}`).then((res) => res.data));
@@ -64,4 +64,4 @@ const ServiceById = () => {
     );
 };
 
-export default ServiceById;
+export default ServiceDetails;

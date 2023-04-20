@@ -40,7 +40,7 @@ const BookingTable = ({ bookingData, handleComplete, handleUploadMedia, handleUp
                 )}
             </td>
             <td className="pr-6">
-                <Link to={`/media/${_id}`}>
+                <Link to={isMediaUpdated && `/media/${_id}`}>
                     <Button size="sm" disabled={isMediaUpdated ? false : true}>
                         Show
                     </Button>

@@ -5,7 +5,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import Loader from "../../Components/Common/Loader";
 import { Avatar, IconButton } from "@material-tailwind/react";
 
-const Users = () => {
+const AllUser = () => {
     const { isLoading, data: users = [] } = useQuery("user", () => axios(`/user`).then((res) => res.data));
 
     return (
@@ -47,4 +47,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default AllUser;

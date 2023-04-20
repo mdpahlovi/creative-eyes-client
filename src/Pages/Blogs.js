@@ -4,14 +4,18 @@ import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import Header from "../Components/Common/Header";
+import Search from "../Components/Blog/Search";
 import BlogCard from "../Components/Blog/BlogCard";
 import BlogModal from "../Components/Blog/BlogModal";
-import Loader from "../Components/Common/Loader";
+import Pagination from "../Components/Blog/Pagination";
+import BlogCardLoader from "../Components/Blog/BlogCardLoader";
 
 export default function Blogs() {
+    const [page, setPage] = useState(0);
+    const [query, setQuery] = useState("");
     const [blogData, setBlogData] = useState(null);
 
-    const { isLoading, refetch, data: blogs = [] } = useQuery("service", () => axios("/blog").then((res) => res.data));
+    const { isLoading, refetch, data } = useQuery(["blog", query, page], () => axios(`/blog?search=${query}&page=${page}`).then((res) => res.data));
 
     const handleDelete = (id) => {
         axios.delete(`/blog/${id}`).then((res) => {
@@ -22,21 +26,27 @@ export default function Blogs() {
         });
     };
 
-    if (isLoading) return <Loader />;
-
     return (
         <>
             <Header title={"Explore Our Blogs"}>
                 <Link to="/blogs">Blogs</Link>
             </Header>
-            <section className="container section-gap">
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {blogs
-                        .filter((blog) => blog?.isVerify)
-                        .map((blog) => (
-                            <BlogCard key={blog?._id} blog={blog} setBlogData={setBlogData} handleDelete={handleDelete} />
-                        ))}
-                </div>
+            <section className="container section-gap space-y-6">
+                <Search setQuery={setQuery} />
+                {isLoading ? (
+                    <BlogCardLoader />
+                ) : (
+                    <>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {data?.blogs
+                                .filter((blog) => blog?.isVerify)
+                                .map((blog) => (
+                                    <BlogCard key={blog?._id} blog={blog} setBlogData={setBlogData} handleDelete={handleDelete} />
+                                ))}
+                        </div>
+                        <Pagination total_blogs={data?.total_blogs} page={page} setPage={setPage} />
+                    </>
+                )}
             </section>
             {blogData && <BlogModal blog={blogData} setBlog={setBlogData} />}
         </>

@@ -23,7 +23,7 @@ const NavigationBar = () => {
             </Typography>
             <Typography as="li" variant="small" color="blue-gray">
                 <NavLink className={navLink} to="/about">
-                    About Us
+                    About
                 </NavLink>
             </Typography>
             <Typography as="li" variant="small" color="blue-gray">

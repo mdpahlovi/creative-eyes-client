@@ -19,6 +19,19 @@
     td {
         @apply py-3 pl-6 whitespace-nowrap;
     }
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+        @apply w-1.5;
+        @apply h-1.5;
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-black/10 rounded-full;
+        -webkit-border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-blue-500 rounded-full;
+        -webkit-border-radius: 8px;
+    }
 }
 
 @layer components {

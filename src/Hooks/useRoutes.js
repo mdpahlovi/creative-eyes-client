@@ -16,8 +16,8 @@ export const useRouter = () => {
     useEffect(() => {
         if (user?.isAdmin) {
             setRouters([
-                { to: "/bookings", icon: <TbBrandBooking size={18} />, label: "Bookings" },
-                { to: "/users", icon: <FaUsers size={16} />, label: "Users" },
+                { to: "/all-user", icon: <FaUsers size={16} />, label: "All User" },
+                { to: "/all-booking", icon: <TbBrandBooking size={18} />, label: "All Booking" },
                 { to: "/add-service", icon: <HiViewGridAdd size={18} />, label: "Add Service" },
             ]);
         } else {

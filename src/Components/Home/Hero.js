@@ -1,8 +1,8 @@
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { BsArrowRightShort, BsYoutube, BsDribbble } from "react-icons/bs";
-import { FaUnsplash } from "react-icons/fa";
+import { BsArrowRightShort } from "react-icons/bs";
 import { isBrowser } from "react-device-detect";
+import { featured } from "../Common/FakeData";
 
 const Hero = () => {
     return (
@@ -17,9 +17,7 @@ const Hero = () => {
                     className="hidden xs:inline-flex justify-between items-center gap-2 py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-white/20"
                     role="alert"
                 >
-                    <Button variant="gradient" size="sm">
-                        New
-                    </Button>
+                    <Button size="sm">New</Button>
                     <span className="text-sm font-medium flex items-center">
                         LPRO album is out! See what's new
                         <BsArrowRightShort className="ml-2 text-xl" />
@@ -27,32 +25,28 @@ const Hero = () => {
                 </Link>
                 <h1 className="mb-6 text-[40px] leading-10 sm:text-5xl font-extrabold tracking-tight">Capture the moments in time</h1>
                 <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48">
-                    Serving photo shots for various events, both for private, state and commersial events. I can make the photograpy work more presentable and
+                    Serving photo shots for various events, both for private, state and commercial events. We can make the photograph work more presentable and
                     memorable.
                 </p>
                 <div className="flex flex-col mb-10 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                    <Link>
-                        <Button className="w-full sm:w-auto" variant="gradient">
-                            Hire Us
-                        </Button>
+                    <Link to="/services">
+                        <Button>Book Service</Button>
                     </Link>
-                    <Button variant="outlined">Watch Video</Button>
+                    <Link to="/portfolio">
+                        <Button variant="outlined">See Portfolio</Button>
+                    </Link>
                 </div>
                 <div className="flex flex-col items-center">
                     <span className="font-semibold text-white/75 uppercase">FEATURED PROJECT IN</span>
                     <div className="mt-4 flex flex-col md:flex-row">
-                        <Button className="text-3xl flex items-center gap-4" color="gray" variant="text">
-                            <BsYoutube />
-                            Youtube
-                        </Button>
-                        <Button className="text-3xl flex items-center gap-4" color="gray" variant="text">
-                            <BsDribbble />
-                            Dribbble
-                        </Button>
-                        <Button className="text-3xl flex items-center gap-4" color="gray" variant="text">
-                            <FaUnsplash />
-                            Unsplash
-                        </Button>
+                        {featured.map(({ link, source, icon }) => (
+                            <Link to={link}>
+                                <Button className="text-3xl flex items-center gap-4" color="gray" variant="text">
+                                    {icon}
+                                    {source}
+                                </Button>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>

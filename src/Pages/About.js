@@ -7,8 +7,8 @@ import { team } from "../Components/Common/FakeData";
 const About = () => {
     return (
         <>
-            <Header title={"More About US"}>
-                <Link to="/about">About Me</Link>
+            <Header title={"More About Us"}>
+                <Link to="/about">About</Link>
             </Header>
             <AboutUs />
             <section className="container space-y-6 mb-12 sm:mb-14 lg:mb-16">

@@ -21,7 +21,7 @@ export default function Media() {
     } else {
         return (
             <>
-                <Header title="Completed Project">
+                <Header title="Completed Projects">
                     <Link to="/media">Media</Link>
                 </Header>
                 <div className="container section-gap flex flex-wrap gap-6">

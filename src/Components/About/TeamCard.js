@@ -8,14 +8,7 @@ const TeamCard = ({ member }) => {
     return (
         <div className="group text-center">
             <div className="mx-auto mt-4 h-52 w-52 rotate-45 overflow-hidden rounded-[4rem] shadow-md">
-                <img
-                    className="mx-auto h-full w-full -rotate-45 scale-125 object-cover transition duration-300 group-hover:scale-[1.4]"
-                    src={avatar}
-                    alt="woman"
-                    loading="lazy"
-                    width="640"
-                    height="805"
-                />
+                <img className="mx-auto h-full w-full -rotate-45 scale-125 object-cover transition duration-300 group-hover:scale-[1.4]" src={avatar} alt="" />
             </div>
             <div className="pt-6 pb-2">
                 <h5>{name}</h5>

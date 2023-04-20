@@ -30,7 +30,7 @@ export default function Booking() {
     } else {
         return (
             <>
-                <Header title="Booked Project">
+                <Header title="Booked Projects">
                     <Link to="/booking">Booking</Link>
                 </Header>
                 <Tabs ref={tabs} value={bookingData[0]?._id} className="container section-gap ">

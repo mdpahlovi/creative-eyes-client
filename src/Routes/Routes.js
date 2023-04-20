@@ -9,11 +9,11 @@ import Registration from "../Pages/Registration";
 import AddService from "../Pages/Admin/AddService";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
-import ServiceById from "../Pages/Services/ServiceById";
-import Users from "../Pages/Admin/Users";
-import Book from "../Pages/Services/Book";
+import ServiceDetails from "../Pages/Services/ServiceDetails";
+import AllUser from "../Pages/Admin/AllUser";
+import ServiceBook from "../Pages/Services/ServiceBook";
 import Booking from "../Pages/User/Booking";
-import Bookings from "../Pages/Admin/Bookings";
+import AllBooking from "../Pages/Admin/AllBooking";
 import MediaDetails from "../Pages/User/Media/Details";
 import Media from "../Pages/User/Media";
 
@@ -44,13 +44,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/service/:id",
-                element: <ServiceById />,
+                element: <ServiceDetails />,
             },
             {
                 path: "/book",
                 element: (
                     <PrivateRoute>
-                        <Book />
+                        <ServiceBook />
                     </PrivateRoute>
                 ),
             },
@@ -67,10 +67,10 @@ const router = createBrowserRouter([
                 element: <Registration />,
             },
             {
-                path: "/users",
+                path: "/all-user",
                 element: (
                     <PrivateRoute>
-                        <Users />
+                        <AllUser />
                     </PrivateRoute>
                 ),
             },
@@ -83,10 +83,10 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/bookings",
+                path: "/all-booking",
                 element: (
                     <PrivateRoute>
-                        <Bookings />
+                        <AllBooking />
                     </PrivateRoute>
                 ),
             },

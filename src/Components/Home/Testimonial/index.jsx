@@ -1,5 +1,5 @@
 import { useCallback, useRef } from "react";
-import TestimonialCard from "./Card";
+import TestimonialCard from "./TestimonialCard";
 import { testimonials } from "../../Common/FakeData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";

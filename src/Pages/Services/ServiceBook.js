@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useQuery } from "react-query";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Datepicker from "react-tailwindcss-datepicker";
@@ -6,16 +7,20 @@ import { useAuth } from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 import { Button, Card, CardHeader, Input, Textarea, Typography } from "@material-tailwind/react";
 
-const Book = () => {
+const ServiceBook = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [query] = useSearchParams();
     const [date, setDate] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // Get inCompleteDates to disable
+    const { data: bookings = [] } = useQuery("book", () => axios(`/book`).then((res) => res.data));
+    const inCompleteDates = bookings.filter((book) => !book.isComplete).map((book) => book.date);
+
+    // Get  bookingData and store on data base
     const handleSubmit = (event) => {
         setIsSubmitting(true);
-        // Get Form Data
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -51,6 +56,7 @@ const Book = () => {
                         useRange={false}
                         placeholder="Select Date"
                         popoverDirection="down"
+                        disabledDates={inCompleteDates}
                         value={date}
                         onChange={(date) => setDate(date)}
                         inputClassName="w-full h-[44px] text-blue-gray-700 focus:outline-none border focus:border-2 text-sm px-3 rounded-md border-blue-gray-200 focus:border-blue-500"
@@ -68,4 +74,4 @@ const Book = () => {
     );
 };
 
-export default Book;
+export default ServiceBook;

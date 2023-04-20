@@ -1,3 +1,6 @@
+import { BsDribbble, BsYoutube } from "react-icons/bs";
+import { FaUnsplash } from "react-icons/fa";
+
 export const testimonials = [
     {
         name: "Sabila Nur",
@@ -38,9 +41,9 @@ export const stats = [
 
 export const team = [
     {
-        avatar: "https://randomuser.me/api/portraits/men/7.jpg",
-        name: "Martiana dialan",
-        title: "Product Designer",
+        avatar: "https://randomuser.me/api/portraits/men/9.jpg",
+        name: "Lyssa Santiago",
+        title: "Head of Designer",
         linkedin: "/",
         mail: "/",
         facebook: "/",
@@ -48,16 +51,25 @@ export const team = [
     },
     {
         avatar: "https://randomuser.me/api/portraits/men/1.jpg",
-        name: "Micheal colorand",
-        title: "Photographer",
+        name: "Vicky Hanson",
+        title: "Product Manager",
         linkedin: "/",
         mail: "/",
         facebook: "/",
         instagram: "",
     },
     {
-        avatar: "https://randomuser.me/api/portraits/men/9.jpg",
-        name: "Brown Luis",
+        avatar: "https://randomuser.me/api/portraits/men/7.jpg",
+        name: "Martian Dianna",
+        title: "Product Designer",
+        linkedin: "/",
+        mail: "/",
+        facebook: "/",
+        instagram: "",
+    },
+    {
+        avatar: "https://randomuser.me/api/portraits/men/14.jpg",
+        name: "Micheal Colorant",
         title: "Photographer",
         linkedin: "/",
         mail: "/",
@@ -66,29 +78,27 @@ export const team = [
     },
     {
         avatar: "https://randomuser.me/api/portraits/men/11.jpg",
-        name: "Lysa sandiago",
-        title: "Head of Designer",
+        name: "Brown Luis",
+        title: "Photographer",
         linkedin: "/",
         mail: "/",
         facebook: "/",
         instagram: "",
     },
+
     {
         avatar: "https://randomuser.me/api/portraits/men/4.jpg",
-        name: "Daniel martin",
+        name: "Daniel Martin",
         title: "Jr Photographer",
         linkedin: "/",
         mail: "/",
         facebook: "/",
         instagram: "",
     },
-    {
-        avatar: "https://randomuser.me/api/portraits/men/14.jpg",
-        name: "Vicky tanson",
-        title: "Product Manager",
-        linkedin: "/",
-        mail: "/",
-        facebook: "/",
-        instagram: "",
-    },
+];
+
+export const featured = [
+    { link: "/", source: "Youtube", icon: <BsYoutube /> },
+    { link: "/", source: "Dribble", icon: <BsDribbble /> },
+    { link: "/", source: "Unsplash", icon: <FaUnsplash /> },
 ];
