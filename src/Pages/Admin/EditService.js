@@ -46,10 +46,10 @@ export default function EditService() {
                     </Typography>
                 </CardHeader>
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 p-6 pt-2">
-                    <Input type="text" name="name" label="Name" size="lg" defaultValue={service?.name} />
-                    <Input type="text" name="image" label="Image URL" size="lg" defaultValue={service?.image} />
-                    <Input type="number" name="price" label="Price" size="lg" defaultValue={service?.price} />
-                    <Textarea name="details" label="Description" size="lg" defaultValue={service?.details} />
+                    <Input type="text" name="name" label="Name" defaultValue={service?.name} />
+                    <Input type="text" name="image" label="Image URL" defaultValue={service?.image} />
+                    <Input type="number" name="price" label="Price" defaultValue={service?.price} />
+                    <Textarea name="details" label="Description" defaultValue={service?.details} />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
                         {isUploading ? "Uploading" : "Submit"}
                     </Button>

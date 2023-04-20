@@ -47,10 +47,10 @@ const Registration = () => {
                     </Typography>
                 </CardHeader>
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 px-6 py-4">
-                    <Input type="text" name="name" label="Name" size="lg" />
-                    <Input type="email" name="email" label="Email" size="lg" />
-                    <Input type="password" name="pass" label="Password" size="lg" />
-                    <Input type="password" name="confirmPass" label="Confirm Password" size="lg" />
+                    <Input type="text" name="name" label="Name" />
+                    <Input type="email" name="email" label="Email" />
+                    <Input type="password" name="pass" label="Password" />
+                    <Input type="password" name="confirmPass" label="Confirm Password" />
                     <Checkbox label="Terms & Conditions" />
                     <Button type="submit" variant="gradient" fullWidth>
                         Registration

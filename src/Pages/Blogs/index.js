@@ -28,7 +28,7 @@ export default function Blogs() {
 
     return (
         <>
-            <Header title={"Explore Our Blogs"}>
+            <Header title={"Explore our blogs"}>
                 <Link to="/blogs">Blogs</Link>
             </Header>
             <section className="container section-gap space-y-6">

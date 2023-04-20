@@ -1,5 +1,17 @@
 import { BsDribbble, BsYoutube } from "react-icons/bs";
 import { FaUnsplash } from "react-icons/fa";
+import { TfiHeadphoneAlt } from "react-icons/tfi";
+import { IoCallOutline, IoMailOpenOutline } from "react-icons/io5";
+import { TbMessageCircle2 } from "react-icons/tb";
+
+export const nav_links = [
+    { link: "/", text: "Home" },
+    { link: "/about", text: "About" },
+    { link: "/portfolio", text: "Portfolio" },
+    { link: "/services", text: "Services" },
+    { link: "/blogs", text: "Blogs" },
+    { link: "/contact", text: "Contact" },
+];
 
 export const testimonials = [
     {
@@ -101,4 +113,11 @@ export const featured = [
     { link: "/", source: "Youtube", icon: <BsYoutube /> },
     { link: "/", source: "Dribble", icon: <BsDribbble /> },
     { link: "/", source: "Unsplash", icon: <FaUnsplash /> },
+];
+
+export const contacts = [
+    { icon: <IoMailOpenOutline size={28} className="text-secondary" />, title: "Email us", details: "mdpahlovi07@gmail.com" },
+    { icon: <TfiHeadphoneAlt size={28} className="text-secondary" />, title: "Chat with an agent", details: "Lorem ipsum dolor sit amet" },
+    { icon: <TbMessageCircle2 size={28} className="text-secondary" />, title: "WhatsApp", details: "+880-1736817612" },
+    { icon: <IoCallOutline size={28} className="text-secondary" />, title: "Call us", details: "+880-1736817612" },
 ];

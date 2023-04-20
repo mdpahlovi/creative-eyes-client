@@ -45,9 +45,9 @@ export default function EditBlog() {
                     </Typography>
                 </CardHeader>
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 p-6 pt-2">
-                    <Input type="text" name="image" label="Image URL" size="lg" defaultValue={blog?.image} />
-                    <Input type="text" name="title" label="Title" size="lg" defaultValue={blog?.title} />
-                    <Textarea name="description" label="Description" size="lg" defaultValue={blog?.description} />
+                    <Input type="text" name="image" label="Image URL" defaultValue={blog?.image} />
+                    <Input type="text" name="title" label="Title" defaultValue={blog?.title} />
+                    <Textarea name="description" label="Description" defaultValue={blog?.description} />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
                         {isUploading ? "Uploading" : "Submit"}
                     </Button>

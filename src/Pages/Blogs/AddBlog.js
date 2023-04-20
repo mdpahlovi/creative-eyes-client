@@ -39,9 +39,9 @@ export default function AddBlog() {
                     </Typography>
                 </CardHeader>
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 p-6 pt-2">
-                    <Input type="text" name="image" label="Image URL" size="lg" />
-                    <Input type="text" name="title" label="Title" size="lg" />
-                    <Textarea name="description" label="Description" size="lg" />
+                    <Input type="text" name="image" label="Image URL" />
+                    <Input type="text" name="title" label="Title" />
+                    <Textarea name="description" label="Description" />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
                         {isUploading ? "Uploading" : "Submit"}
                     </Button>

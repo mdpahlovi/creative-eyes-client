@@ -5,7 +5,7 @@ import Service from "../../Components/Common/Service";
 const Services = () => {
     return (
         <>
-            <Header title={"Explore Our Service"}>
+            <Header title={"Explore our service"}>
                 <Link to="/services">Services</Link>
             </Header>
             <section className="container section-gap space-y-6">

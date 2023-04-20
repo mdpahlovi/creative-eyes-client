@@ -50,8 +50,8 @@ const ServiceBook = () => {
                     </Typography>
                 </CardHeader>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-6 pt-2">
-                    <Input type="text" name="name" label="Name" size="lg" />
-                    <Input type="text" name="location" label="Location" size="lg" />
+                    <Input type="text" name="name" label="Name" />
+                    <Input type="text" name="location" label="Location" />
                     <Datepicker
                         useRange={false}
                         placeholder="Select Date"
@@ -63,8 +63,8 @@ const ServiceBook = () => {
                     >
                         <div>Pahlovi</div>
                     </Datepicker>
-                    <Input type="text" name="phone" label="Phone" size="lg" />
-                    <Textarea name="details" label="Description" size="lg" />
+                    <Input type="text" name="phone" label="Phone" />
+                    <Textarea name="details" label="Description" />
                     <Button type="submit" variant="gradient" fullWidth className="mt-2">
                         {isSubmitting ? "Submitting..." : "Submit"}
                     </Button>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, MobileNav, Typography } from "@material-tailwind/react";
+import { Navbar, MobileNav } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
 import DynamicMenu from "./DynamicMenu";
 import Logo from "../../Assets/Logo.png";
 import { CgMenuRight, CgClose } from "react-icons/cg";
+import { nav_links } from "../Common/FakeData";
 
 const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -12,31 +13,14 @@ const NavigationBar = () => {
         window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
     }, []);
 
-    const navLink = ({ isActive }) => (isActive ? "font-bold underline text-base" : "text-base");
-
     const navList = (
-        <ul className="my-4 flex flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
-            <Typography as="li" variant="small" color="blue-gray">
-                <NavLink className={navLink} to="/">
-                    Home
+        <div className="my-4 flex flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
+            {nav_links.map(({ link, text }) => (
+                <NavLink className={({ isActive }) => isActive && "font-bold underline"} to={link}>
+                    {text}
                 </NavLink>
-            </Typography>
-            <Typography as="li" variant="small" color="blue-gray">
-                <NavLink className={navLink} to="/about">
-                    About
-                </NavLink>
-            </Typography>
-            <Typography as="li" variant="small" color="blue-gray">
-                <NavLink className={navLink} to="/services">
-                    Services
-                </NavLink>
-            </Typography>
-            <Typography as="li" variant="small" color="blue-gray">
-                <NavLink className={navLink} to="/blogs">
-                    Blogs
-                </NavLink>
-            </Typography>
-        </ul>
+            ))}
+        </div>
     );
 
     return (

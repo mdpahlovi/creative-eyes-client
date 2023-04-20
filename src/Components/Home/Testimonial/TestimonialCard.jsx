@@ -8,7 +8,7 @@ export default function TestimonialCard({ testimonial }) {
     return (
         <div>
             <div className="flex items-center gap-4 pb-4">
-                <Avatar size="lg" variant="circular" src={avatar} alt="" />
+                <Avatar variant="circular" src={avatar} alt="" />
                 <div className="flex w-full flex-col gap-0.5">
                     <div className="flex items-center justify-between">
                         <h5>{name}</h5>

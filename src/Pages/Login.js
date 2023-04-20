@@ -98,8 +98,8 @@ const Login = () => {
                     <p className="mx-2">Or Use Email</p>
                 </div>
                 <form onSubmit={handelSubmit} className="flex flex-col gap-4 px-6">
-                    <Input type="email" name="email" label="Email" size="lg" />
-                    <Input type="password" name="password" label="Password" size="lg" />
+                    <Input type="email" name="email" label="Email" />
+                    <Input type="password" name="password" label="Password" />
                     <div className="flex justify-between items-center">
                         <Checkbox label="Remember Me" />
                         <Link className="font-bold underline">Forget Password</Link>

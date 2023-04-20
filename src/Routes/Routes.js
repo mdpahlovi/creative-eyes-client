@@ -20,6 +20,8 @@ import AddBlog from "../Pages/Blogs/AddBlog";
 import EditBlog from "../Pages/Blogs/EditBlog";
 import AllService from "../Pages/Admin/AllService";
 import EditService from "../Pages/Admin/EditService";
+import Contact from "../Pages/Contact";
+import Portfolio from "../Pages/Portfolio";
 
 const router = createBrowserRouter([
     {
@@ -101,6 +103,14 @@ const router = createBrowserRouter([
             {
                 path: "registration",
                 element: <Registration />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
+            },
+            {
+                path: "/portfolio",
+                element: <Portfolio />,
             },
             {
                 path: "/all-user",

@@ -9,7 +9,7 @@ const NewsLetter = () => {
                 <p className="mt-2 text-center text-gray-700">Sign up for our newsletter</p>
             </div>
             <form className="flex gap-2">
-                <Input type="email" label="Email" size="lg" />
+                <Input type="email" label="Email" />
                 <Button size="sm" className="rounded">
                     <span className="pl-1 pr-4">Send</span>
                 </Button>
