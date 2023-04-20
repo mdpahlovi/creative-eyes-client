@@ -46,31 +46,33 @@ const AllBooking = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <table className="w-full table-auto border text-left">
-                    <thead className="bg-gray-300 border-b">
-                        <tr>
-                            <th>User Data</th>
-                            <th>Project</th>
-                            <th>Location</th>
-                            <th>Duration</th>
-                            <th>isComplete</th>
-                            <th>isMediaUpdated</th>
-                            <th className="pr-6">Media</th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y">
-                        {bookings.map((bookingData) => (
-                            <BookingTable
-                                media={media}
-                                key={bookingData._id}
-                                bookingData={bookingData}
-                                handleComplete={handleComplete}
-                                handleUploadMore={handleUploadMore}
-                                handleUploadMedia={handleUploadMedia}
-                            />
-                        ))}
-                    </tbody>
-                </table>
+                <div className="table-rounded">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User Data</th>
+                                <th>Project</th>
+                                <th>Location</th>
+                                <th>Duration</th>
+                                <th>isComplete</th>
+                                <th>isMediaUpdated</th>
+                                <th className="pr-6">Media</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {bookings.map((bookingData) => (
+                                <BookingTable
+                                    media={media}
+                                    key={bookingData._id}
+                                    bookingData={bookingData}
+                                    handleComplete={handleComplete}
+                                    handleUploadMore={handleUploadMore}
+                                    handleUploadMedia={handleUploadMedia}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </main>
     );

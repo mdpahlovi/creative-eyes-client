@@ -1,6 +1,7 @@
 import { Avatar, Dialog, CardHeader, CardBody, CardFooter, Button, IconButton } from "@material-tailwind/react";
 import { format, parseISO } from "date-fns";
 import { CgClose } from "react-icons/cg";
+import NoPhoto from "../../Assets/icon/NoPhoto.png";
 
 const BlogModal = ({ blog, setBlog }) => {
     const { _id, author, title, description, image, createdAt } = blog;
@@ -22,7 +23,7 @@ const BlogModal = ({ blog, setBlog }) => {
             </CardBody>
             <CardFooter divider className="mt-auto flex items-center justify-between gap-6">
                 <div className="flex items-center gap-2">
-                    <Avatar variant="circular" alt="" src={author?.avatar} />
+                    <Avatar variant="circular" alt="" src={author?.avatar ? author.avatar : NoPhoto} />
                     <div>
                         <h6>{author?.name}</h6>
                         <p className="-mt-0.5 text-sm">{date}</p>

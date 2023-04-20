@@ -1,6 +1,7 @@
 import { Button, IconButton } from "@material-tailwind/react";
 import { ImSearch } from "react-icons/im";
 import { useAuth } from "../../Hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const Search = ({ setQuery }) => {
     const { user } = useAuth();
@@ -18,7 +19,11 @@ const Search = ({ setQuery }) => {
                     <ImSearch />
                 </IconButton>
             </div>
-            {user?._id && <Button className="w-full sm:w-auto">Add Blog</Button>}
+            {user?._id && (
+                <Link to="/add-blog">
+                    <Button className="w-full sm:w-auto">Add Blog</Button>
+                </Link>
+            )}
         </div>
     );
 };

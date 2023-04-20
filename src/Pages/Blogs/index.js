@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import Header from "../Components/Common/Header";
-import Search from "../Components/Blog/Search";
-import BlogCard from "../Components/Blog/BlogCard";
-import BlogModal from "../Components/Blog/BlogModal";
-import Pagination from "../Components/Blog/Pagination";
-import BlogCardLoader from "../Components/Blog/BlogCardLoader";
+import Header from "../../Components/Common/Header";
+import Search from "../../Components/Blog/Search";
+import BlogCard from "../../Components/Blog/BlogCard";
+import BlogModal from "../../Components/Blog/BlogModal";
+import Pagination from "../../Components/Blog/Pagination";
+import BlogCardLoader from "../../Components/Blog/BlogCardLoader";
 
 export default function Blogs() {
     const [page, setPage] = useState(0);

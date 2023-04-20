@@ -16,6 +16,9 @@ import Booking from "../Pages/User/Booking";
 import AllBooking from "../Pages/Admin/AllBooking";
 import MediaDetails from "../Pages/User/Media/Details";
 import Media from "../Pages/User/Media";
+import AddBlog from "../Pages/Blogs/AddBlog";
+import EditBlog from "../Pages/Blogs/EditBlog";
+import AllService from "../Pages/Admin/AllService";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +36,14 @@ const router = createBrowserRouter([
             {
                 path: "/services",
                 element: <Services />,
+            },
+            {
+                path: "/all-service",
+                element: (
+                    <PrivateRoute>
+                        <AllService />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/add-service",
@@ -57,6 +68,22 @@ const router = createBrowserRouter([
             {
                 path: "/blogs",
                 element: <Blogs />,
+            },
+            {
+                path: "/add-blog",
+                element: (
+                    <PrivateRoute>
+                        <AddBlog />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/edit-blog/:id",
+                element: (
+                    <PrivateRoute>
+                        <EditBlog />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "login",

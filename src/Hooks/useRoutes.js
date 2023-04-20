@@ -18,7 +18,7 @@ export const useRouter = () => {
             setRouters([
                 { to: "/all-user", icon: <FaUsers size={16} />, label: "All User" },
                 { to: "/all-booking", icon: <TbBrandBooking size={18} />, label: "All Booking" },
-                { to: "/add-service", icon: <HiViewGridAdd size={18} />, label: "Add Service" },
+                { to: "/all-service", icon: <HiViewGridAdd size={18} />, label: "All Service" },
             ]);
         } else {
             setRouters([

@@ -2,6 +2,8 @@ import { Card, CardHeader, CardBody, Avatar, CardFooter, Button } from "@materia
 import { MdEditNote } from "react-icons/md";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useAuth } from "../../Hooks/useAuth";
+import NoPhoto from "../../Assets/icon/NoPhoto.png";
+import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog, handleDelete, setBlogData }) => {
     const { user } = useAuth();
@@ -17,15 +19,17 @@ const BlogCard = ({ blog, handleDelete, setBlogData }) => {
                 <p className="line-clamp-4">{description}</p>
             </CardBody>
             <CardFooter divider className="mt-auto flex items-center justify-between">
-                <Avatar size="sm" variant="circular" alt="" src={author?.avatar} />
+                <Avatar size="sm" variant="circular" alt="" src={author?.avatar ? author.avatar : NoPhoto} />
                 <Button onClick={() => setBlogData(blog)} size="sm" className="hover:shadow-none">
                     See More
                 </Button>
                 {(user?.isAdmin || user?._id === author?._id) && (
                     <div className="flex gap-2.5">
-                        <button className="icon-button">
-                            <MdEditNote size={18} />
-                        </button>
+                        <Link to={`/edit-blog/${_id}`}>
+                            <button className="icon-button">
+                                <MdEditNote size={18} />
+                            </button>
+                        </Link>
                         {user?.isAdmin && (
                             <button onClick={() => handleDelete(_id)} className="icon-button">
                                 <RiDeleteBin5Fill />
