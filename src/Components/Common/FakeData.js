@@ -121,3 +121,37 @@ export const contacts = [
     { icon: <TbMessageCircle2 size={28} className="text-secondary" />, title: "WhatsApp", details: "+880-1736817612" },
     { icon: <IoCallOutline size={28} className="text-secondary" />, title: "Call us", details: "+880-1736817612" },
 ];
+
+export const portfolio_data = [
+    {
+        label: "Wedding",
+        images: [
+            "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "https://images.unsplash.com/photo-1622278413071-8c57275cafd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1273&q=80",
+        ],
+    },
+    {
+        label: "Product",
+        images: [
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+        ],
+    },
+    {
+        label: "Travel",
+        images: [
+            "https://images.unsplash.com/photo-1489258205848-4b9651de165b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "https://images.unsplash.com/photo-1548103981-34316e50b924?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1266&q=80",
+        ],
+    },
+    {
+        label: "Event",
+        images: [
+            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+            "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "https://images.unsplash.com/photo-1578559284795-c9e0d7f3198a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+        ],
+    },
+];

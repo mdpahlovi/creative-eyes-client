@@ -9,19 +9,20 @@ const ConditionalStep = ({ project }) => {
     if (!isComplete && !isMediaUpdated) {
         return (
             <>
-                <Step no={2} heading={`${dayLeft} Day Left for Project Start : `}>
+                <Step no={2} heading={`${dayLeft} Day Left for Project Start : `} end>
                     <p>
                         Please Make sure you have everything you need to make the project successfully. Communicate with us about any specific requests or ideas
                         you have, and prepare any props or wardrobe items you need.
                     </p>
                 </Step>
-                <Step no={3} heading={`Get Your Media From Here : `} end />
             </>
         );
     } else if (isComplete && !isMediaUpdated) {
         return (
             <>
-                <Step no={2} heading="Project Completed Successfully : " done />
+                <Step no={2} heading="Project Completed Successfully : " done>
+                    <p>It's a great experience working with you. Hope you also enjoyed.</p>
+                </Step>
                 <Step no={3} heading="Please wait for the Media : " end>
                     <p>We are working on your media. Please with for our mail. If you have any specific requests or ideas communicate with us.</p>
                 </Step>
@@ -30,10 +31,12 @@ const ConditionalStep = ({ project }) => {
     } else {
         return (
             <>
-                <Step no={2} heading="Project Completed Successfully :" done />
+                <Step no={2} heading="Project Completed Successfully :" done>
+                    <p> It's a great experience working with you. Hope you also enjoyed.</p>
+                </Step>
                 <Step no={3} heading="Receive and Review Your Media : " done end>
                     <p>
-                        You can see and download all of your media from{" "}
+                        You can see and download all of your media from
                         <Link to={`/media/${_id}`} className="text-blue-500 underline">
                             here
                         </Link>
