@@ -6,13 +6,16 @@ import { Link } from "react-router-dom";
 import Header from "../../Components/Common/Header";
 import Loader from "../../Components/Common/Loader";
 import { TbCurrencyTaka } from "react-icons/tb";
+import Review from "../../Components/Common/Review";
 
 const ServiceDetails = () => {
     const { id } = useParams();
 
     const { isLoading: serviceLoading, data: service } = useQuery(["service", id], () => axios(`/service/${id}`).then((res) => res.data));
 
-    if (serviceLoading) return <Loader />;
+    const { isLoading: reviewLoading, data: reviews = [] } = useQuery(["review", id], () => axios(`/review/service/${id}`).then((res) => res.data));
+
+    if (serviceLoading || reviewLoading) return <Loader />;
 
     const { _id, image, name, details, price, ratings } = service;
     return (
@@ -50,16 +53,12 @@ const ServiceDetails = () => {
                     </Link>
                 </div>
             </section>
-            {/* <section className="container space-y-6 mb-12 sm:mb-14 lg:mb-16">
-                    <h1 className="text-center">Customer Reviews</h1>
-                    <div className="flex flex-wrap justify-center gap-6 xs:gap-10 xl:gap-12">
-                        {reviews.length ? (
-                            reviews.map((review) => <Review key={review._id} reviewObj={review} />)
-                        ) : (
-                            <Button variant="gradient">No review</Button>
-                        )}
-                    </div>
-                </section> */}
+            <section className="container space-y-6 mb-12 sm:mb-14 lg:mb-16">
+                <h1 className="text-center">Customer Review</h1>
+                <div className="flex flex-wrap justify-center gap-6">
+                    {reviews.length ? reviews.map((review) => <Review key={review._id} reviewObj={review} />) : <Button variant="gradient">No Review</Button>}
+                </div>
+            </section>
         </>
     );
 };

@@ -39,8 +39,8 @@ const Hero = () => {
                 <div className="flex flex-col items-center">
                     <span className="font-semibold text-white/75 uppercase">FEATURED PROJECT IN</span>
                     <div className="mt-4 flex flex-col md:flex-row">
-                        {featured.map(({ link, source, icon }) => (
-                            <Link to={link}>
+                        {featured.map(({ link, source, icon }, idx) => (
+                            <Link key={idx} to={link}>
                                 <Button className="text-3xl flex items-center gap-4" color="gray" variant="text">
                                     {icon}
                                     {source}

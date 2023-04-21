@@ -15,8 +15,8 @@ const NavigationBar = () => {
 
     const navList = (
         <div className="my-4 flex flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:gap-6">
-            {nav_links.map(({ link, text }) => (
-                <NavLink className={({ isActive }) => isActive && "font-bold underline"} to={link}>
+            {nav_links.map(({ link, text }, idx) => (
+                <NavLink key={idx} className={({ isActive }) => (isActive ? "font-bold underline" : "")} to={link}>
                     {text}
                 </NavLink>
             ))}
