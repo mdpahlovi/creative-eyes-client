@@ -22,6 +22,7 @@ import AllService from "../Pages/Admin/AllService";
 import EditService from "../Pages/Admin/EditService";
 import Contact from "../Pages/Contact";
 import Portfolio from "../Pages/Portfolio";
+import Profile from "../Pages/User/Profile";
 
 const router = createBrowserRouter([
     {
@@ -111,6 +112,14 @@ const router = createBrowserRouter([
             {
                 path: "/portfolio",
                 element: <Portfolio />,
+            },
+            {
+                path: "/profile",
+                element: (
+                    <PrivateRoute>
+                        <Profile />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/all-user",

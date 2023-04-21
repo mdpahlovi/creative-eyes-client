@@ -19,6 +19,7 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [userRefetch, setUserRefetch] = useState(false);
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -63,9 +64,22 @@ const UserContext = ({ children }) => {
             }
         });
         return () => unSubscribe();
-    }, []);
+    }, [userRefetch]);
 
-    const authInfo = { user, setUser, loading, setLoading, createUser, signIn, signInByGoogle, signInByFacebook, signInByGithub, signout };
+    const authInfo = {
+        user,
+        setUser,
+        loading,
+        setLoading,
+        userRefetch,
+        setUserRefetch,
+        createUser,
+        signIn,
+        signInByGoogle,
+        signInByFacebook,
+        signInByGithub,
+        signout,
+    };
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
