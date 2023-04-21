@@ -7,7 +7,7 @@ import Header from "../../Components/Common/Header";
 import Search from "../../Components/Blog/Search";
 import BlogCard from "../../Components/Blog/BlogCard";
 import BlogModal from "../../Components/Blog/BlogModal";
-import Pagination from "../../Components/Blog/Pagination";
+import Pagination from "../../Components/Common/Pagination";
 import BlogCardLoader from "../../Components/Blog/BlogCardLoader";
 
 export default function Blogs() {
@@ -32,7 +32,7 @@ export default function Blogs() {
                 <Link to="/blogs">Blogs</Link>
             </Header>
             <section className="container section-gap space-y-6">
-                <Search setQuery={setQuery} />
+                <Search setPage={setPage} setQuery={setQuery} />
                 {isLoading ? (
                     <BlogCardLoader />
                 ) : (
@@ -44,7 +44,7 @@ export default function Blogs() {
                                     <BlogCard key={blog?._id} blog={blog} setBlogData={setBlogData} handleDelete={handleDelete} />
                                 ))}
                         </div>
-                        <Pagination total_blogs={data?.total_blogs} page={page} setPage={setPage} />
+                        <Pagination length={data?.total_blogs} page={page} setPage={setPage} />
                     </>
                 )}
             </section>

@@ -128,6 +128,9 @@ export const portfolio_data = [
         images: [
             "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "https://images.unsplash.com/photo-1622278413071-8c57275cafd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1273&q=80",
+            "https://images.unsplash.com/photo-1550005809-91ad75fb315f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+            "https://images.unsplash.com/photo-1634729108541-516d16ddceec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
         ],
     },
     {
@@ -137,6 +140,12 @@ export const portfolio_data = [
             "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
             "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
             "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
         ],
     },
     {

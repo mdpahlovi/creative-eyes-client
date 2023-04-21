@@ -1,8 +1,8 @@
 import { Button, IconButton } from "@material-tailwind/react";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
-const Pagination = ({ total_blogs, page, setPage }) => {
-    const total_pages = Math.ceil(parseInt(total_blogs) / 6);
+const Pagination = ({ length, page, setPage }) => {
+    const total_pages = Math.ceil(parseInt(length) / 6);
 
     return (
         <div className="flex flex-wrap justify-center gap-2">

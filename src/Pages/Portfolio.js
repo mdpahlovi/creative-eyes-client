@@ -1,13 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Common/Header";
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from "@material-tailwind/react";
 import { PhotoProvider } from "react-photo-view";
 import ImageCard from "../Components/Portfolio/ImageCard";
 import { portfolio_data } from "../Components/Common/FakeData";
+import Pagination from "../Components/Common/Pagination";
 
 const Portfolio = () => {
     const tabs = useRef();
+    const [page, setPage] = useState(0);
 
     useEffect(() => {
         tabs.current.childNodes[0].classList.add("overflow-x-auto");
@@ -33,22 +35,24 @@ const Portfolio = () => {
                     <TabsBody>
                         <TabPanel value="All">
                             <PhotoProvider>
-                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    {all_images.map((url) => (
+                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                    {all_images.slice(6 * page, 6 * (page + 1)).map((url) => (
                                         <ImageCard url={url} />
                                     ))}
                                 </div>
                             </PhotoProvider>
+                            <Pagination length={all_images?.length} page={page} setPage={setPage} />
                         </TabPanel>
                         {portfolio_data.map(({ label, images }, i) => (
                             <TabPanel key={i} value={label}>
                                 <PhotoProvider>
-                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                        {images.map((url) => (
+                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                        {images.slice(6 * page, 6 * (page + 1)).map((url) => (
                                             <ImageCard url={url} />
                                         ))}
                                     </div>
                                 </PhotoProvider>
+                                <Pagination length={images?.length} page={page} setPage={setPage} />
                             </TabPanel>
                         ))}
                     </TabsBody>

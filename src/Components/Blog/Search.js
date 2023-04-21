@@ -3,7 +3,7 @@ import { ImSearch } from "react-icons/im";
 import { useAuth } from "../../Hooks/useAuth";
 import { Link } from "react-router-dom";
 
-const Search = ({ setQuery }) => {
+const Search = ({ setPage, setQuery }) => {
     const { user } = useAuth();
 
     return (
@@ -11,7 +11,10 @@ const Search = ({ setQuery }) => {
             <div className="relative flex items-center w-max h-max group">
                 <input
                     type="search"
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => {
+                        setPage(0);
+                        setQuery(e.target.value);
+                    }}
                     placeholder="Search"
                     className="w-full sm:w-auto border rounded-full py-3 pl-5 pr-12 peer"
                 />
